@@ -244,17 +244,17 @@ if st.session_state.page == "login":
         "3. After reviewing, select the option that best describes your assessment:\n"
         "   - **(a) No action needed** — the exam was performed correctly and "
         "all clips were interpreted correctly.\n"
-        "   - **(b) Action required — technique** — the exam was performed "
+        "   - **(b) Action required (technique)** — the exam was performed "
         "incorrectly and the provider requires education on technique.\n"
-        "   - **(c) Action required — interpretation** — clip(s) were interpreted "
+        "   - **(c) Action required (interpretation)** — clip(s) were interpreted "
         "incorrectly (DVT-positive read as negative or vice versa) and the "
         "patient needs to be called back.\n"
         "4. Click **Save** or **Next** to record your assessment and move on."
     )
 
     st.info(
-        "⏱️ **A note about timing:** Review time is recorded for logging purposes only — "
-        "this is not a race, so please take as long as you need on each case. "
+        "⏱️ **A note about timing:** Per-case review time is recorded for logging purposes only. "
+        "This is not a race, so please take as long as you need on each case. "
         "If you need to take a break, just click **Save** on your current case "
         "and then **Log out** in the sidebar before stepping away. "
         "When you return, your progress will be restored."
