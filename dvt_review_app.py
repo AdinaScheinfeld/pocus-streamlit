@@ -52,6 +52,12 @@ OPTION_KEYS = list(REVIEW_OPTIONS.keys())
 @st.cache_resource
 def get_gspread_client():
     creds_dict = dict(st.secrets["gcp_service_account"])
+    # Fix private key: Streamlit TOML sometimes keeps literal \n as two chars
+    pk = creds_dict.get("private_key", "")
+    pk = pk.replace("\\n", "\n")
+    # Strip leading/trailing whitespace that TOML triple-quotes may introduce
+    pk = pk.strip()
+    creds_dict["private_key"] = pk
     creds = Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
     return gspread.authorize(creds)
 
@@ -412,3 +418,6 @@ if st.session_state.page == "done":
             for k in ("clinician", "page", "idx", "reviews"):
                 del st.session_state[k]
             st.rerun()
+
+
+            
