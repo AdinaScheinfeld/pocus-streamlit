@@ -160,6 +160,7 @@ st.markdown(
     }
     .badge-pos { background: #fee2e2; color: #b91c1c; }
     .badge-neg { background: #dcfce7; color: #166534; }
+    .badge-total { background: #e0e7ff; color: #3730a3; }
     .progress-text {
         text-align: center; color: #64748b;
         font-size: 0.9rem; margin-bottom: 0.4rem;
@@ -238,8 +239,7 @@ if st.session_state.page == "review":
     idx = st.session_state.idx
     row = patients.iloc[idx]
     pid = row["patient"]
-    pos = int(row["total_positive_clips"])
-    neg = int(row["total_negative_clips"])
+    total_clips = int(row["total_positive_clips"]) + int(row["total_negative_clips"])
 
     # ── sidebar ───────────────────────────────
     with st.sidebar:
@@ -286,8 +286,7 @@ if st.session_state.page == "review":
         <div class="patient-card">
             <h2>Patient: {display_name}</h2>
             <div class="clip-badges">
-                <span class="badge-pos">DVT-positive clips: {pos}</span>
-                <span class="badge-neg">DVT-negative clips: {neg}</span>
+                <span class="badge-total">Total clips: {total_clips}</span>
             </div>
         </div>
         """,
@@ -388,8 +387,7 @@ if st.session_state.page == "done":
         rev = st.session_state.reviews.get(pid, {})
         rows.append({
             "Patient": pid if len(pid) <= 16 else pid[:12] + "…",
-            "Pos clips": int(row["total_positive_clips"]),
-            "Neg clips": int(row["total_negative_clips"]),
+            "Total clips": int(row["total_positive_clips"]) + int(row["total_negative_clips"]),
             "Decision": rev.get("decision", "—").upper(),
             "Comments": rev.get("comments", ""),
         })
@@ -418,6 +416,3 @@ if st.session_state.page == "done":
             for k in ("clinician", "page", "idx", "reviews"):
                 del st.session_state[k]
             st.rerun()
-
-
-            
