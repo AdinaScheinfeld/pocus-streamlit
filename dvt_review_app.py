@@ -1,5 +1,5 @@
 """
-DVT Case Review — Streamlit Cloud application for clinician QA review.
+DVT Case Review - Streamlit Cloud application for clinician QA review.
 
 Results are saved to a Google Sheet owned by the study coordinator.
 Patient data is bundled in the repo (patients_with_dvt.csv).
@@ -27,15 +27,15 @@ SCOPES = [
 
 REVIEW_OPTIONS = {
     "a": (
-        "✅  No action needed — exam performed correctly in all clips "
+        "✅  No action needed: exam performed correctly in all clips "
         "and all clips were interpreted correctly."
     ),
     "b": (
-        "⚠️  Action required — exam was performed incorrectly; "
+        "⚠️  Action required: exam was performed incorrectly; "
         "provider requires education on technique."
     ),
     "c": (
-        "🚨  Action required — clip(s) were interpreted incorrectly "
+        "🚨  Action required: clip(s) were interpreted incorrectly "
         "(DVT-positive read as negative OR vice versa); "
         "patient needs to be called back."
     ),
@@ -237,11 +237,11 @@ if st.session_state.page == "login":
         "1. Enter your name below and click **Start review**.\n"
         "2. For each case, open the patient's clips in **QPath** and review all clips.\n"
         "3. After reviewing, select the option that best describes your assessment:\n"
-        "   - **(a) No action needed** — the exam was performed correctly and "
+        "   - **(a) No action needed**: the exam was performed correctly and "
         "all clips were interpreted correctly.\n"
-        "   - **(b) Action required — technique** — the exam was performed "
+        "   - **(b) Action required (technique)**: the exam was performed "
         "incorrectly and the provider requires education on technique.\n"
-        "   - **(c) Action required — interpretation** — clip(s) were interpreted "
+        "   - **(c) Action required (interpretation)**: clip(s) were interpreted "
         "incorrectly (DVT-positive read as negative or vice versa) and the "
         "patient needs to be called back.\n"
         "4. Click **Save** or **Next** to record your assessment and move on."
