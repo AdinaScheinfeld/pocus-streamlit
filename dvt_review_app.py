@@ -140,7 +140,7 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
 
 def _ws_title(clinician: str) -> str:
     """Worksheet title from clinician name (max 100 chars for Sheets)."""
-    return clinician.strip().replace(" ", "_")[:100]
+    return clinician.strip().lower().replace(" ", "_")[:100]
 
 
 # ──────────────────────────────────────────────
@@ -252,8 +252,8 @@ if st.session_state.page == "login":
         ln = last_name.strip()
         display_name = f"{fn} {ln}"
         st.session_state.clinician = display_name
-        st.session_state.clinician_first = fn
-        st.session_state.clinician_last = ln
+        st.session_state.clinician_first = fn.lower()
+        st.session_state.clinician_last = ln.lower()
         now = datetime.datetime.now().isoformat()
         st.session_state.session_start = now
         with st.spinner("Loading your saved progress…"):
@@ -323,10 +323,12 @@ if st.session_state.page == "review":
         for i, p in enumerate(patients["patient"]):
             label = p if len(p) <= 12 else p[:8] + "…"
             icon = "✅" if st.session_state.reviews.get(p, {}).get("decision", "") else "⬜"
+            is_current = (i == idx)
             if st.button(
                 f"{icon}  {i + 1}. {label}",
                 key=f"jump_{i}",
                 use_container_width=True,
+                type="primary" if is_current else "secondary",
             ):
                 _accumulate_time()
                 st.session_state.idx = i
@@ -520,3 +522,6 @@ if st.session_state.page == "done":
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
             st.rerun()
+
+
+            
