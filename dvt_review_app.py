@@ -98,7 +98,8 @@ def load_existing_reviews(spreadsheet, clinician: str) -> tuple[dict, str]:
 
 
 def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
-                     first_login: str = "", latest_login: str = ""):
+                     first_login: str = "", latest_login: str = "",
+                     first_name: str = "", last_name: str = ""):
     """Overwrite the clinician's worksheet with current reviews."""
     headers = [
         "patient",
@@ -106,7 +107,8 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
         "total_negative_clips",
         "decision",
         "comments",
-        "clinician",
+        "clinician_first_name",
+        "clinician_last_name",
         "reviewed_at",
         "time_spent_seconds",
         "first_login",
@@ -124,7 +126,8 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
             int(row["total_negative_clips"]),
             rev.get("decision", ""),
             rev.get("comments", ""),
-            clinician,
+            first_name,
+            last_name,
             rev.get("reviewed_at", ""),
             round(rev.get("time_spent_seconds", 0), 1),
             first_login,
@@ -189,6 +192,10 @@ st.markdown(
 
 if "clinician" not in st.session_state:
     st.session_state.clinician = ""
+if "clinician_first" not in st.session_state:
+    st.session_state.clinician_first = ""
+if "clinician_last" not in st.session_state:
+    st.session_state.clinician_last = ""
 if "page" not in st.session_state:
     st.session_state.page = "login"
 if "idx" not in st.session_state:
@@ -232,15 +239,26 @@ if st.session_state.page == "login":
         )
         st.stop()
 
-    name = st.text_input("Your full name", placeholder="e.g. Dr. Jane Smith")
+    name_col1, name_col2 = st.columns(2)
+    with name_col1:
+        first_name = st.text_input("First name", placeholder="e.g. Jane")
+    with name_col2:
+        last_name = st.text_input("Last name", placeholder="e.g. Smith")
 
-    if st.button("Start review", type="primary", disabled=not name.strip()):
-        st.session_state.clinician = name.strip()
+    both_filled = first_name.strip() and last_name.strip()
+
+    if st.button("Start review", type="primary", disabled=not both_filled):
+        fn = first_name.strip()
+        ln = last_name.strip()
+        display_name = f"{fn} {ln}"
+        st.session_state.clinician = display_name
+        st.session_state.clinician_first = fn
+        st.session_state.clinician_last = ln
         now = datetime.datetime.now().isoformat()
         st.session_state.session_start = now
         with st.spinner("Loading your saved progress…"):
             existing, saved_first_login = load_existing_reviews(
-                spreadsheet, name.strip()
+                spreadsheet, display_name
             )
         # Preserve the original first_login; set it only on first-ever session
         st.session_state.first_login = saved_first_login or now
@@ -322,8 +340,10 @@ if st.session_state.page == "review":
                     spreadsheet, clinician, patients, st.session_state.reviews,
                     first_login=st.session_state.first_login,
                     latest_login=st.session_state.session_start,
+                    first_name=st.session_state.clinician_first,
+                    last_name=st.session_state.clinician_last,
                 )
-            for k in ("clinician", "page", "idx", "reviews", "session_start", "first_login",
+            for k in ("clinician", "clinician_first", "clinician_last", "page", "idx", "reviews", "session_start", "first_login",
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
             st.rerun()
@@ -394,6 +414,8 @@ if st.session_state.page == "review":
                 spreadsheet, clinician, patients, st.session_state.reviews,
                 first_login=st.session_state.first_login,
                     latest_login=st.session_state.session_start,
+                    first_name=st.session_state.clinician_first,
+                    last_name=st.session_state.clinician_last,
             )
 
     col_prev, col_save, col_next = st.columns([1, 1, 1])
@@ -435,6 +457,8 @@ if st.session_state.page == "review":
                     spreadsheet, clinician, patients, st.session_state.reviews,
                     first_login=st.session_state.first_login,
                     latest_login=st.session_state.session_start,
+                    first_name=st.session_state.clinician_first,
+                    last_name=st.session_state.clinician_last,
                 )
             st.session_state.page = "done"
             st.rerun()
@@ -492,7 +516,7 @@ if st.session_state.page == "done":
             st.rerun()
     with col2:
         if st.button("🔒 Log out", use_container_width=True):
-            for k in ("clinician", "page", "idx", "reviews", "session_start", "first_login",
+            for k in ("clinician", "clinician_first", "clinician_last", "page", "idx", "reviews", "session_start", "first_login",
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
             st.rerun()
