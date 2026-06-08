@@ -313,7 +313,7 @@ if st.session_state.page == "review":
     with st.sidebar:
         st.markdown(f"**Reviewer:** {clinician}")
         reviewed = sum(
-            1 for p in patients["patient"] if p in st.session_state.reviews
+            1 for p in patients["patient"] if st.session_state.reviews.get(p, {}).get("decision", "")
         )
         st.progress(reviewed / n_patients)
         st.caption(f"{reviewed} / {n_patients} cases reviewed")
@@ -322,7 +322,7 @@ if st.session_state.page == "review":
         st.markdown("**Jump to case**")
         for i, p in enumerate(patients["patient"]):
             label = p if len(p) <= 12 else p[:8] + "…"
-            icon = "✅" if p in st.session_state.reviews else "⬜"
+            icon = "✅" if st.session_state.reviews.get(p, {}).get("decision", "") else "⬜"
             if st.button(
                 f"{icon}  {i + 1}. {label}",
                 key=f"jump_{i}",
@@ -445,7 +445,7 @@ if st.session_state.page == "review":
 
     # ── finish ────────────────────────────────
     reviewed = sum(
-        1 for p in patients["patient"] if p in st.session_state.reviews
+        1 for p in patients["patient"] if st.session_state.reviews.get(p, {}).get("decision", "")
     )
     if reviewed == n_patients:
         st.divider()
