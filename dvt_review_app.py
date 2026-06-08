@@ -524,7 +524,7 @@ if st.session_state.page == "done":
         hide_index=True,
     )
 
-    st.info("Your reviews have been saved to the shared Google Sheet. Thank you!")
+    st.info("Your reviews have been saved. Thank you!")
 
     col1, col2 = st.columns(2)
     with col1:
