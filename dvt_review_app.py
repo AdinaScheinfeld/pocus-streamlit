@@ -83,14 +83,19 @@ def load_existing_reviews(spreadsheet, clinician: str) -> dict:
 
     out = {}
     for r in rows:
-        out[r["patient"]] = {
-            "decision": r.get("decision", ""),
-            "comments": r.get("comments", ""),
-        }
+        # Only load rows where a decision was actually made
+        if r.get("decision", "").strip():
+            out[r["patient"]] = {
+                "decision": r.get("decision", ""),
+                "comments": r.get("comments", ""),
+                "reviewed_at": r.get("reviewed_at", ""),
+                "time_spent_seconds": float(r.get("time_spent_seconds", 0) or 0),
+            }
     return out
 
 
-def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict):
+def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
+                     session_start: str = ""):
     """Overwrite the clinician's worksheet with current reviews."""
     headers = [
         "patient",
@@ -99,12 +104,13 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict):
         "decision",
         "comments",
         "clinician",
-        "timestamp",
+        "reviewed_at",
+        "time_spent_seconds",
+        "session_start",
     ]
     ws = get_or_create_worksheet(spreadsheet, _ws_title(clinician), headers)
 
     rows = [headers]  # start fresh
-    now = datetime.datetime.now().isoformat()
     for _, row in patients_df.iterrows():
         pid = row["patient"]
         rev = reviews.get(pid, {})
@@ -115,7 +121,9 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict):
             rev.get("decision", ""),
             rev.get("comments", ""),
             clinician,
-            now,
+            rev.get("reviewed_at", ""),
+            round(rev.get("time_spent_seconds", 0), 1),
+            session_start,
         ])
 
     ws.clear()
@@ -182,6 +190,10 @@ if "idx" not in st.session_state:
     st.session_state.idx = 0
 if "reviews" not in st.session_state:
     st.session_state.reviews = {}
+if "session_start" not in st.session_state:
+    st.session_state.session_start = ""
+if "patient_start_time" not in st.session_state:
+    st.session_state.patient_start_time = None
 
 patients = load_patients()
 n_patients = len(patients)
@@ -217,6 +229,7 @@ if st.session_state.page == "login":
 
     if st.button("Start review", type="primary", disabled=not name.strip()):
         st.session_state.clinician = name.strip()
+        st.session_state.session_start = datetime.datetime.now().isoformat()
         with st.spinner("Loading your saved progress…"):
             existing = load_existing_reviews(spreadsheet, name.strip())
         if existing:
@@ -241,6 +254,31 @@ if st.session_state.page == "review":
     pid = row["patient"]
     total_clips = int(row["total_positive_clips"]) + int(row["total_negative_clips"])
 
+    # ── per-patient timer ─────────────────────
+    # Start timer when a new patient is displayed; only reset on patient change
+    if st.session_state.get("_current_pid") != pid:
+        # Accumulate time on the previous patient before switching
+        prev_pid = st.session_state.get("_current_pid")
+        if prev_pid and st.session_state.patient_start_time:
+            elapsed = (datetime.datetime.now()
+                       - st.session_state.patient_start_time).total_seconds()
+            prev_rev = st.session_state.reviews.get(prev_pid, {})
+            prev_rev["time_spent_seconds"] = prev_rev.get("time_spent_seconds", 0) + elapsed
+            st.session_state.reviews[prev_pid] = prev_rev
+        st.session_state.patient_start_time = datetime.datetime.now()
+        st.session_state._current_pid = pid
+
+    def _accumulate_time():
+        """Add elapsed time on current patient to its running total."""
+        if st.session_state.patient_start_time:
+            elapsed = (datetime.datetime.now()
+                       - st.session_state.patient_start_time).total_seconds()
+            cur = st.session_state.reviews.get(pid, {})
+            cur["time_spent_seconds"] = cur.get("time_spent_seconds", 0) + elapsed
+            st.session_state.reviews[pid] = cur
+            # Reset so we don't double-count on the next rerun
+            st.session_state.patient_start_time = datetime.datetime.now()
+
     # ── sidebar ───────────────────────────────
     with st.sidebar:
         st.markdown(f"**Reviewer:** {clinician}")
@@ -260,17 +298,21 @@ if st.session_state.page == "review":
                 key=f"jump_{i}",
                 use_container_width=True,
             ):
+                _accumulate_time()
                 st.session_state.idx = i
                 st.rerun()
 
         st.divider()
         if st.button("🔒 Log out", use_container_width=True):
+            _accumulate_time()
             if sheets_ok:
                 save_all_reviews(
-                    spreadsheet, clinician, patients, st.session_state.reviews
+                    spreadsheet, clinician, patients, st.session_state.reviews,
+                    session_start=st.session_state.session_start,
                 )
-            for k in ("clinician", "page", "idx", "reviews"):
-                del st.session_state[k]
+            for k in ("clinician", "page", "idx", "reviews", "session_start",
+                       "patient_start_time", "_current_pid"):
+                st.session_state.pop(k, None)
             st.rerun()
 
     # ── header ────────────────────────────────
@@ -326,19 +368,25 @@ if st.session_state.page == "review":
 
     # ── navigation ────────────────────────────
     def _save_current():
-        st.session_state.reviews[pid] = {
+        _accumulate_time()
+        existing = st.session_state.reviews.get(pid, {})
+        existing.update({
             "decision": selected_key,
             "comments": comments,
-        }
+            "reviewed_at": datetime.datetime.now().isoformat(),
+        })
+        st.session_state.reviews[pid] = existing
         if sheets_ok:
             save_all_reviews(
-                spreadsheet, clinician, patients, st.session_state.reviews
+                spreadsheet, clinician, patients, st.session_state.reviews,
+                session_start=st.session_state.session_start,
             )
 
     col_prev, col_save, col_next = st.columns([1, 1, 1])
 
     with col_prev:
         if idx > 0 and st.button("← Previous", use_container_width=True):
+            _accumulate_time()
             st.session_state.idx -= 1
             st.rerun()
 
@@ -367,6 +415,12 @@ if st.session_state.page == "review":
         st.divider()
         st.success("All cases reviewed!")
         if st.button("📋 View summary & finish", type="primary"):
+            _accumulate_time()
+            if sheets_ok:
+                save_all_reviews(
+                    spreadsheet, clinician, patients, st.session_state.reviews,
+                    session_start=st.session_state.session_start,
+                )
             st.session_state.page = "done"
             st.rerun()
 
@@ -381,14 +435,24 @@ if st.session_state.page == "done":
     st.markdown("## ✅ Review complete")
     st.markdown(f"**Reviewer:** {clinician}")
 
+    # Show session duration
+    if st.session_state.session_start:
+        start = datetime.datetime.fromisoformat(st.session_state.session_start)
+        elapsed = datetime.datetime.now() - start
+        mins = int(elapsed.total_seconds() // 60)
+        secs = int(elapsed.total_seconds() % 60)
+        st.markdown(f"**Session duration:** {mins} min {secs} sec")
+
     rows = []
     for _, row in patients.iterrows():
         pid = row["patient"]
         rev = st.session_state.reviews.get(pid, {})
+        t = rev.get("time_spent_seconds", 0)
         rows.append({
             "Patient": pid if len(pid) <= 16 else pid[:12] + "…",
             "Total clips": int(row["total_positive_clips"]) + int(row["total_negative_clips"]),
             "Decision": rev.get("decision", "—").upper(),
+            "Time (sec)": round(t, 1) if t else "—",
             "Comments": rev.get("comments", ""),
         })
     summary_df = pd.DataFrame(rows)
@@ -413,6 +477,10 @@ if st.session_state.page == "done":
             st.rerun()
     with col2:
         if st.button("🔒 Log out", use_container_width=True):
-            for k in ("clinician", "page", "idx", "reviews"):
-                del st.session_state[k]
+            for k in ("clinician", "page", "idx", "reviews", "session_start",
+                       "patient_start_time", "_current_pid"):
+                st.session_state.pop(k, None)
             st.rerun()
+
+
+            
