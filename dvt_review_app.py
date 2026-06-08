@@ -72,17 +72,20 @@ def get_or_create_worksheet(spreadsheet, title, headers):
     return ws
 
 
-def load_existing_reviews(spreadsheet, clinician: str) -> dict:
-    """Load any previously saved reviews for this clinician."""
+def load_existing_reviews(spreadsheet, clinician: str) -> tuple[dict, str]:
+    """Load previously saved reviews and first_login for this clinician."""
     safe_title = _ws_title(clinician)
     try:
         ws = spreadsheet.worksheet(safe_title)
         rows = ws.get_all_records()
     except gspread.WorksheetNotFound:
-        return {}
+        return {}, ""
 
     out = {}
+    first_login = ""
     for r in rows:
+        if not first_login and r.get("first_login", "").strip():
+            first_login = r["first_login"]
         # Only load rows where a decision was actually made
         if r.get("decision", "").strip():
             out[r["patient"]] = {
@@ -91,11 +94,11 @@ def load_existing_reviews(spreadsheet, clinician: str) -> dict:
                 "reviewed_at": r.get("reviewed_at", ""),
                 "time_spent_seconds": float(r.get("time_spent_seconds", 0) or 0),
             }
-    return out
+    return out, first_login
 
 
 def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
-                     session_start: str = ""):
+                     first_login: str = "", latest_login: str = ""):
     """Overwrite the clinician's worksheet with current reviews."""
     headers = [
         "patient",
@@ -106,7 +109,8 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
         "clinician",
         "reviewed_at",
         "time_spent_seconds",
-        "session_start",
+        "first_login",
+        "latest_login",
     ]
     ws = get_or_create_worksheet(spreadsheet, _ws_title(clinician), headers)
 
@@ -123,7 +127,8 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
             clinician,
             rev.get("reviewed_at", ""),
             round(rev.get("time_spent_seconds", 0), 1),
-            session_start,
+            first_login,
+            latest_login,
         ])
 
     ws.clear()
@@ -192,6 +197,8 @@ if "reviews" not in st.session_state:
     st.session_state.reviews = {}
 if "session_start" not in st.session_state:
     st.session_state.session_start = ""
+if "first_login" not in st.session_state:
+    st.session_state.first_login = ""
 if "patient_start_time" not in st.session_state:
     st.session_state.patient_start_time = None
 
@@ -229,9 +236,14 @@ if st.session_state.page == "login":
 
     if st.button("Start review", type="primary", disabled=not name.strip()):
         st.session_state.clinician = name.strip()
-        st.session_state.session_start = datetime.datetime.now().isoformat()
+        now = datetime.datetime.now().isoformat()
+        st.session_state.session_start = now
         with st.spinner("Loading your saved progress…"):
-            existing = load_existing_reviews(spreadsheet, name.strip())
+            existing, saved_first_login = load_existing_reviews(
+                spreadsheet, name.strip()
+            )
+        # Preserve the original first_login; set it only on first-ever session
+        st.session_state.first_login = saved_first_login or now
         if existing:
             st.session_state.reviews = existing
             st.toast(
@@ -308,9 +320,10 @@ if st.session_state.page == "review":
             if sheets_ok:
                 save_all_reviews(
                     spreadsheet, clinician, patients, st.session_state.reviews,
-                    session_start=st.session_state.session_start,
+                    first_login=st.session_state.first_login,
+                    latest_login=st.session_state.session_start,
                 )
-            for k in ("clinician", "page", "idx", "reviews", "session_start",
+            for k in ("clinician", "page", "idx", "reviews", "session_start", "first_login",
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
             st.rerun()
@@ -379,7 +392,8 @@ if st.session_state.page == "review":
         if sheets_ok:
             save_all_reviews(
                 spreadsheet, clinician, patients, st.session_state.reviews,
-                session_start=st.session_state.session_start,
+                first_login=st.session_state.first_login,
+                    latest_login=st.session_state.session_start,
             )
 
     col_prev, col_save, col_next = st.columns([1, 1, 1])
@@ -419,7 +433,8 @@ if st.session_state.page == "review":
             if sheets_ok:
                 save_all_reviews(
                     spreadsheet, clinician, patients, st.session_state.reviews,
-                    session_start=st.session_state.session_start,
+                    first_login=st.session_state.first_login,
+                    latest_login=st.session_state.session_start,
                 )
             st.session_state.page = "done"
             st.rerun()
@@ -477,10 +492,7 @@ if st.session_state.page == "done":
             st.rerun()
     with col2:
         if st.button("🔒 Log out", use_container_width=True):
-            for k in ("clinician", "page", "idx", "reviews", "session_start",
+            for k in ("clinician", "page", "idx", "reviews", "session_start", "first_login",
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
             st.rerun()
-
-
-            
