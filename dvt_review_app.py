@@ -228,8 +228,23 @@ except Exception as e:
 if st.session_state.page == "login":
     st.markdown("## 🩺 DVT Case Review Portal")
     st.markdown(
-        "Welcome! Please enter your name to begin reviewing cases. "
+        "Welcome! This portal is for quality assurance review of DVT ultrasound cases. "
         "Your progress is saved automatically and you can resume at any time."
+    )
+
+    st.markdown("#### How it works")
+    st.markdown(
+        "1. Enter your name below and click **Start review**.\n"
+        "2. For each case, open the patient's clips in **QPath** and review all clips.\n"
+        "3. After reviewing, select the option that best describes your assessment:\n"
+        "   - **(a) No action needed** — the exam was performed correctly and "
+        "all clips were interpreted correctly.\n"
+        "   - **(b) Action required — technique** — the exam was performed "
+        "incorrectly and the provider requires education on technique.\n"
+        "   - **(c) Action required — interpretation** — clip(s) were interpreted "
+        "incorrectly (DVT-positive read as negative or vice versa) and the "
+        "patient needs to be called back.\n"
+        "4. Click **Save** or **Next** to record your assessment and move on."
     )
 
     if not sheets_ok:
@@ -522,6 +537,3 @@ if st.session_state.page == "done":
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
             st.rerun()
-
-
-            
