@@ -164,6 +164,9 @@ st.set_page_config(page_title="DVT Case Review", page_icon="🩺", layout="cente
 st.markdown(
     """
     <style>
+    /* Reduce default Streamlit top padding */
+    .block-container { padding-top: 1.5rem !important; }
+    header[data-testid="stHeader"] { display: none; }
     .patient-card {
         background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
         border: 1px solid #d0d7de;
