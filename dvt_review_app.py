@@ -249,6 +249,14 @@ if st.session_state.page == "login":
         "4. Click **Save** or **Next** to record your assessment and move on."
     )
 
+    st.info(
+        "⏱️ **A note about timing:** Review time is recorded for logging purposes only — "
+        "this is not a race, so please take as long as you need on each case. "
+        "If you need to take a break, just click **Save** on your current case "
+        "and then **Log out** in the sidebar before stepping away. "
+        "When you return, your progress will be restored."
+    )
+
     if not sheets_ok:
         st.error(
             f"⚠️ Could not connect to Google Sheets: {sheets_error}. "
@@ -539,5 +547,3 @@ if st.session_state.page == "done":
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
             st.rerun()
-
-            
