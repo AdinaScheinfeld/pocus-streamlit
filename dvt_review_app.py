@@ -97,6 +97,7 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
     """Overwrite the clinician's worksheet with current reviews."""
     headers = [
         "case_number",
+        "worklist_arm",
         "patient",
         "total_positive_clips",
         "total_negative_clips",
@@ -112,12 +113,14 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
     ]
     ws = get_or_create_worksheet(spreadsheet, _ws_title(clinician), headers)
 
+    arm = worklist_arm()
     rows = [headers]  # start fresh
     for i, (_, row) in enumerate(patients_df.iterrows(), start=1):
         pid = row["patient"]
         rev = reviews.get(pid, {})
         rows.append([
             i,
+            arm,
             pid,
             int(row["total_positive_clips"]),
             int(row["total_negative_clips"]),
@@ -144,6 +147,16 @@ def _ws_title(clinician: str) -> str:
 # ──────────────────────────────────────────────
 # Data
 # ──────────────────────────────────────────────
+
+
+def worklist_arm() -> str:
+    """
+    'model' or 'random' depending on which worklist this deployment serves.
+    Recorded in the Google Sheet for the study coordinator only -- never
+    surfaced in the app UI, so clinicians stay blind to their assigned arm.
+    """
+    worklist_file = st.secrets.get("worklist_file", "worklist_model.json")
+    return Path(worklist_file).stem.replace("worklist_", "")
 
 
 @st.cache_data
