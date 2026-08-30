@@ -140,8 +140,14 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
 
 
 def _ws_title(clinician: str) -> str:
-    """Worksheet title from clinician name (max 100 chars for Sheets)."""
-    return clinician.strip().lower().replace(" ", "_")[:100]
+    """
+    Worksheet title from clinician name + worklist arm (max 100 chars for Sheets).
+    Including the arm keeps the two deployments from colliding on the same tab
+    if the same person ever logs into both (each save overwrites its tab in full,
+    so a shared tab would silently wipe out the other arm's results).
+    """
+    base = clinician.strip().lower().replace(" ", "_")
+    return f"{base}_{worklist_arm()}"[:100]
 
 
 # ──────────────────────────────────────────────
