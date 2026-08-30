@@ -1,5 +1,5 @@
 """
-DVT Case Review — Streamlit Cloud application for clinician QA review.
+DVT Case Review: Streamlit Cloud application for clinician QA review.
 
 Results are saved to a Google Sheet owned by the study coordinator.
 Which worklist (model-generated vs. random) this deployment shows is set via
@@ -30,9 +30,9 @@ SCOPES = [
 ]
 
 REVIEW_OPTIONS = {
-    "a": "No action needed — exam and interpretation both correct.",
-    "b": "Action required — technique issue; provider needs education.",
-    "c": "Action required — interpretation error; patient needs callback.",
+    "a": "No action needed: exam and interpretation both correct.",
+    "b": "Action required: technique issue; provider needs education.",
+    "c": "Action required: interpretation error; patient needs callback.",
 }
 
 OPTION_LABELS = list(REVIEW_OPTIONS.values())
@@ -258,13 +258,13 @@ if st.session_state.page == "login":
     st.markdown(
         "1. Enter your name below and select **Start review**.\n"
         "2. For each case, review the patient's clips using the player and clip "
-        "selector on the page — a reference read is shown for each case.\n"
+        "selector on the page; a reference read is shown for each case.\n"
         "3. Select the option that best describes your assessment:\n"
-        "   - **(a) No action needed** — the exam was performed correctly and "
+        "   - **(a) No action needed.** The exam was performed correctly and "
         "all clips were interpreted correctly.\n"
-        "   - **(b) Action required (technique)** — the exam was performed "
+        "   - **(b) Action required (technique).** The exam was performed "
         "incorrectly and the provider requires education on technique.\n"
-        "   - **(c) Action required (interpretation)** — clip(s) were interpreted "
+        "   - **(c) Action required (interpretation).** Clip(s) were interpreted "
         "incorrectly (DVT-positive read as negative or vice versa) and the "
         "patient needs to be called back.\n"
         "4. Select **Save** or **Next** to record your assessment and continue."
@@ -272,7 +272,7 @@ if st.session_state.page == "login":
 
     st.info(
         "**A note about timing:** Per-case review time is recorded for logging purposes only. "
-        "This is not a race — please take as long as you need on each case. "
+        "This is not a race; please take as long as you need on each case. "
         "To take a break, select **Save** on your current case and then **Log out** "
         "in the sidebar. Your progress will be restored when you return."
     )
@@ -403,7 +403,7 @@ if st.session_state.page == "review":
             <span><span class="sep">·</span> Case {idx + 1} of {n_patients}</span>
             <span><span class="sep">·</span> {total_clips} clip{"s" if total_clips != 1 else ""}</span>
             <span><span class="sep">·</span> Reference read:
-                <span class="ref-read">{fake_interp or "—"}</span></span>
+                <span class="ref-read">{fake_interp or "N/A"}</span></span>
         </div>
         """,
         unsafe_allow_html=True,
@@ -550,8 +550,8 @@ if st.session_state.page == "done":
         rows.append({
             "Patient": pid if len(pid) <= 16 else pid[:12] + "…",
             "Total clips": int(row["total_positive_clips"]) + int(row["total_negative_clips"]),
-            "Decision": rev.get("decision", "—").upper(),
-            "Time (sec)": round(t, 1) if t else "—",
+            "Decision": rev.get("decision", "N/A").upper(),
+            "Time (sec)": round(t, 1) if t else "N/A",
             "Comments": rev.get("comments", ""),
         })
     summary_df = pd.DataFrame(rows)

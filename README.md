@@ -13,9 +13,9 @@ A Streamlit web app for clinician QA review of POCUS cases. Clinicians access it
 
 ### Review options
 
-- **(a) No action** — exam and interpretation both correct
-- **(b) Action required** — exam technique needs provider education
-- **(c) Action required** — clips misinterpreted; patient callback needed
+- **(a) No action:** exam and interpretation both correct
+- **(b) Action required:** exam technique needs provider education
+- **(c) Action required:** clips misinterpreted; patient callback needed
 
 ### Features
 
