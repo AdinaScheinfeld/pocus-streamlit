@@ -14,6 +14,7 @@ from pathlib import Path
 import gspread
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 from google.oauth2.service_account import Credentials
 
 # ──────────────────────────────────────────────
@@ -443,7 +444,12 @@ if st.session_state.page == "review":
             format_func=_clip_label,
             key=f"clipsel_{pid}",
         )
-        st.video(clips[sel]["stream_url"])
+        # Embedded via Google Drive's own player (iframe), not st.video() --
+        # Drive's raw-file download links have no file extension and report
+        # a generic octet-stream content-type, which many browsers refuse to
+        # play inline in a <video> tag. The /preview endpoint serves an actual
+        # HTML page with Drive's hosted player, which handles decoding itself.
+        components.iframe(clips[sel]["stream_url"], height=420)
 
     # ── review form ───────────────────────────
     st.markdown("#### Your assessment")
