@@ -30,19 +30,9 @@ SCOPES = [
 ]
 
 REVIEW_OPTIONS = {
-    "a": (
-        "✅  No action needed — exam performed correctly in all clips "
-        "and all clips were interpreted correctly."
-    ),
-    "b": (
-        "⚠️  Action required — exam was performed incorrectly; "
-        "provider requires education on technique."
-    ),
-    "c": (
-        "🚨  Action required — clip(s) were interpreted incorrectly "
-        "(DVT-positive read as negative OR vice versa); "
-        "patient needs to be called back."
-    ),
+    "a": "No action needed — exam and interpretation both correct.",
+    "b": "Action required — technique issue; provider needs education.",
+    "c": "Action required — interpretation error; patient needs callback.",
 }
 
 OPTION_LABELS = list(REVIEW_OPTIONS.values())
@@ -188,28 +178,31 @@ st.markdown(
     """
     <style>
     /* Reduce default Streamlit top padding */
-    .block-container { padding-top: 1.5rem !important; }
+    .block-container { padding-top: 0.9rem !important; padding-bottom: 1rem !important; }
     header[data-testid="stHeader"] { display: none; }
-    .patient-card {
-        background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
-        border: 1px solid #d0d7de;
-        border-radius: 12px;
-        padding: 1.5rem 2rem;
-        margin-bottom: 1.2rem;
+
+    h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; color: #1f2937; }
+
+    .case-banner {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.35rem 1.2rem;
+        background: #f4f6f8;
+        border: 1px solid #d7dde3;
+        border-left: 4px solid #2c4a6e;
+        border-radius: 6px;
+        padding: 0.55rem 1rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.92rem;
+        color: #374151;
     }
-    .patient-card h2 { margin: 0 0 0.3rem 0; font-size: 1.5rem; }
-    .clip-badges span {
-        display: inline-block; padding: 4px 14px; border-radius: 20px;
-        font-weight: 600; font-size: 0.95rem; margin-right: 8px;
-    }
-    .badge-pos { background: #fee2e2; color: #b91c1c; }
-    .badge-neg { background: #dcfce7; color: #166534; }
-    .badge-total { background: #e0e7ff; color: #3730a3; }
-    .badge-fui { background: #fef3c7; color: #92400e; }
-    .progress-text {
-        text-align: center; color: #64748b;
-        font-size: 0.9rem; margin-bottom: 0.4rem;
-    }
+    .case-banner .patient-id { font-weight: 700; color: #1f2937; font-size: 1.02rem; }
+    .case-banner .sep { color: #b0b8c1; }
+    .case-banner .ref-read { font-weight: 600; color: #2c4a6e; }
+
+    div[data-testid="stTextArea"] textarea { min-height: 68px; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -255,18 +248,18 @@ except Exception as e:
 # ──────────────────────────────────────────────
 
 if st.session_state.page == "login":
-    st.markdown("## 🩺 DVT Case Review Portal")
+    st.markdown("## DVT Case Review Portal")
     st.markdown(
-        "Welcome! This portal is for quality assurance review of DVT ultrasound cases. "
-        "Your progress is saved automatically and you can resume at any time."
+        "This portal is for quality assurance review of DVT ultrasound cases. "
+        "Your progress is saved automatically and you may resume at any time."
     )
 
     st.markdown("#### How it works")
     st.markdown(
-        "1. Enter your name below and click **Start review**.\n"
-        "2. For each case, watch the patient's clips using the player and clip "
-        "selector on the page — a reference read is shown alongside each case.\n"
-        "3. After reviewing, select the option that best describes your assessment:\n"
+        "1. Enter your name below and select **Start review**.\n"
+        "2. For each case, review the patient's clips using the player and clip "
+        "selector on the page — a reference read is shown for each case.\n"
+        "3. Select the option that best describes your assessment:\n"
         "   - **(a) No action needed** — the exam was performed correctly and "
         "all clips were interpreted correctly.\n"
         "   - **(b) Action required (technique)** — the exam was performed "
@@ -274,20 +267,19 @@ if st.session_state.page == "login":
         "   - **(c) Action required (interpretation)** — clip(s) were interpreted "
         "incorrectly (DVT-positive read as negative or vice versa) and the "
         "patient needs to be called back.\n"
-        "4. Click **Save** or **Next** to record your assessment and move on."
+        "4. Select **Save** or **Next** to record your assessment and continue."
     )
 
     st.info(
-        "⏱️ **A note about timing:** Per-case review time is recorded for logging purposes only. "
-        "This is not a race, so please take as long as you need on each case. "
-        "If you need to take a break, just click **Save** on your current case "
-        "and then **Log out** in the sidebar before stepping away. "
-        "When you return, your progress will be restored."
+        "**A note about timing:** Per-case review time is recorded for logging purposes only. "
+        "This is not a race — please take as long as you need on each case. "
+        "To take a break, select **Save** on your current case and then **Log out** "
+        "in the sidebar. Your progress will be restored when you return."
     )
 
     if not sheets_ok:
         st.error(
-            f"⚠️ Could not connect to Google Sheets: {sheets_error}. "
+            f"Could not connect to Google Sheets: {sheets_error}. "
             "Please contact the study coordinator."
         )
         st.stop()
@@ -317,9 +309,7 @@ if st.session_state.page == "login":
         st.session_state.first_login = saved_first_login or now
         if existing:
             st.session_state.reviews = existing
-            st.toast(
-                f"Restored {len(existing)} previous review(s).", icon="📂"
-            )
+            st.toast(f"Restored {len(existing)} previous review(s).")
         st.session_state.page = "review"
         st.session_state.idx = 0
         st.rerun()
@@ -376,7 +366,7 @@ if st.session_state.page == "review":
         st.markdown("**Jump to case**")
         for i, p in enumerate(patients["patient"]):
             label = p if len(p) <= 12 else p[:8] + "…"
-            icon = "✅" if st.session_state.reviews.get(p, {}).get("decision", "") else "⬜"
+            icon = "●" if st.session_state.reviews.get(p, {}).get("decision", "") else "○"
             is_current = (i == idx)
             if st.button(
                 f"{icon}  {i + 1}. {label}",
@@ -389,7 +379,7 @@ if st.session_state.page == "review":
                 st.rerun()
 
         st.divider()
-        if st.button("🔒 Log out", use_container_width=True):
+        if st.button("Log out", use_container_width=True):
             _accumulate_time()
             if sheets_ok:
                 save_all_reviews(
@@ -404,31 +394,24 @@ if st.session_state.page == "review":
                 st.session_state.pop(k, None)
             st.rerun()
 
-    # ── header ────────────────────────────────
-    st.markdown(
-        f'<p class="progress-text">Case {idx + 1} of {n_patients}</p>',
-        unsafe_allow_html=True,
-    )
-
-    # ── patient card ──────────────────────────
-    display_name = pid if len(pid) <= 12 else f"{pid[:16]}…"
+    # ── compact case banner ────────────────────
+    display_name = pid if len(pid) <= 16 else f"{pid[:16]}…"
     st.markdown(
         f"""
-        <div class="patient-card">
-            <h2>Patient: {display_name}</h2>
-            <div class="clip-badges">
-                <span class="badge-total">Total clips: {total_clips}</span>
-                <span class="badge-fui">Reference read: {fake_interp or "—"}</span>
-            </div>
+        <div class="case-banner">
+            <span class="patient-id">{display_name}</span>
+            <span><span class="sep">·</span> Case {idx + 1} of {n_patients}</span>
+            <span><span class="sep">·</span> {total_clips} clip{"s" if total_clips != 1 else ""}</span>
+            <span><span class="sep">·</span> Reference read:
+                <span class="ref-read">{fake_interp or "—"}</span></span>
         </div>
         """,
         unsafe_allow_html=True,
     )
-    if len(pid) > 12:
+    if len(pid) > 16:
         st.caption(f"Full ID: `{pid}`")
 
     # ── clip viewer ───────────────────────────
-    st.markdown("#### Clips")
     clips = clips_by_patient.get(pid, [])
     if not clips:
         st.warning("No clips found for this patient. Please contact the study coordinator.")
@@ -436,10 +419,10 @@ if st.session_state.page == "review":
         clip_options = list(range(len(clips)))
 
         def _clip_label(i):
-            return f"Clip {i + 1} of {len(clips)} — {clips[i]['filename']}"
+            return f"Clip {i + 1} of {len(clips)}"
 
         sel = st.selectbox(
-            "Select clip to view:",
+            "Clip",
             options=clip_options,
             format_func=_clip_label,
             key=f"clipsel_{pid}",
@@ -449,11 +432,9 @@ if st.session_state.page == "review":
         # a generic octet-stream content-type, which many browsers refuse to
         # play inline in a <video> tag. The /preview endpoint serves an actual
         # HTML page with Drive's hosted player, which handles decoding itself.
-        components.iframe(clips[sel]["stream_url"], height=420)
+        components.iframe(clips[sel]["stream_url"], height=320)
 
     # ── review form ───────────────────────────
-    st.markdown("#### Your assessment")
-
     prev = st.session_state.reviews.get(pid, {})
     prev_decision = prev.get("decision", "")
     prev_comments = prev.get("comments", "")
@@ -463,7 +444,7 @@ if st.session_state.page == "review":
     )
 
     decision = st.radio(
-        "Select one option:",
+        "Assessment",
         options=OPTION_LABELS,
         index=default_idx,
         key=f"radio_{pid}",
@@ -507,13 +488,13 @@ if st.session_state.page == "review":
 
     with col_save:
         if st.button(
-            "💾 Save",
+            "Save",
             type="primary",
             use_container_width=True,
             disabled=decision is None,
         ):
             _save_current()
-            st.toast(f"Saved review for {display_name}", icon="✅")
+            st.toast(f"Saved review for {display_name}")
 
     with col_next:
         if idx < n_patients - 1 and st.button("Next →", use_container_width=True):
@@ -529,7 +510,7 @@ if st.session_state.page == "review":
     if reviewed == n_patients:
         st.divider()
         st.success("All cases reviewed!")
-        if st.button("📋 View summary & finish", type="primary"):
+        if st.button("View summary & finish", type="primary"):
             _accumulate_time()
             if sheets_ok:
                 save_all_reviews(
@@ -550,7 +531,7 @@ if st.session_state.page == "review":
 
 if st.session_state.page == "done":
     clinician = st.session_state.clinician
-    st.markdown("## ✅ Review complete")
+    st.markdown("## Review complete")
     st.markdown(f"**Reviewer:** {clinician}")
 
     # Show session duration
@@ -576,7 +557,7 @@ if st.session_state.page == "done":
     summary_df = pd.DataFrame(rows)
 
     def highlight_decision(val):
-        colors = {"A": "#dcfce7", "B": "#fef9c3", "C": "#fee2e2"}
+        colors = {"A": "#eef3ee", "B": "#f7f1e3", "C": "#f5eaea"}
         bg = colors.get(val.strip(), "")
         return f"background-color: {bg}" if bg else ""
 
@@ -594,7 +575,7 @@ if st.session_state.page == "done":
             st.session_state.page = "review"
             st.rerun()
     with col2:
-        if st.button("🔒 Log out", use_container_width=True):
+        if st.button("Log out", use_container_width=True):
             for k in ("clinician", "clinician_first", "clinician_last", "page", "idx", "reviews", "session_start", "first_login",
                        "patient_start_time", "_current_pid"):
                 st.session_state.pop(k, None)
