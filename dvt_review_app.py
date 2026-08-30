@@ -271,8 +271,6 @@ if st.session_state.page == "login":
     )
 
     st.info(
-        "**A note about timing:** Per-case review time is recorded for logging purposes only. "
-        "This is not a race; please take as long as you need on each case. "
         "To take a break, select **Save** on your current case and then **Log out** "
         "in the sidebar. Your progress will be restored when you return."
     )
