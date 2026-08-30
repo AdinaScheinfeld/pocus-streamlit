@@ -1,0 +1,1077 @@
+[
+  {
+    "patient": "CA-10-10-25",
+    "total_positive_clips": 8,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "CA9POS.mov",
+        "stream_url": "https://drive.google.com/uc?id=18ZiA_zTpLl7pjXItMzBajNXcK4JSq4yN",
+        "label": "DVT"
+      },
+      {
+        "filename": "ca1.mov",
+        "stream_url": "https://drive.google.com/uc?id=13EN2ujPN_2E26hacQyJTbnXCKWETI61a",
+        "label": "DVT"
+      },
+      {
+        "filename": "ca14pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1BC4RY_-sbXJXkE8s4XFsVrHSyUVUBOw3",
+        "label": "DVT"
+      },
+      {
+        "filename": "ca16pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1l2mdb8EF4ngJ0X-mLfwj82DldswBkejC",
+        "label": "DVT"
+      },
+      {
+        "filename": "ca2.mov",
+        "stream_url": "https://drive.google.com/uc?id=1mjwLbJ-f6utdq1TMuXCfVNvNrNMU1Kk-",
+        "label": "DVT"
+      },
+      {
+        "filename": "ca3.mov",
+        "stream_url": "https://drive.google.com/uc?id=1pErrPqPVDPK8ZAcuweAdn__qGRloh7oU",
+        "label": "DVT"
+      },
+      {
+        "filename": "ca4pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1TlpWgUoLH7-safpcJVxNzXantHWqIIfa",
+        "label": "DVT"
+      },
+      {
+        "filename": "ca5pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1aoBhK6es4KB73AUQvXAtFbUA71ZvCIdn",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "MS-9-26-25",
+    "total_positive_clips": 9,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "MS11pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1LiUhMvi1y6tSmXyrPI2dQ2QU_RmHuY4g",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS13pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=14RxEbuumYnwLhjDGIUzmkekmuIoIhp7d",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS1pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1bFTTwXOfXlDLXCQHLipSFG3L-xu6--Ck",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS2pos_color.mov",
+        "stream_url": "https://drive.google.com/uc?id=1llFWMCqoWmmPCht66iac3eJZ02HBx_60",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS3pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1saW2iyMwSsyDIhU2P6HQ4-sWKsfa90N1",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS4pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Af4fhHMauNa-XbroY7K2QIU5ku-2GBU5",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS6pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1PiAY_LLnT42qDdQzOaUJ-dP6ahOyY8Nr",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS7pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1a-5Yq1E79Wj_JnLxOVMWqw0jPCzzDqIR",
+        "label": "DVT"
+      },
+      {
+        "filename": "MS8pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1uZEfaawq28c72SxUHFD5TYtWSzOQNMmm",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "FA-11-11-25",
+    "total_positive_clips": 6,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "FA1pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1lckXVnZ_PWlF8SHp2fHbiwsGfpqye29H",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA2pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ANzQZEH1GQbIloks6xNTaYUmPoZfY15I",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA3pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ryssaebaZkjQNTDfBLtUlGFGLXxgHRPk",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA4pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=15xLK8bgLBYXuHTJWOrZxNsmTeNbV-_L5",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA5pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=18CXjl1ClbH44jo-48RvNnVP063dVyW46",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA6pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Aj-77lWsJ-4-XFeX62J_VaC0c_QQeZ07",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "HJ-8-8-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 10,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "HJ12neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1js7ZJtYb2LPqfJQ7bVz9VVHIU20NpYKJ",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ13neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1eReRMeqR-Nx1NP-JOQAoecpTl6u1x4CC",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ15neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1QKidqtuxNFKzH0DfTWEToJUg4kcBvA4g",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ16neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Q0SFRoLsDiCqR-qBqgOI83t60fPHpMpi",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ18neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=19MteVISFj6XnVtqzJJHFpTPT7PwlByo6",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ1neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1LOHzufi1E1QgcAgsZkS5o0cnCOVfBlq0",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ2neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1K1p1Ws0c35R2f02y1r-BwSYCNJqk1eez",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ4neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1G1qyOn9SjPHkUCA__GaUoi9tCKvr_Kfj",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ5neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=12TfeG-KDva-q-_Bs_-cZtshbkLlmqNWY",
+        "label": "No DVT"
+      },
+      {
+        "filename": "Hj19neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1G4dd7PNpuwU7lQbmkHWwi4SfNjvujrfQ",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "SJe-9-30-25",
+    "total_positive_clips": 6,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "SJe1pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1SBIBnXZru0edp2n6CjLlsTPcWbyhzWdX",
+        "label": "DVT"
+      },
+      {
+        "filename": "SJe4pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1s3qqgRzvdzg01roXAsRGEB5HYltBD8a1",
+        "label": "DVT"
+      },
+      {
+        "filename": "SJe9pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1SvQe8XTq8o2XqmHLU4AvQcWtlHNVExIx",
+        "label": "DVT"
+      },
+      {
+        "filename": "Sje2pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1vzlhjz884d-KHrjPKhpWLJoQLewBxNz6",
+        "label": "DVT"
+      },
+      {
+        "filename": "Sje5pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=17cPl9-4lN2jnxAh6-6mJMxZCMCmp_mKK",
+        "label": "DVT"
+      },
+      {
+        "filename": "Sje8pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1WFz-zjyQ88oO801VakKNkYkZfkt2HMB5",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "MJ2-10-22-25",
+    "total_positive_clips": 10,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "MJ2_10pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1O76GR5EHeTz6vSztucf6GnydKM3Bz354",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_15pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1JW01RMK107pvlbFgsg5gavy1ULoeljUh",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_17pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1f8DDqthzQOdRUHHTwCfREWPbfrXrlG4I",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_18pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Pfr13ibcR5MAkHc5b_Iut6XswFuPDR_f",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_1neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1A2M06l0p_2qrOpeD7JzLEXZ-x-jOcf2M",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_2neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1x7O-8IKeTfsJcg5RFggoq0i9RhPDo0Up",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_3neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1lYjcl5ACBrQmvMez2DMYV57bs3GpE9QW",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_8pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=17_38aFugyIvCTe2LX-GY25xJToW8dVGb",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_pos16.mov",
+        "stream_url": "https://drive.google.com/uc?id=12wDQbpNc9VB0SQ9J6NEzavv0ZStbnwKW",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_pos19.mov",
+        "stream_url": "https://drive.google.com/uc?id=1vrOQZj98p7VapLhGwDH9YUDvA2hz45_Z",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "MJ-10-3-25",
+    "total_positive_clips": 28,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "MJ11pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1AgeCv0goiGBP6JRcCmUIDKzVSL5SF4gd",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ12pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=12btkGmDxKtP2nHNB43plD9C__pdUBXE3",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ13pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1hoDi8cR3ob9Z73Q6FEsv6SrsQ4l5dBxy",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ14pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1mR2On7pG3iZjY0syG8x1agHiY9Cfz5ZN",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ17.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Mu0xbomy4OU3_eeFmIZPDFqDkxgO6HGs",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ18pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1SEDQfj5zZch-hQgbakHqTJSrqEK2Qupi",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ19pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1O1j7Cmr5gJ7iyonwP2SXBrUe7U03CjBx",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ20.mov",
+        "stream_url": "https://drive.google.com/uc?id=1f9ByB5r5iv7p5bmJlq1uBvdWjpfttPDu",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ21neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1aYg2xEssBrJpn98JpzFqIcsWFO9C0Ni9",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ22neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=11OZffdZprcxNSdg0A2pq2LhHXR9ETviq",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ23neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1PBB-o9ul2UeB6SCYAkuPx8Kj9uDkOaFN",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ25neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1R7eKZXP-FN17EeD0tFtKH8srJtLm4aQm",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ26neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1BAxCtCkLoWB5fNPiI99Qn7qYO4A4H0Ee",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ27neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1LNdlucb1jnzSNnGcI7fcmOkAnHms4y_M",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ28neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1NlMQW2BMeFBFRr-YOKhupsLDgZ_WQldp",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ29neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1OuTC_rE3f4a9MeJyWa4-XxTQyeRHR8ua",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ2_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ECcyt0ifoECH_P5IPWhiTmek8eTx1Ens",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ30neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1JNsSlnNLISymSzR3nTShIzaAC6RyT_3-",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ31pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1i-iLZt6t_CBMY7-gbBKbbFmpuRC1QQSk",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ32pos_color.mov",
+        "stream_url": "https://drive.google.com/uc?id=1OoYIV6kTZrMTQWPVlH0VpmDMwxC8GoRF",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ3pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1DeOUQQQGxJBIEVXTTLleOOfucgUNQXuE",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ4pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1zjOFAS3SVRjkKxlmsAmbgkSPGi3z3_Zi",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ5pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Svdmvg-gh_quNPnfPt6OgEMAunQ87qsB",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ6pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1mwyaeuurUNzhrSuMa_JqGp7DkYbHet0n",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ6pos_color.mov",
+        "stream_url": "https://drive.google.com/uc?id=1kmyCLzTyPyuX-ZUPRXu_-r3seT79AgYO",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJ9pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Cu1tKwM6TBXjR9FhRq93sw_DggjJO-qD",
+        "label": "DVT"
+      },
+      {
+        "filename": "MJpos10.mov",
+        "stream_url": "https://drive.google.com/uc?id=13rY-6mOK-KvalV0vJddsm8bjsVlcn1Sp",
+        "label": "DVT"
+      },
+      {
+        "filename": "mj7pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1o-utV0GNqBBdHTAxs5ivDQG27xCIwDDs",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "PA-10-11-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 5,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "PAfalsepos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1o_e1HhIouxWpqOwE9MxN3L75Aerop4BQ",
+        "label": "No DVT"
+      },
+      {
+        "filename": "pa7neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1VTW_-2bwc_q9Gm0R0IM9Dra8A0kquWSS",
+        "label": "No DVT"
+      },
+      {
+        "filename": "pa8neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ydaVsFXP_V0YgKef9Knk8i30_vpG9-JL",
+        "label": "No DVT"
+      },
+      {
+        "filename": "pa9neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=11oJA9K_oOzWH-nvWgD4oCW59zxHTNxrm",
+        "label": "No DVT"
+      },
+      {
+        "filename": "paneg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1JWS81KEB07vUgnu4MU46brZsaXxSigz_",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "BC-10-13-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 13,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "BC9neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1BtKuM58arsN6YOXCA-uE19EcJIHllXbJ",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc10neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=19HUlJJq8hM5mC-FnDm7IDHwqpj3wZp0V",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc11neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=16UmHqhgs92Gp2je1Z9g3EIkNlE-teYBF",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc12neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1qwjlBr1pYnXxrVwmItAGRCmjf-vKVmVA",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc13neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1KqQmlZ_ofh6HWWED8JXotKeIIDKk33Nx",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc14neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1yQA5NlcFiX6xfwU41AirLjgAM7WYvARw",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc2neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1t9kbTAYMYfMb57OShDM6Bh_bY5LznM_1",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc3neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1hOxaG8zRgFL0HjEeFrteA3ZNYymZO5EJ",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc4neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1dtxB8B04lwZIwp3-k4rPEG9XYqIppr8K",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc5neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1EH0JuczaZU0eX3eRxQiTZERu2BCcU9np",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc6neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1YLXFLKG4RA0soeXERsSsEqyZKM-yzzH4",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc7neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=16DTqfDdvIEvK4fI8hFJGPByIAMeLXjqO",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bc8neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1yByDRgFF_V3QUEcTcLuyp06_Uv4aXX_e",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "FS-10-5-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 10,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "FS11.mov",
+        "stream_url": "https://drive.google.com/uc?id=1VksW980_SdCcEoCgxdidwqPUjX6zfI1F",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS12.mov",
+        "stream_url": "https://drive.google.com/uc?id=1t2ReFYYGp9bshVesFn5IgVEaHWYuBb3a",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS13.mov",
+        "stream_url": "https://drive.google.com/uc?id=1M3f_gFNokM7aunGFCw8M-F7wGCKp_j4b",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS3.mov",
+        "stream_url": "https://drive.google.com/uc?id=1rbBdKiS1acfWjmWwpaukQfuSmvJRkTBc",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS4.mov",
+        "stream_url": "https://drive.google.com/uc?id=1kIX0hafClP1gBpBJtWr6ojlh4SI5w8G1",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS5.mov",
+        "stream_url": "https://drive.google.com/uc?id=115ovs3azkixKg1_7qDLig9QIIEphZf9C",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS6.mov",
+        "stream_url": "https://drive.google.com/uc?id=1thB58XvSBnucySszfl1X2Q5xO6f3HEZe",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS7.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Bv5pGConFNTct9OIyzZCHeaQuPV8cROB",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS8.mov",
+        "stream_url": "https://drive.google.com/uc?id=1UbcKZBlNT7pO49e-O3Sej-BgUUkTyamp",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FS9.mov",
+        "stream_url": "https://drive.google.com/uc?id=1pF8ywNLzsOj3XqWyhp_4gU2pQ9c3T147",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "BM-10-4-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 8,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "BM1.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Vbq4RJaY1rfC_XVD6YXdhByL7BwJtJO5",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BM3.mov",
+        "stream_url": "https://drive.google.com/uc?id=1rxZK9Je92Qztfkn8xLQjmIXKHqoLCWJZ",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BM4.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Wo6Rb89hGVCWjVgQcDO-Q8Qulw-z7RYs",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BM5.mov",
+        "stream_url": "https://drive.google.com/uc?id=1kvFexgwirev_Bwp7-yLLuzpEvVy1IRMa",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BM6.mov",
+        "stream_url": "https://drive.google.com/uc?id=1L3TRabRXqg15TCCXJtw098x4loUi7NiC",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BM8.mov",
+        "stream_url": "https://drive.google.com/uc?id=1sJ1aDez_lZRkLWzZ1n7HYrjHqyv8ZbAc",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BM9.mov",
+        "stream_url": "https://drive.google.com/uc?id=1HzQmk-F0CqKyyw-lwz_bEUFPKVZQkaoE",
+        "label": "No DVT"
+      },
+      {
+        "filename": "bM2_LN.mov",
+        "stream_url": "https://drive.google.com/uc?id=1teavKftlLx3xUNf4n1QtBDI9d1FlapRj",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "MEB-11-27-25",
+    "total_positive_clips": 5,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "MEB1pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=14yJhPMvACOEbvJrpFa8DO6G3s49b8PMV",
+        "label": "DVT"
+      },
+      {
+        "filename": "MEB2pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Gjxf9iIfkIDOJgkj6QDpuqW51Wia8ztg",
+        "label": "DVT"
+      },
+      {
+        "filename": "MEB3pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1HGnRW9dtJZyiaYH0nYqzWXbr_0Ubl_44",
+        "label": "DVT"
+      },
+      {
+        "filename": "MEB4pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=155fy0SyKZqRGV6YdBkKJ-Qnho1g8iyGo",
+        "label": "DVT"
+      },
+      {
+        "filename": "MEB7pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=14mrjJVhWaHqs3WiVlxJYyxMzMjZ2CkEH",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "AN-8-17-25",
+    "total_positive_clips": 13,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "AN10posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Zv_V3hk66dtvtr6fFrNdl52V-N5ocucG",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN11pos_sag.mov",
+        "stream_url": "https://drive.google.com/uc?id=1nOqaOsVne25jkfwNSYKsw4jes1ffANFA",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN12posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=1dUlVjX6b9HKscVw7lPwimIT9N1XLqngT",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN13pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1npShP1ubLAKFgI92XqW2_L7DeUS6V79_",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN17pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1WJv7S41PafeQOQhUlWrnpEMJW18mD5CX",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN1pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1xgjkohOtIZrEXWZLEnjK3KVhP3Pp8WE4",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN2pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1zMA5jjw5e0KD_tyZ-A4EehCn4br7WK4R",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN3pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1dz8hcjIanIK3lVNPCEMrg2vI4jEomDYp",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN4pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1SPW5WAVkB5eDNCJQszQu2KK7j7rT9O7B",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN6posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=1sI1vVUnttubshMMSnuZVyV-Ko7PW_uJm",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN7pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1bchkCVPTtxQzB0Tyvfyq-s9-wo7EenkM",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN8posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=19ghMcRWvvIsr0vwhBt0XaXn7Maf4LPB7",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN9pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1QexaFM0WrT_9xEGygpUyx2iFfKzgoOP8",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "MG-11-18-25",
+    "total_positive_clips": 5,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "mg11pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=182NP6oquRZNro0vShFcJxSGsQwmqzW2N",
+        "label": "DVT"
+      },
+      {
+        "filename": "mg12pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1r8t75PdteSnQUeFAfcxDm3LE715hkzAg",
+        "label": "DVT"
+      },
+      {
+        "filename": "mg1pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1RwjSj40SudtL8FWwkXgjUTaMyYEY1tQD",
+        "label": "DVT"
+      },
+      {
+        "filename": "mg3pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1f7YU_ennt_f6G4i2-PMfq7b_mL-u3gc6",
+        "label": "DVT"
+      },
+      {
+        "filename": "mg7pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1kGwcoqET4VLPtxsNbVpPD0-Gr_w3UVJJ",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "KJ-8-10-25",
+    "total_positive_clips": 4,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "KJ11pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1u5oWUVj7MBr0XUka9SSoPDph2XM1-8-h",
+        "label": "DVT"
+      },
+      {
+        "filename": "KJ14pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1UzwuZra2QZJqKPGeL0bnWQ_WkHWrI2e4",
+        "label": "DVT"
+      },
+      {
+        "filename": "KJ1pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1opUutrdZXyDoZYZ-KIxgzF9aapfNYnRp",
+        "label": "DVT"
+      },
+      {
+        "filename": "KJ8pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1aGkW2jRFthiAucPWh3esmvFiX8KDG0Qj",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "TN-11-17-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 7,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "TN1neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1mrGkClDHw-45Zqq0hJgYhdPUohIqZCey",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TN3neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1QdUQJiUlJCfGkI4mbUIFOExeBxq48CrX",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TN4neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1xnW3dCl-rd0dC9aNZLyUXv5TcswNDMYu",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TN6neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ZFh54utw0gvf56uw3oU35-Jnf0urac0J",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TN7neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1e6R_E07uAT8L2tDzyUeSuSsc1D1qyr_3",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TN8neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1gooFqN0Z8_GAhqT43CGloBGTHNoQ9fuT",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TN9neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ewXvv-C34gHN_VNAyK4eB2XC5I5N4dIr",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "CD-3-5-23",
+    "total_positive_clips": 10,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "CD10posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=1SwOXXKY6empjLDjCTadNDcByjIeOLny2",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD1_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1znzKf6iLxj0bj7SndH0JMroEJb60xRwb",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD2_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Wpv2WlxUMehS0hoEOuen9Rb9s3D2_gcP",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD3_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1B637JzK9W_hqjgJF4neM0kLmhyAW1Ed6",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD4_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1jFwjudP_SBwwMe09lrKtlUBZH4wrwDWk",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD5posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=1OweTQ1gqkAp3mx4nVraaE_X8wm3JFzZS",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD6_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1egVY7PvxXSwfUOJnAl6lW43AqGgawo-P",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD7posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=1F5F4WbIM0VJ3Wy2QM6wLjnjmQrQo_Tut",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD8_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1qt5L46myD6eBTUSc6UWca3zbJAjuWZRr",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD9_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1teT3zGF_GviUxu0m6-d3mTCT4sSwathD",
+        "label": "DVT"
+      }
+    ]
+  },
+  {
+    "patient": "DM-10-13-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 7,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "dm11neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1xIukSAXdV0Ex77K9p1HwZ4_yWHCNu1FN",
+        "label": "No DVT"
+      },
+      {
+        "filename": "dm1neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1qBN7jp4IRZgIseXMQUGmkMwVzZKK12Ic",
+        "label": "No DVT"
+      },
+      {
+        "filename": "dm2neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1qlUnCFNhANuUytbyGQdFEifDkdnr-OGY",
+        "label": "No DVT"
+      },
+      {
+        "filename": "dm3neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1OsaA59_iUo22I3l2l65XCvP14pRF1a9r",
+        "label": "No DVT"
+      },
+      {
+        "filename": "dm4neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=10hIHeSDfjr4PFDbr2_4pLokrFK0uafDw",
+        "label": "No DVT"
+      },
+      {
+        "filename": "dm5neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1wKyFodDDqsXbAzhDIEby7EjWRdE4kJSF",
+        "label": "No DVT"
+      },
+      {
+        "filename": "dm7neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1TonP-fdP68OCckFBYbDbx8RPAbWV-sNZ",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "MC-10-3-25",
+    "total_positive_clips": 0,
+    "total_negative_clips": 7,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "mc11neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1lcqc_z-won-tBgRTZdk3KVkTt7f118o3",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc1neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ngWEilFGzHu2MgNOKZG1d0Q-wRgBhSmE",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc2neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1VE7Zp3Qw3p1g4wpAE7KOLNRZ9kiENfJ3",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc4neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1KgMUz-Ggg2YvJ0Ve_3SCJVojg7bI495H",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc5neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1YjaEV803ybvZlXtlDgUPkLrail5FBXn5",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc7neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=151IJI7Vbi4nbQvB1Y9SNm88BCljjd-zG",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc9neg.mov",
+        "stream_url": "https://drive.google.com/uc?id=1ACZb0DIDz6c97HRfWkY578gqbDcGjE_n",
+        "label": "No DVT"
+      }
+    ]
+  },
+  {
+    "patient": "LL-3-27-23",
+    "total_positive_clips": 12,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "LL1.mov",
+        "stream_url": "https://drive.google.com/uc?id=1su2bex65-eqzTb7a2t1_XLqWPJflC6Ym",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL10posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=1BAL8rEGb7IG0OpSsRQo1aVAwVm0H7LGi",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL11_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1vnTefGIxU7pKRo4QDOvw7RJtlZIwSb3C",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL12_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1xYAqgREEkAZtSJvkDuj99sG-rzY9BXOR",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL2.mov",
+        "stream_url": "https://drive.google.com/uc?id=1Mji4nBPLWW9QVCli5lWSMj-KQBDdHx4X",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL3.mov",
+        "stream_url": "https://drive.google.com/uc?id=1-JKiWW-UuA_bmi2eGUmuCRE4nnWzV3Up",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL4.mov",
+        "stream_url": "https://drive.google.com/uc?id=1cvYmBHt5l-SVtDN9RPT13yrNFj6bwhDP",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL5_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=126SsOVfvAndFxcIOfc7LYAU4OeZgjZCa",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL6_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=18J7oqsb3ciIypH6yjs348n6Uglg61P3m",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL7posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=16BxhbRgsLFFQTFznj9QHkOjLHhb2NCmf",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL8posCD.mov",
+        "stream_url": "https://drive.google.com/uc?id=16VXJKAxZeRRKqc3c8cgTJ2pK4SZXmVsB",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL9_pos.mov",
+        "stream_url": "https://drive.google.com/uc?id=1k0dr_ZG8f4siJeFl7A5RoNe4ZHhm_N2y",
+        "label": "DVT"
+      }
+    ]
+  }
+]

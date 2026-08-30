@@ -2,10 +2,13 @@
 DVT Case Review — Streamlit Cloud application for clinician QA review.
 
 Results are saved to a Google Sheet owned by the study coordinator.
-Patient data is bundled in the repo (patients_with_dvt.csv).
+Which worklist (model-generated vs. random) this deployment shows is set via
+st.secrets["worklist_file"] -- never shown in the UI, keeping the study
+single-blind. Clip video is streamed from Google Drive (uploaded separately).
 """
 
 import datetime
+import json
 from pathlib import Path
 
 import gspread
@@ -18,7 +21,7 @@ from google.oauth2.service_account import Credentials
 # ──────────────────────────────────────────────
 
 APP_DIR = Path(__file__).parent
-PATIENTS_CSV = APP_DIR / "patients_with_dvt.csv"
+DATA_DIR = APP_DIR / "data"
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -106,6 +109,7 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
         "patient",
         "total_positive_clips",
         "total_negative_clips",
+        "fake_user_interpretation",
         "decision",
         "comments",
         "clinician_first_name",
@@ -126,6 +130,7 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
             pid,
             int(row["total_positive_clips"]),
             int(row["total_negative_clips"]),
+            row.get("fake_user_interpretation", ""),
             rev.get("decision", ""),
             rev.get("comments", ""),
             first_name,
@@ -151,8 +156,25 @@ def _ws_title(clinician: str) -> str:
 
 
 @st.cache_data
-def load_patients() -> pd.DataFrame:
-    return pd.read_csv(PATIENTS_CSV)
+def load_worklist():
+    """
+    Loads the worklist assigned to this deployment via st.secrets["worklist_file"]
+    (e.g. "worklist_model.json" or "worklist_random.json") -- never surfaced in
+    the UI, so clinicians can't tell which arm they're on.
+
+    Returns:
+        patients_df : DataFrame with one row per patient (summary fields only)
+        clips_by_patient : dict[patient_id] -> list of {filename, stream_url, label}
+    """
+    worklist_file = st.secrets.get("worklist_file", "worklist_model.json")
+    path = DATA_DIR / worklist_file
+    data = json.loads(path.read_text())
+
+    patients_df = pd.DataFrame([
+        {k: v for k, v in p.items() if k != "clips"} for p in data
+    ])
+    clips_by_patient = {p["patient"]: p["clips"] for p in data}
+    return patients_df, clips_by_patient
 
 
 # ──────────────────────────────────────────────
@@ -182,6 +204,7 @@ st.markdown(
     .badge-pos { background: #fee2e2; color: #b91c1c; }
     .badge-neg { background: #dcfce7; color: #166534; }
     .badge-total { background: #e0e7ff; color: #3730a3; }
+    .badge-fui { background: #fef3c7; color: #92400e; }
     .progress-text {
         text-align: center; color: #64748b;
         font-size: 0.9rem; margin-bottom: 0.4rem;
@@ -214,7 +237,7 @@ if "first_login" not in st.session_state:
 if "patient_start_time" not in st.session_state:
     st.session_state.patient_start_time = None
 
-patients = load_patients()
+patients, clips_by_patient = load_worklist()
 n_patients = len(patients)
 
 # Connect to Google Sheets
@@ -240,7 +263,8 @@ if st.session_state.page == "login":
     st.markdown("#### How it works")
     st.markdown(
         "1. Enter your name below and click **Start review**.\n"
-        "2. For each case, open the patient's clips in **QPath** and review all clips.\n"
+        "2. For each case, watch the patient's clips using the player and clip "
+        "selector on the page — a reference read is shown alongside each case.\n"
         "3. After reviewing, select the option that best describes your assessment:\n"
         "   - **(a) No action needed** — the exam was performed correctly and "
         "all clips were interpreted correctly.\n"
@@ -311,6 +335,7 @@ if st.session_state.page == "review":
     row = patients.iloc[idx]
     pid = row["patient"]
     total_clips = int(row["total_positive_clips"]) + int(row["total_negative_clips"])
+    fake_interp = str(row.get("fake_user_interpretation", "")).strip().upper()
 
     # ── per-patient timer ─────────────────────
     # Start timer when a new patient is displayed; only reset on patient change
@@ -392,6 +417,7 @@ if st.session_state.page == "review":
             <h2>Patient: {display_name}</h2>
             <div class="clip-badges">
                 <span class="badge-total">Total clips: {total_clips}</span>
+                <span class="badge-fui">Reference read: {fake_interp or "—"}</span>
             </div>
         </div>
         """,
@@ -399,6 +425,25 @@ if st.session_state.page == "review":
     )
     if len(pid) > 12:
         st.caption(f"Full ID: `{pid}`")
+
+    # ── clip viewer ───────────────────────────
+    st.markdown("#### Clips")
+    clips = clips_by_patient.get(pid, [])
+    if not clips:
+        st.warning("No clips found for this patient. Please contact the study coordinator.")
+    else:
+        clip_options = list(range(len(clips)))
+
+        def _clip_label(i):
+            return f"Clip {i + 1} of {len(clips)} — {clips[i]['filename']}"
+
+        sel = st.selectbox(
+            "Select clip to view:",
+            options=clip_options,
+            format_func=_clip_label,
+            key=f"clipsel_{pid}",
+        )
+        st.video(clips[sel]["stream_url"])
 
     # ── review form ───────────────────────────
     st.markdown("#### Your assessment")
@@ -420,14 +465,12 @@ if st.session_state.page == "review":
 
     selected_key = OPTION_KEYS[OPTION_LABELS.index(decision)] if decision else ""
 
-    comments = ""
-    if selected_key in ("b", "c"):
-        comments = st.text_area(
-            "Additional comments (optional)",
-            value=prev_comments,
-            placeholder="Describe what was incorrect or any follow-up notes…",
-            key=f"comments_{pid}",
-        )
+    comments = st.text_area(
+        "Additional comments (optional)",
+        value=prev_comments,
+        placeholder="Any notes on this case…",
+        key=f"comments_{pid}",
+    )
 
     # ── navigation ────────────────────────────
     def _save_current():
