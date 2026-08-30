@@ -44,7 +44,7 @@
   },
   {
     "patient": "BC-1-30-24",
-    "total_positive_clips": 5,
+    "total_positive_clips": 4,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -61,11 +61,6 @@
       {
         "filename": "BC4.mp4",
         "stream_url": "https://drive.google.com/file/d/1334TqTxqsV3pejhF4-Ezj7mObx7S1eny/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "BC5CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/14LI6RDtiZggU4ETtrFgB2fde-y8FcDTY/preview",
         "label": "DVT"
       },
       {
@@ -728,18 +723,13 @@
   },
   {
     "patient": "LL-3-27-23",
-    "total_positive_clips": 12,
+    "total_positive_clips": 9,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
       {
         "filename": "LL1.mp4",
         "stream_url": "https://drive.google.com/file/d/1Ol2PFPmRcHjyydlFalQkLtTwr0tEJbTd/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "LL10CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1PLGbaL1IH8AeafSqBIB3OgjgrF7qGSv9/preview",
         "label": "DVT"
       },
       {
@@ -778,16 +768,6 @@
         "label": "DVT"
       },
       {
-        "filename": "LL7CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/12PTAmlvtiDQL3cNV4nAywJU5STRvRU_s/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "LL8CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1b5rsBdWV5HUXkbUgbYCLO8rt6BDc_8j5/preview",
-        "label": "DVT"
-      },
-      {
         "filename": "LL9.mp4",
         "stream_url": "https://drive.google.com/file/d/1ZXcpMgET_UJpHbSdkuzyN-vO482cajXn/preview",
         "label": "DVT"
@@ -796,23 +776,13 @@
   },
   {
     "patient": "VR-5-10-23",
-    "total_positive_clips": 9,
+    "total_positive_clips": 7,
     "total_negative_clips": 0,
     "fake_user_interpretation": "neg",
     "clips": [
       {
         "filename": "VR10.mp4",
         "stream_url": "https://drive.google.com/file/d/16K9pp0-I2CyGJBaKhJU0ssci2d_XSqqQ/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "VR1_CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1I3j7J_Ovm-bgclzBAEpyrwrNZIUgjtZD/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "VR2_CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1NGE_poKba2S03cfI3F5OomZzFNlA296D/preview",
         "label": "DVT"
       },
       {

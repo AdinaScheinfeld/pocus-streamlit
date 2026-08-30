@@ -49,7 +49,7 @@
   },
   {
     "patient": "MS-9-26-25",
-    "total_positive_clips": 9,
+    "total_positive_clips": 8,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -66,11 +66,6 @@
       {
         "filename": "MS1.mp4",
         "stream_url": "https://drive.google.com/file/d/1j3U35MHJxG_RnRRqyuqSmir8XHIZZxdr/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "MS2_color.mp4",
-        "stream_url": "https://drive.google.com/file/d/1h-8A0-7NrmVqI-Yegy_orA0kp7QFcyup/preview",
         "label": "DVT"
       },
       {
@@ -294,7 +289,7 @@
   },
   {
     "patient": "MJ-10-3-25",
-    "total_positive_clips": 28,
+    "total_positive_clips": 26,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -394,11 +389,6 @@
         "label": "DVT"
       },
       {
-        "filename": "MJ32_color.mp4",
-        "stream_url": "https://drive.google.com/file/d/1JNWtFK6XI3q1wxdmIyL7TeIPcpFBviMS/preview",
-        "label": "DVT"
-      },
-      {
         "filename": "MJ3.mp4",
         "stream_url": "https://drive.google.com/file/d/13Nbd7PdNayQfvdR-hZWdYNmWT-9FlV6x/preview",
         "label": "DVT"
@@ -416,11 +406,6 @@
       {
         "filename": "MJ6.mp4",
         "stream_url": "https://drive.google.com/file/d/1hOmFw1L249Zt3bNBD5Ja6zxjXdmZgcaG/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "MJ6_color.mp4",
-        "stream_url": "https://drive.google.com/file/d/11rEVPuMkDidVPzjNVHNOkwF1J5UuTZyV/preview",
         "label": "DVT"
       },
       {
@@ -687,23 +672,13 @@
   },
   {
     "patient": "AN-8-17-25",
-    "total_positive_clips": 13,
+    "total_positive_clips": 9,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
       {
-        "filename": "AN10CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1YUaE-rvagwJa24qzcBewUhdlt5O3HKbX/preview",
-        "label": "DVT"
-      },
-      {
         "filename": "AN11_sag.mp4",
         "stream_url": "https://drive.google.com/file/d/1req5Oz_iFxya_yqg214WJDfEScxWgW_h/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "AN12CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1-m7dUiVmOZTJDPJdbITea2U1S3z8-0ez/preview",
         "label": "DVT"
       },
       {
@@ -737,18 +712,8 @@
         "label": "DVT"
       },
       {
-        "filename": "AN6CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1fN5ES_lbtc6a_5Nhq7Bs5fmAMJ0gshN3/preview",
-        "label": "DVT"
-      },
-      {
         "filename": "AN7.mp4",
         "stream_url": "https://drive.google.com/file/d/1cqhasIn89o6jfhfiux7yuSivbzAk3lxi/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "AN8CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1nOcZfO5nDNWkTsRZ-BVaXL7lBs3TLmli/preview",
         "label": "DVT"
       },
       {
@@ -864,15 +829,10 @@
   },
   {
     "patient": "CD-3-5-23",
-    "total_positive_clips": 10,
+    "total_positive_clips": 7,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
-      {
-        "filename": "CD10CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1r-1BP605oOdvbo4og7OJ02agMcj_j6n2/preview",
-        "label": "DVT"
-      },
       {
         "filename": "CD1.mp4",
         "stream_url": "https://drive.google.com/file/d/1oXvuVApFuSaJgPeZoYAnIcSwof20erbG/preview",
@@ -894,18 +854,8 @@
         "label": "DVT"
       },
       {
-        "filename": "CD5CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1sc7w8y3UZzzAxpszMrYMQYPi2v0nsZHu/preview",
-        "label": "DVT"
-      },
-      {
         "filename": "CD6.mp4",
         "stream_url": "https://drive.google.com/file/d/1Vb4Or6GarR2INEUnyTLoNpEJ6kjOGwnY/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "CD7CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/194CVs1i3DoXgkuLafy74OfGfDiBOWzl9/preview",
         "label": "DVT"
       },
       {
@@ -1008,18 +958,13 @@
   },
   {
     "patient": "LL-3-27-23",
-    "total_positive_clips": 12,
+    "total_positive_clips": 9,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
       {
         "filename": "LL1.mp4",
         "stream_url": "https://drive.google.com/file/d/1Ol2PFPmRcHjyydlFalQkLtTwr0tEJbTd/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "LL10CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1PLGbaL1IH8AeafSqBIB3OgjgrF7qGSv9/preview",
         "label": "DVT"
       },
       {
@@ -1055,16 +1000,6 @@
       {
         "filename": "LL6.mp4",
         "stream_url": "https://drive.google.com/file/d/1xrE5hnaMwHrdyUYXMVauLT1xSetrFDZd/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "LL7CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/12PTAmlvtiDQL3cNV4nAywJU5STRvRU_s/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "LL8CD.mp4",
-        "stream_url": "https://drive.google.com/file/d/1b5rsBdWV5HUXkbUgbYCLO8rt6BDc_8j5/preview",
         "label": "DVT"
       },
       {
