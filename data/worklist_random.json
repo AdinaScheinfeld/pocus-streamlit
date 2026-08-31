@@ -158,7 +158,7 @@
   },
   {
     "patient": "LC-2-18-24",
-    "total_positive_clips": 4,
+    "total_positive_clips": 3,
     "total_negative_clips": 7,
     "fake_user_interpretation": "neg",
     "clips": [
@@ -186,11 +186,6 @@
         "filename": "LC3.mp4",
         "stream_url": "https://drive.google.com/file/d/1yTIf7FE71j9c0xoGAdrry46LAxmS34Ji/preview",
         "label": "No DVT"
-      },
-      {
-        "filename": "LC4.mp4",
-        "stream_url": "https://drive.google.com/file/d/10MX3lY7tmOVKHl56dLcBue013xqZk1C0/preview",
-        "label": "DVT"
       },
       {
         "filename": "LC5.mp4",
@@ -695,7 +690,7 @@
   },
   {
     "patient": "KJ-8-10-25",
-    "total_positive_clips": 4,
+    "total_positive_clips": 3,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -713,25 +708,15 @@
         "filename": "KJ1.mp4",
         "stream_url": "https://drive.google.com/file/d/1bgs9WMM0kIPi5Amv6-x0obJ5KOl30gnL/preview",
         "label": "DVT"
-      },
-      {
-        "filename": "KJ8.mp4",
-        "stream_url": "https://drive.google.com/file/d/19CJwUTgjRp5Q6ifzCfxTckW5iquejBgy/preview",
-        "label": "DVT"
       }
     ]
   },
   {
     "patient": "LL-3-27-23",
     "total_positive_clips": 5,
-    "total_negative_clips": 4,
+    "total_negative_clips": 3,
     "fake_user_interpretation": "pos",
     "clips": [
-      {
-        "filename": "LL1.mp4",
-        "stream_url": "https://drive.google.com/file/d/1Ol2PFPmRcHjyydlFalQkLtTwr0tEJbTd/preview",
-        "label": "No DVT"
-      },
       {
         "filename": "LL11.mp4",
         "stream_url": "https://drive.google.com/file/d/1GdHgl-NNx0FxeQCGH9YQE7w9IOMEKnmx/preview",
@@ -925,7 +910,7 @@
   },
   {
     "patient": "SJe-9-30-25",
-    "total_positive_clips": 6,
+    "total_positive_clips": 4,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -937,16 +922,6 @@
       {
         "filename": "SJe4.mp4",
         "stream_url": "https://drive.google.com/file/d/1rz7yNMm6w5onpNHcCv7SomRzbH6GWoiI/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "SJe9.mp4",
-        "stream_url": "https://drive.google.com/file/d/1Hpu_bnZQYmxbsWcLClSQO2hLMo1Fx6DR/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "Sje2.mp4",
-        "stream_url": "https://drive.google.com/file/d/1sK3cfze-g9jg7MGkjhDQY5pzsJRFdNIc/preview",
         "label": "DVT"
       },
       {

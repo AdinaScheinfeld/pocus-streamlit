@@ -193,7 +193,7 @@
   },
   {
     "patient": "SJe-9-30-25",
-    "total_positive_clips": 6,
+    "total_positive_clips": 4,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -205,16 +205,6 @@
       {
         "filename": "SJe4.mp4",
         "stream_url": "https://drive.google.com/file/d/1rz7yNMm6w5onpNHcCv7SomRzbH6GWoiI/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "SJe9.mp4",
-        "stream_url": "https://drive.google.com/file/d/1Hpu_bnZQYmxbsWcLClSQO2hLMo1Fx6DR/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "Sje2.mp4",
-        "stream_url": "https://drive.google.com/file/d/1sK3cfze-g9jg7MGkjhDQY5pzsJRFdNIc/preview",
         "label": "DVT"
       },
       {
@@ -231,7 +221,7 @@
   },
   {
     "patient": "MJ2-10-22-25",
-    "total_positive_clips": 7,
+    "total_positive_clips": 6,
     "total_negative_clips": 3,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -273,11 +263,6 @@
       {
         "filename": "MJ2_8.mp4",
         "stream_url": "https://drive.google.com/file/d/1P5mB0I53m7MnrhHU1GNtdyeoqHVpdUyC/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "MJ2_16.mp4",
-        "stream_url": "https://drive.google.com/file/d/1cDkrllYtYtSqDjZY-c1XaFh3-jyevU5b/preview",
         "label": "DVT"
       },
       {
@@ -758,7 +743,7 @@
   },
   {
     "patient": "KJ-8-10-25",
-    "total_positive_clips": 4,
+    "total_positive_clips": 3,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
     "clips": [
@@ -775,11 +760,6 @@
       {
         "filename": "KJ1.mp4",
         "stream_url": "https://drive.google.com/file/d/1bgs9WMM0kIPi5Amv6-x0obJ5KOl30gnL/preview",
-        "label": "DVT"
-      },
-      {
-        "filename": "KJ8.mp4",
-        "stream_url": "https://drive.google.com/file/d/19CJwUTgjRp5Q6ifzCfxTckW5iquejBgy/preview",
         "label": "DVT"
       }
     ]
@@ -959,14 +939,9 @@
   {
     "patient": "LL-3-27-23",
     "total_positive_clips": 5,
-    "total_negative_clips": 4,
+    "total_negative_clips": 3,
     "fake_user_interpretation": "pos",
     "clips": [
-      {
-        "filename": "LL1.mp4",
-        "stream_url": "https://drive.google.com/file/d/1Ol2PFPmRcHjyydlFalQkLtTwr0tEJbTd/preview",
-        "label": "No DVT"
-      },
       {
         "filename": "LL11.mp4",
         "stream_url": "https://drive.google.com/file/d/1GdHgl-NNx0FxeQCGH9YQE7w9IOMEKnmx/preview",
