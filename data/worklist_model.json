@@ -1,8 +1,8 @@
 [
   {
     "patient": "CA-10-10-25",
-    "total_positive_clips": 8,
-    "total_negative_clips": 0,
+    "total_positive_clips": 5,
+    "total_negative_clips": 3,
     "fake_user_interpretation": "pos",
     "clips": [
       {
@@ -13,7 +13,7 @@
       {
         "filename": "ca1.mp4",
         "stream_url": "https://drive.google.com/file/d/1S_fExUfeS-bVtNXBZOCex4-YovZZDIKK/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "ca14.mp4",
@@ -28,12 +28,12 @@
       {
         "filename": "ca2.mp4",
         "stream_url": "https://drive.google.com/file/d/1THXlBAS15z9Ly9BYAjYtVzdMXwIbmR6k/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "ca3.mp4",
         "stream_url": "https://drive.google.com/file/d/1Iy74j0b25TylRbnlaflF0gYklva-AAaU/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "ca4.mp4",
@@ -231,8 +231,8 @@
   },
   {
     "patient": "MJ2-10-22-25",
-    "total_positive_clips": 10,
-    "total_negative_clips": 0,
+    "total_positive_clips": 7,
+    "total_negative_clips": 3,
     "fake_user_interpretation": "pos",
     "clips": [
       {
@@ -258,17 +258,17 @@
       {
         "filename": "MJ2_1.mp4",
         "stream_url": "https://drive.google.com/file/d/1IaHGxKG1Kyz4rYxMJB697arB7iMzG-Wh/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ2_2.mp4",
         "stream_url": "https://drive.google.com/file/d/1A3izMgtA6un1aN7SW4zpACtfDchYBMJT/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ2_3.mp4",
         "stream_url": "https://drive.google.com/file/d/11vSJ-WqA_nUAOZFku8A0SkWjgHG2u1ZM/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ2_8.mp4",
@@ -289,8 +289,8 @@
   },
   {
     "patient": "MJ-10-3-25",
-    "total_positive_clips": 26,
-    "total_negative_clips": 0,
+    "total_positive_clips": 15,
+    "total_negative_clips": 11,
     "fake_user_interpretation": "pos",
     "clips": [
       {
@@ -316,7 +316,7 @@
       {
         "filename": "MJ17.mp4",
         "stream_url": "https://drive.google.com/file/d/161VaeCYU6CfN8ZXaJSMX-aYKQfSreQ7x/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ18.mp4",
@@ -331,47 +331,47 @@
       {
         "filename": "MJ20.mp4",
         "stream_url": "https://drive.google.com/file/d/1KC0rEgTTNGIcPV22SvvpCzgcZxh-F2Dc/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ21.mp4",
         "stream_url": "https://drive.google.com/file/d/10f7nO1yjnxfXBnUaCx5LmDCPBnqWo5Lx/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ22.mp4",
         "stream_url": "https://drive.google.com/file/d/12rxPNOR1lmq2QUUluBQZodmpytmqQM5V/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ23.mp4",
         "stream_url": "https://drive.google.com/file/d/1KCGW7HFrb0lT3PWHw3iJb9y69fpLPjbR/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ25.mp4",
         "stream_url": "https://drive.google.com/file/d/1cN9k0dhXeyul3-MN-eLrkW4UgRqBLpuz/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ26.mp4",
         "stream_url": "https://drive.google.com/file/d/10hAiS4AOKnDE6Dt6pwsuHjZ9WNykHZEL/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ27.mp4",
         "stream_url": "https://drive.google.com/file/d/1sCkqMvLCZg5Q1zYd_QeVMoSUy6kmv-oi/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ28.mp4",
         "stream_url": "https://drive.google.com/file/d/1pK0bzBkzLmG6j-iuzScqmw5fVMs8DkvL/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ29.mp4",
         "stream_url": "https://drive.google.com/file/d/1MSxMkvQhCWzoIzBuOlkR6_KlJPTeqqVQ/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ2.mp4",
@@ -381,7 +381,7 @@
       {
         "filename": "MJ30.mp4",
         "stream_url": "https://drive.google.com/file/d/10ikrug9uZUKbqnzDI3m_qMaqhGjZJ8Hq/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "MJ31.mp4",
@@ -427,14 +427,14 @@
   },
   {
     "patient": "PA-10-11-25",
-    "total_positive_clips": 0,
-    "total_negative_clips": 5,
+    "total_positive_clips": 1,
+    "total_negative_clips": 4,
     "fake_user_interpretation": "pos",
     "clips": [
       {
         "filename": "PAfalse.mp4",
         "stream_url": "https://drive.google.com/file/d/1PKJSLrW7vzB3c1_teFZC7Adk5QGr21_E/preview",
-        "label": "No DVT"
+        "label": "DVT"
       },
       {
         "filename": "pa7.mp4",
@@ -958,14 +958,14 @@
   },
   {
     "patient": "LL-3-27-23",
-    "total_positive_clips": 9,
-    "total_negative_clips": 0,
+    "total_positive_clips": 5,
+    "total_negative_clips": 4,
     "fake_user_interpretation": "pos",
     "clips": [
       {
         "filename": "LL1.mp4",
         "stream_url": "https://drive.google.com/file/d/1Ol2PFPmRcHjyydlFalQkLtTwr0tEJbTd/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "LL11.mp4",
@@ -980,17 +980,17 @@
       {
         "filename": "LL2.mp4",
         "stream_url": "https://drive.google.com/file/d/12pDDaqXHRziRHEgJwhtF3nZ8oWFPxaS-/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "LL3.mp4",
         "stream_url": "https://drive.google.com/file/d/1eqCdNPE7-vm8otZkpCPievp3WZUezFcw/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "LL4.mp4",
         "stream_url": "https://drive.google.com/file/d/1UvWnIUzsB19WPbP-HDBIT8hiLNsThF2X/preview",
-        "label": "DVT"
+        "label": "No DVT"
       },
       {
         "filename": "LL5.mp4",

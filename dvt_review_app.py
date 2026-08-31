@@ -32,7 +32,7 @@ SCOPES = [
 REVIEW_OPTIONS = {
     "a": "No action needed: exam and interpretation both correct.",
     "b": "Action required: technique issue; provider needs education.",
-    "c": "Action required: interpretation error; patient needs callback.",
+    "c": "Action required: interpretation error; clip interpreted incorrectly.",
 }
 
 OPTION_LABELS = list(REVIEW_OPTIONS.values())
@@ -67,7 +67,12 @@ def get_or_create_worksheet(spreadsheet, title, headers):
 
 
 def load_existing_reviews(spreadsheet, clinician: str) -> tuple[dict, str]:
-    """Load previously saved reviews and first_login for this clinician."""
+    """
+    Load previously saved reviews and first_login for this clinician.
+    The sheet has one row per clip, so this reconstructs:
+        out[patient] = {"time_spent_seconds": float,
+                         "clips": {clip_filename: {decision, comments, reviewed_at}}}
+    """
     safe_title = _ws_title(clinician)
     try:
         ws = spreadsheet.worksheet(safe_title)
@@ -80,27 +85,33 @@ def load_existing_reviews(spreadsheet, clinician: str) -> tuple[dict, str]:
     for r in rows:
         if not first_login and r.get("first_login", "").strip():
             first_login = r["first_login"]
-        # Only load rows where a decision was actually made
+        pid = r.get("patient", "")
+        if not pid:
+            continue
+        entry = out.setdefault(pid, {"time_spent_seconds": 0.0, "clips": {}})
+        t = float(r.get("time_spent_seconds", 0) or 0)
+        if t:
+            entry["time_spent_seconds"] = t
+        # Only load clips where a decision was actually made
         if r.get("decision", "").strip():
-            out[r["patient"]] = {
+            entry["clips"][r.get("clip_filename", "")] = {
                 "decision": r.get("decision", ""),
                 "comments": r.get("comments", ""),
                 "reviewed_at": r.get("reviewed_at", ""),
-                "time_spent_seconds": float(r.get("time_spent_seconds", 0) or 0),
             }
     return out, first_login
 
 
-def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
+def save_all_reviews(spreadsheet, clinician: str, patients_df, clips_by_patient, reviews: dict,
                      first_login: str = "", latest_login: str = "",
                      first_name: str = "", last_name: str = ""):
-    """Overwrite the clinician's worksheet with current reviews."""
+    """Overwrite the clinician's worksheet with current reviews, one row per clip."""
     headers = [
         "case_number",
         "worklist_arm",
         "patient",
-        "total_positive_clips",
-        "total_negative_clips",
+        "clip_filename",
+        "ground_truth",
         "fake_user_interpretation",
         "decision",
         "comments",
@@ -118,22 +129,26 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, reviews: dict,
     for i, (_, row) in enumerate(patients_df.iterrows(), start=1):
         pid = row["patient"]
         rev = reviews.get(pid, {})
-        rows.append([
-            i,
-            arm,
-            pid,
-            int(row["total_positive_clips"]),
-            int(row["total_negative_clips"]),
-            row.get("fake_user_interpretation", ""),
-            rev.get("decision", ""),
-            rev.get("comments", ""),
-            first_name,
-            last_name,
-            rev.get("reviewed_at", ""),
-            round(rev.get("time_spent_seconds", 0), 1),
-            first_login,
-            latest_login,
-        ])
+        clip_reviews = rev.get("clips", {})
+        t = round(rev.get("time_spent_seconds", 0), 1)
+        for clip in clips_by_patient.get(pid, []):
+            cr = clip_reviews.get(clip["filename"], {})
+            rows.append([
+                i,
+                arm,
+                pid,
+                clip["filename"],
+                clip["label"],
+                row.get("fake_user_interpretation", ""),
+                cr.get("decision", ""),
+                cr.get("comments", ""),
+                first_name,
+                last_name,
+                cr.get("reviewed_at", ""),
+                t,
+                first_login,
+                latest_login,
+            ])
 
     ws.clear()
     ws.update(rows, value_input_option="RAW")
@@ -276,17 +291,17 @@ if st.session_state.page == "login":
     st.markdown("#### How it works")
     st.markdown(
         "1. Enter your name below and select **Start review**.\n"
-        "2. For each case, review the patient's clips using the player and clip "
-        "selector on the page; a reference read is shown for each case.\n"
-        "3. Select the option that best describes your assessment:\n"
-        "   - **(a) No action needed.** The exam was performed correctly and "
-        "all clips were interpreted correctly.\n"
-        "   - **(b) Action required (technique).** The exam was performed "
-        "incorrectly and the provider requires education on technique.\n"
-        "   - **(c) Action required (interpretation).** Clip(s) were interpreted "
-        "incorrectly (DVT-positive read as negative or vice versa) and the "
-        "patient needs to be called back.\n"
-        "4. Select **Save** or **Next** to record your assessment and continue."
+        "2. Each case lists all of that patient's clips; a reference read is "
+        "shown for the case. Watch each clip using its player.\n"
+        "3. For **each clip**, select the option that best describes your "
+        "assessment of that clip:\n"
+        "   - **(a) No action needed.** Exam and interpretation both correct.\n"
+        "   - **(b) Action required (technique).** Exam performed incorrectly; "
+        "provider needs education.\n"
+        "   - **(c) Action required (interpretation).** Clip interpreted "
+        "incorrectly.\n"
+        "4. A case is complete once every clip has an assessment selected. "
+        "Select **Save** or **Next** to record your progress and continue."
     )
 
     st.info(
@@ -345,6 +360,14 @@ if st.session_state.page == "review":
     total_clips = int(row["total_positive_clips"]) + int(row["total_negative_clips"])
     fake_interp = str(row.get("fake_user_interpretation", "")).strip().upper()
 
+    def _patient_complete(p) -> bool:
+        """A patient is complete only once every one of its clips has a decision."""
+        clips = clips_by_patient.get(p, [])
+        if not clips:
+            return False
+        clip_reviews = st.session_state.reviews.get(p, {}).get("clips", {})
+        return all(clip_reviews.get(c["filename"], {}).get("decision", "") for c in clips)
+
     # ── per-patient timer ─────────────────────
     # Start timer when a new patient is displayed; only reset on patient change
     if st.session_state.get("_current_pid") != pid:
@@ -373,9 +396,7 @@ if st.session_state.page == "review":
     # ── sidebar ───────────────────────────────
     with st.sidebar:
         st.markdown(f"**Reviewer:** {clinician}")
-        reviewed = sum(
-            1 for p in patients["patient"] if st.session_state.reviews.get(p, {}).get("decision", "")
-        )
+        reviewed = sum(1 for p in patients["patient"] if _patient_complete(p))
         st.progress(reviewed / n_patients)
         st.caption(f"{reviewed} / {n_patients} cases reviewed")
         st.divider()
@@ -383,7 +404,7 @@ if st.session_state.page == "review":
         st.markdown("**Jump to case**")
         for i, p in enumerate(patients["patient"]):
             label = p if len(p) <= 12 else p[:8] + "…"
-            icon = "●" if st.session_state.reviews.get(p, {}).get("decision", "") else "○"
+            icon = "●" if _patient_complete(p) else "○"
             is_current = (i == idx)
             if st.button(
                 f"{icon}  {i + 1}. {label}",
@@ -400,7 +421,7 @@ if st.session_state.page == "review":
             _accumulate_time()
             if sheets_ok:
                 save_all_reviews(
-                    spreadsheet, clinician, patients, st.session_state.reviews,
+                    spreadsheet, clinician, patients, clips_by_patient, st.session_state.reviews,
                     first_login=st.session_state.first_login,
                     latest_login=st.session_state.session_start,
                     first_name=st.session_state.clinician_first,
@@ -428,71 +449,64 @@ if st.session_state.page == "review":
     if len(pid) > 16:
         st.caption(f"Full ID: `{pid}`")
 
-    # ── clip viewer ───────────────────────────
+    # ── per-clip viewer + assessment ───────────
     clips = clips_by_patient.get(pid, [])
     if not clips:
         st.warning("No clips found for this patient. Please contact the study coordinator.")
-    else:
-        clip_options = list(range(len(clips)))
 
-        def _clip_label(i):
-            return f"Clip {i + 1} of {len(clips)}"
+    prev_clip_reviews = st.session_state.reviews.get(pid, {}).get("clips", {})
+    clip_inputs = []  # collected here, read back by _save_current below
 
-        sel = st.selectbox(
-            "Clip",
-            options=clip_options,
-            format_func=_clip_label,
-            key=f"clipsel_{pid}",
-        )
-        # Embedded via Google Drive's own player (iframe), not st.video() --
-        # Drive's raw-file download links have no file extension and report
-        # a generic octet-stream content-type, which many browsers refuse to
-        # play inline in a <video> tag. The /preview endpoint serves an actual
-        # HTML page with Drive's hosted player, which handles decoding itself.
-        components.iframe(clips[sel]["stream_url"], height=320)
+    for i, clip in enumerate(clips):
+        prev = prev_clip_reviews.get(clip["filename"], {})
+        prev_decision = prev.get("decision", "")
+        done = "●" if prev_decision else "○"
 
-    # ── review form ───────────────────────────
-    prev = st.session_state.reviews.get(pid, {})
-    prev_decision = prev.get("decision", "")
-    prev_comments = prev.get("comments", "")
+        with st.expander(f"{done}  Clip {i + 1} of {len(clips)}", expanded=False):
+            # Embedded via Google Drive's own player (iframe), not st.video() --
+            # Drive's raw-file download links have no file extension and report
+            # a generic octet-stream content-type, which many browsers refuse to
+            # play inline in a <video> tag. The /preview endpoint serves an actual
+            # HTML page with Drive's hosted player, which handles decoding itself.
+            components.iframe(clip["stream_url"], height=300)
 
-    default_idx = (
-        OPTION_KEYS.index(prev_decision) if prev_decision in OPTION_KEYS else None
-    )
-
-    decision = st.radio(
-        "Assessment",
-        options=OPTION_LABELS,
-        index=default_idx,
-        key=f"radio_{pid}",
-    )
-
-    selected_key = OPTION_KEYS[OPTION_LABELS.index(decision)] if decision else ""
-
-    comments = st.text_area(
-        "Additional comments (optional)",
-        value=prev_comments,
-        placeholder="Any notes on this case…",
-        key=f"comments_{pid}",
-    )
+            default_idx = (
+                OPTION_KEYS.index(prev_decision) if prev_decision in OPTION_KEYS else None
+            )
+            decision = st.radio(
+                "Assessment",
+                options=OPTION_LABELS,
+                index=default_idx,
+                key=f"radio_{pid}_{i}",
+            )
+            comments = st.text_area(
+                "Additional comments (optional)",
+                value=prev.get("comments", ""),
+                placeholder="Any notes on this clip…",
+                key=f"comments_{pid}_{i}",
+            )
+        selected_key = OPTION_KEYS[OPTION_LABELS.index(decision)] if decision else ""
+        clip_inputs.append((clip["filename"], selected_key, comments, prev.get("reviewed_at", "")))
 
     # ── navigation ────────────────────────────
     def _save_current():
         _accumulate_time()
-        existing = st.session_state.reviews.get(pid, {})
-        existing.update({
-            "decision": selected_key,
-            "comments": comments,
-            "reviewed_at": datetime.datetime.now().isoformat(),
-        })
-        st.session_state.reviews[pid] = existing
+        entry = st.session_state.reviews.setdefault(pid, {"time_spent_seconds": 0.0, "clips": {}})
+        entry.setdefault("clips", {})
+        now = datetime.datetime.now().isoformat()
+        for filename, selected_key, comments, prev_reviewed_at in clip_inputs:
+            entry["clips"][filename] = {
+                "decision": selected_key,
+                "comments": comments,
+                "reviewed_at": now if selected_key else prev_reviewed_at,
+            }
         if sheets_ok:
             save_all_reviews(
-                spreadsheet, clinician, patients, st.session_state.reviews,
+                spreadsheet, clinician, patients, clips_by_patient, st.session_state.reviews,
                 first_login=st.session_state.first_login,
-                    latest_login=st.session_state.session_start,
-                    first_name=st.session_state.clinician_first,
-                    last_name=st.session_state.clinician_last,
+                latest_login=st.session_state.session_start,
+                first_name=st.session_state.clinician_first,
+                last_name=st.session_state.clinician_last,
             )
 
     col_prev, col_save, col_next = st.columns([1, 1, 1])
@@ -504,39 +518,23 @@ if st.session_state.page == "review":
             st.rerun()
 
     with col_save:
-        if st.button(
-            "Save",
-            type="primary",
-            use_container_width=True,
-            disabled=decision is None,
-        ):
+        if st.button("Save", type="primary", use_container_width=True):
             _save_current()
             st.toast(f"Saved review for {display_name}")
 
     with col_next:
         if idx < n_patients - 1 and st.button("Next →", use_container_width=True):
-            if decision is not None:
-                _save_current()
+            _save_current()
             st.session_state.idx += 1
             st.rerun()
 
     # ── finish ────────────────────────────────
-    reviewed = sum(
-        1 for p in patients["patient"] if st.session_state.reviews.get(p, {}).get("decision", "")
-    )
+    reviewed = sum(1 for p in patients["patient"] if _patient_complete(p))
     if reviewed == n_patients:
         st.divider()
         st.success("All cases reviewed!")
         if st.button("View summary & finish", type="primary"):
-            _accumulate_time()
-            if sheets_ok:
-                save_all_reviews(
-                    spreadsheet, clinician, patients, st.session_state.reviews,
-                    first_login=st.session_state.first_login,
-                    latest_login=st.session_state.session_start,
-                    first_name=st.session_state.clinician_first,
-                    last_name=st.session_state.clinician_last,
-                )
+            _save_current()
             st.session_state.page = "done"
             st.rerun()
 
@@ -562,24 +560,27 @@ if st.session_state.page == "done":
     rows = []
     for _, row in patients.iterrows():
         pid = row["patient"]
-        rev = st.session_state.reviews.get(pid, {})
-        t = rev.get("time_spent_seconds", 0)
+        clips = clips_by_patient.get(pid, [])
+        clip_reviews = st.session_state.reviews.get(pid, {}).get("clips", {})
+        decisions = [clip_reviews.get(c["filename"], {}).get("decision", "") for c in clips]
+        n_done = sum(1 for d in decisions if d)
+        action_needed = "Yes" if any(d in ("b", "c") for d in decisions) else "No"
+        t = st.session_state.reviews.get(pid, {}).get("time_spent_seconds", 0)
         rows.append({
             "Patient": pid if len(pid) <= 16 else pid[:12] + "…",
-            "Total clips": int(row["total_positive_clips"]) + int(row["total_negative_clips"]),
-            "Decision": rev.get("decision", "N/A").upper(),
+            "Clips reviewed": f"{n_done}/{len(clips)}",
+            "Action needed": action_needed,
             "Time (sec)": round(t, 1) if t else "N/A",
-            "Comments": rev.get("comments", ""),
         })
     summary_df = pd.DataFrame(rows)
 
-    def highlight_decision(val):
-        colors = {"A": "#eef3ee", "B": "#f7f1e3", "C": "#f5eaea"}
-        bg = colors.get(val.strip(), "")
+    def highlight_action(val):
+        colors = {"Yes": "#f5eaea", "No": "#eef3ee"}
+        bg = colors.get(val, "")
         return f"background-color: {bg}" if bg else ""
 
     st.dataframe(
-        summary_df.style.map(highlight_decision, subset=["Decision"]),
+        summary_df.style.map(highlight_action, subset=["Action needed"]),
         use_container_width=True,
         hide_index=True,
     )
