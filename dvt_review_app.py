@@ -462,7 +462,7 @@ if st.session_state.page == "review":
         prev_decision = prev.get("decision", "")
         done = "●" if prev_decision else "○"
 
-        with st.expander(f"{done}  Clip {i + 1} of {len(clips)}", expanded=False):
+        with st.expander(f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})", expanded=False):
             # Embedded via Google Drive's own player (iframe), not st.video() --
             # Drive's raw-file download links have no file extension and report
             # a generic octet-stream content-type, which many browsers refuse to
