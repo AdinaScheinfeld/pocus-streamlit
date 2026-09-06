@@ -14,6 +14,7 @@ from pathlib import Path
 
 import gspread
 import pandas as pd
+import requests
 import streamlit as st
 import streamlit.components.v1 as components
 from google.oauth2.service_account import Credentials
@@ -88,10 +89,31 @@ def _sticky_panel_js(marker_id: str, css_class: str) -> str:
 
 def _drive_direct_url(preview_url: str) -> str:
     """Convert a Drive '.../file/d/<ID>/preview' link to a direct,
-    range-seekable video/mp4 URL suitable for a native <video> tag."""
+    range-seekable video/mp4 URL."""
     m = re.search(r"/d/([^/]+)/", preview_url)
     file_id = m.group(1) if m else preview_url
     return f"https://drive.usercontent.google.com/download?id={file_id}&export=download"
+
+
+@st.cache_data(show_spinner=False, ttl=1800, max_entries=200)
+def _fetch_clip_bytes(preview_url: str) -> bytes:
+    """
+    Download one clip's raw bytes server-side and cache them.
+
+    _drive_direct_url serves the right content-type with open CORS, but its
+    response also carries "Cross-Origin-Resource-Policy: same-site" -- a
+    browser-enforced header (curl doesn't check it, which is why testing with
+    curl alone missed this) that silently blocks a page on a different site
+    (our *.streamlit.app domain) from loading it directly into a <video src>,
+    even though the resource itself looks perfectly loadable. Fetching the
+    bytes here, server-side, isn't subject to that browser policy; handing
+    st.video() the raw bytes instead of the URL makes it serve them from
+    Streamlit's own origin, which the browser has no reason to block.
+    """
+    url = _drive_direct_url(preview_url)
+    resp = requests.get(url, timeout=30)
+    resp.raise_for_status()
+    return resp.content
 
 
 REVIEW_OPTIONS = {
@@ -591,13 +613,17 @@ if st.session_state.page == "review":
             done = "●" if prev_decision else "○"
 
             with st.expander(f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})", expanded=False):
-                # st.video (not components.html) -- components.html renders
-                # inside its own sandboxed iframe, which blocked autoplay/
-                # playback entirely. st.video is a native Streamlit element
-                # with direct autoplay/loop/muted support. No ground-truth
-                # label is shown here: the reviewer's assessment must be
-                # independent of it.
-                st.video(_drive_direct_url(clip["stream_url"]), autoplay=True, loop=True, muted=True)
+                # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
+                # direct-download response is browser-blocked cross-site (see
+                # that function's docstring), so st.video must be given the
+                # actual bytes to serve from Streamlit's own origin. No
+                # ground-truth label is shown here: the reviewer's assessment
+                # must be independent of it.
+                try:
+                    clip_bytes = _fetch_clip_bytes(clip["stream_url"])
+                    st.video(clip_bytes, autoplay=True, loop=True, muted=True)
+                except Exception as e:
+                    st.error(f"Could not load this clip's video: {e}")
 
                 default_idx = (
                     OPTION_KEYS.index(prev_decision) if prev_decision in OPTION_KEYS else None
