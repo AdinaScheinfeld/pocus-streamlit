@@ -628,20 +628,30 @@ if st.session_state.page == "review":
             prev_decision = prev.get("decision", "")
             done = "●" if prev_decision else "○"
 
-            exp_key = f"exp_{pid}_{i}"
-            with st.expander(
-                f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})",
-                expanded=st.session_state.get(exp_key, False),
-                key=exp_key,
-            ):
-                # Video is fetched only while this specific expander is open
-                # (st.session_state[exp_key], kept in sync by Streamlit since
-                # the expander has a key) -- not unconditionally, which is
-                # what previously made every patient page fetch all ~8 clips
-                # immediately regardless of whether any were opened.
-                # _fetch_clip_bytes is itself cached, so re-opening a clip
-                # already viewed is instant.
-                if st.session_state.get(exp_key, False):
+            radio_key = f"radio_{pid}_{i}"
+            comments_key = f"comments_{pid}_{i}"
+            # Pre-seed session_state from the last saved answer, once, so the
+            # widgets below need no "index="/"value=" (which Streamlit would
+            # otherwise fight with the key on every later rerun) and so a
+            # previously-made choice survives the clip being collapsed again.
+            if radio_key not in st.session_state:
+                st.session_state[radio_key] = (
+                    OPTION_LABELS[OPTION_KEYS.index(prev_decision)] if prev_decision in OPTION_KEYS else None
+                )
+            if comments_key not in st.session_state:
+                st.session_state[comments_key] = prev.get("comments", "")
+
+            # st.toggle (not st.expander) -- its return value is a plain,
+            # always-current bool with no ambiguity about when it updates,
+            # unlike st.expander's key-tracked open/closed state, which
+            # turned out not to behave the way its docs implied and left the
+            # clip un-rendered entirely. One click both reveals the clip and
+            # starts it playing.
+            label = f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})"
+            is_shown = st.toggle(label, key=f"show_{pid}_{i}")
+
+            if is_shown:
+                with st.container(border=True):
                     # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
                     # direct-download response is browser-blocked cross-site
                     # (see that function's docstring), so st.video must be
@@ -654,22 +664,16 @@ if st.session_state.page == "review":
                     except Exception as e:
                         st.error(f"Could not load this clip's video: {e}")
 
-                default_idx = (
-                    OPTION_KEYS.index(prev_decision) if prev_decision in OPTION_KEYS else None
-                )
-                decision = st.radio(
-                    "Assessment",
-                    options=OPTION_LABELS,
-                    index=default_idx,
-                    key=f"radio_{pid}_{i}",
-                )
-                comments = st.text_area(
-                    "Additional comments (optional)",
-                    value=prev.get("comments", ""),
-                    placeholder="Any notes on this clip…",
-                    key=f"comments_{pid}_{i}",
-                )
-            selected_key = OPTION_KEYS[OPTION_LABELS.index(decision)] if decision else ""
+                    st.radio("Assessment", options=OPTION_LABELS, key=radio_key)
+                    st.text_area(
+                        "Additional comments (optional)",
+                        placeholder="Any notes on this clip…",
+                        key=comments_key,
+                    )
+
+            decision_label = st.session_state[radio_key]
+            comments = st.session_state[comments_key]
+            selected_key = OPTION_KEYS[OPTION_LABELS.index(decision_label)] if decision_label else ""
             clip_inputs.append((clip["filename"], selected_key, comments, prev.get("reviewed_at", "")))
 
     with panel_col:
