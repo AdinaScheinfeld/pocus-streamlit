@@ -376,6 +376,20 @@ st.markdown(
         background: #eaf0f7;
         color: #16324f;
     }
+
+    /* Cap clip video height so the video and its assessment options are
+       both visible on screen at once without scrolling within the clip.
+       Plain "video" tag selector (not a data-testid guess) so this doesn't
+       depend on Streamlit's internal markup for st.video's wrapper --
+       !important because Streamlit sets width/height inline on the <video>
+       element itself, which otherwise wins over an ordinary CSS rule. */
+    video {
+        max-height: 230px !important;
+        width: auto !important;
+        max-width: 100% !important;
+        display: block;
+        margin: 0 auto;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -430,8 +444,9 @@ if st.session_state.page == "login":
     st.markdown("#### How it works")
     st.markdown(
         "1. Enter your name below and select **Start review**.\n"
-        "2. Each case lists all of that patient's clips, which play automatically "
-        "in a loop once opened — no need to keep clicking play.\n"
+        "2. Each case lists all of that patient's clips. Open a clip and "
+        "select **Play clip** once — it will then loop continuously, no "
+        "need to keep clicking play.\n"
         "3. For **each clip**, select the option that best describes your "
         "assessment of that clip:\n"
         "   - **Pos** — vein does not fully compress (thrombus suspected).\n"
@@ -613,17 +628,35 @@ if st.session_state.page == "review":
             done = "●" if prev_decision else "○"
 
             with st.expander(f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})", expanded=False):
-                # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
-                # direct-download response is browser-blocked cross-site (see
-                # that function's docstring), so st.video must be given the
-                # actual bytes to serve from Streamlit's own origin. No
-                # ground-truth label is shown here: the reviewer's assessment
-                # must be independent of it.
-                try:
-                    clip_bytes = _fetch_clip_bytes(clip["stream_url"])
-                    st.video(clip_bytes, autoplay=True, loop=True, muted=True)
-                except Exception as e:
-                    st.error(f"Could not load this clip's video: {e}")
+                # Video is loaded on demand, not automatically -- st.expander's
+                # contents run in Python on every rerun regardless of whether
+                # it's visually collapsed, so fetching+rendering every clip's
+                # video unconditionally here meant all ~8 clips downloaded on
+                # every patient page load, even ones never opened. Gating the
+                # fetch behind this explicit toggle (plain session_state, so
+                # this is certain to work the same in any Streamlit version)
+                # makes each patient page load instantly; only clips actually
+                # played get downloaded.
+                load_key = f"load_clip_{pid}_{i}"
+                if load_key not in st.session_state:
+                    st.session_state[load_key] = False
+
+                if not st.session_state[load_key]:
+                    if st.button("▶ Play clip", key=f"playbtn_{pid}_{i}"):
+                        st.session_state[load_key] = True
+                        st.rerun()
+                else:
+                    # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
+                    # direct-download response is browser-blocked cross-site
+                    # (see that function's docstring), so st.video must be
+                    # given the actual bytes to serve from Streamlit's own
+                    # origin. No ground-truth label is shown here: the
+                    # reviewer's assessment must be independent of it.
+                    try:
+                        clip_bytes = _fetch_clip_bytes(clip["stream_url"])
+                        st.video(clip_bytes, autoplay=True, loop=True, muted=True)
+                    except Exception as e:
+                        st.error(f"Could not load this clip's video: {e}")
 
                 default_idx = (
                     OPTION_KEYS.index(prev_decision) if prev_decision in OPTION_KEYS else None
