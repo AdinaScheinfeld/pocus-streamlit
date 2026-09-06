@@ -43,6 +43,49 @@ SCOPES = [
 # support -- so a native <video> tag works and actually supports loop.
 
 
+def _sticky_panel_js(marker_id: str, css_class: str) -> str:
+    """
+    Find the Streamlit column that contains the element with id=marker_id
+    and add css_class to it, so that column can be styled (sticky + boxed)
+    via a plain CSS rule on that class.
+
+    Runs via components.html, which renders in its own iframe but (with
+    Streamlit's default sandbox, which includes allow-same-origin) can still
+    reach the real page through window.parent.document -- the standard way
+    community Streamlit components inject page-level DOM tweaks. Walking up
+    from the marker to "the ancestor with a previous sibling" finds the
+    column flex-item structurally, without hardcoding Streamlit's internal
+    data-testid names, which aren't documented and change across versions.
+    """
+    return f"""
+    <script>
+    (function() {{
+        function apply() {{
+            var doc = window.parent.document;
+            var marker = doc.getElementById("{marker_id}");
+            if (!marker) return false;
+            var el = marker;
+            for (var i = 0; i < 8 && el; i++) {{
+                el = el.parentElement;
+                if (el && el.previousElementSibling) {{
+                    el.classList.add("{css_class}");
+                    return true;
+                }}
+            }}
+            return false;
+        }}
+        if (!apply()) {{
+            var tries = 0;
+            var iv = setInterval(function() {{
+                tries++;
+                if (apply() || tries > 25) clearInterval(iv);
+            }}, 200);
+        }}
+    }})();
+    </script>
+    """
+
+
 def _drive_direct_url(preview_url: str) -> str:
     """Convert a Drive '.../file/d/<ID>/preview' link to a direct,
     range-seekable video/mp4 URL suitable for a native <video> tag."""
@@ -50,22 +93,6 @@ def _drive_direct_url(preview_url: str) -> str:
     file_id = m.group(1) if m else preview_url
     return f"https://drive.usercontent.google.com/download?id={file_id}&export=download"
 
-
-def _video_embed_html(preview_url: str, height: int = 300) -> str:
-    """
-    Autoplaying, looping, muted <video> element for one clip.
-
-    Muted is required for autoplay to be permitted by browser policy;
-    "controls" is kept so a reviewer can still pause/seek/unmute manually.
-    """
-    url = _drive_direct_url(preview_url)
-    return f"""
-    <video src="{url}" autoplay loop muted playsinline controls
-           style="width:100%; max-height:{height}px; display:block;
-                  border-radius:6px; background:#000;">
-        Your browser does not support embedded video.
-    </video>
-    """
 
 REVIEW_OPTIONS = {
     "pos": "Pos — vein does not fully compress (thrombus suspected)",
@@ -298,15 +325,13 @@ st.markdown(
 
     div[data-testid="stTextArea"] textarea { min-height: 68px; }
 
-    /* Floating patient-level panel: the column containing the
-       #patient-panel-marker div is made sticky (stays in view on the right
-       while the reviewer scrolls through clips) and boxed. Styling the real
-       column wrapper via :has() -- rather than a hand-written <div> spanning
-       separate st.markdown calls -- because Streamlit renders each call as
-       its own sibling block, not a literal parent of the widgets between
-       them, so a hand-rolled wrapper div would not actually enclose them. */
-    div[data-testid="column"]:has(#patient-panel-marker) {
-        position: sticky;
+    /* Floating patient-level panel. The class itself is defined here, but
+       it's ADDED to the real column element by a small JS snippet (see
+       _sticky_panel_js below) that walks up from #patient-panel-marker,
+       rather than by guessing Streamlit's internal data-testid names in a
+       CSS selector -- those are undocumented and change across versions. */
+    .patient-panel-box {
+        position: sticky !important;
         top: 4.5rem;
         align-self: flex-start;
         background: #ffffff;
@@ -566,11 +591,13 @@ if st.session_state.page == "review":
             done = "●" if prev_decision else "○"
 
             with st.expander(f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})", expanded=False):
-                # Native <video> (not the Drive /preview iframe) so autoplay+loop
-                # actually work -- see _video_embed_html's docstring for why this
-                # URL is safe to embed directly. No ground-truth label is shown
-                # here: the reviewer's assessment must be independent of it.
-                components.html(_video_embed_html(clip["stream_url"]), height=310)
+                # st.video (not components.html) -- components.html renders
+                # inside its own sandboxed iframe, which blocked autoplay/
+                # playback entirely. st.video is a native Streamlit element
+                # with direct autoplay/loop/muted support. No ground-truth
+                # label is shown here: the reviewer's assessment must be
+                # independent of it.
+                st.video(_drive_direct_url(clip["stream_url"]), autoplay=True, loop=True, muted=True)
 
                 default_idx = (
                     OPTION_KEYS.index(prev_decision) if prev_decision in OPTION_KEYS else None
@@ -592,6 +619,7 @@ if st.session_state.page == "review":
 
     with panel_col:
         st.markdown('<div id="patient-panel-marker"></div>', unsafe_allow_html=True)
+        components.html(_sticky_panel_js("patient-panel-marker", "patient-panel-box"), height=0)
         st.markdown("#### Case decision")
         st.markdown(
             f'<span class="ref-read-badge">Reference read: {fake_interp or "N/A"}</span>',
