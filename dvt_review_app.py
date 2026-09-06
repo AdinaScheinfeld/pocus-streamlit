@@ -384,9 +384,10 @@ st.markdown(
        !important because Streamlit sets width/height inline on the <video>
        element itself, which otherwise wins over an ordinary CSS rule. */
     video {
-        max-height: 230px !important;
-        width: auto !important;
-        max-width: 100% !important;
+        width: 100% !important;
+        height: 230px !important;
+        object-fit: contain !important;
+        background: #000;
         display: block;
         margin: 0 auto;
     }
@@ -444,9 +445,9 @@ if st.session_state.page == "login":
     st.markdown("#### How it works")
     st.markdown(
         "1. Enter your name below and select **Start review**.\n"
-        "2. Each case lists all of that patient's clips. Open a clip and "
-        "select **Play clip** once — it will then loop continuously, no "
-        "need to keep clicking play.\n"
+        "2. Each case lists all of that patient's clips; opening a clip's "
+        "section plays it automatically in a loop — no need to keep "
+        "clicking play.\n"
         "3. For **each clip**, select the option that best describes your "
         "assessment of that clip:\n"
         "   - **Pos** — vein does not fully compress (thrombus suspected).\n"
@@ -627,25 +628,20 @@ if st.session_state.page == "review":
             prev_decision = prev.get("decision", "")
             done = "●" if prev_decision else "○"
 
-            with st.expander(f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})", expanded=False):
-                # Video is loaded on demand, not automatically -- st.expander's
-                # contents run in Python on every rerun regardless of whether
-                # it's visually collapsed, so fetching+rendering every clip's
-                # video unconditionally here meant all ~8 clips downloaded on
-                # every patient page load, even ones never opened. Gating the
-                # fetch behind this explicit toggle (plain session_state, so
-                # this is certain to work the same in any Streamlit version)
-                # makes each patient page load instantly; only clips actually
-                # played get downloaded.
-                load_key = f"load_clip_{pid}_{i}"
-                if load_key not in st.session_state:
-                    st.session_state[load_key] = False
-
-                if not st.session_state[load_key]:
-                    if st.button("▶ Play clip", key=f"playbtn_{pid}_{i}"):
-                        st.session_state[load_key] = True
-                        st.rerun()
-                else:
+            exp_key = f"exp_{pid}_{i}"
+            with st.expander(
+                f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})",
+                expanded=st.session_state.get(exp_key, False),
+                key=exp_key,
+            ):
+                # Video is fetched only while this specific expander is open
+                # (st.session_state[exp_key], kept in sync by Streamlit since
+                # the expander has a key) -- not unconditionally, which is
+                # what previously made every patient page fetch all ~8 clips
+                # immediately regardless of whether any were opened.
+                # _fetch_clip_bytes is itself cached, so re-opening a clip
+                # already viewed is instant.
+                if st.session_state.get(exp_key, False):
                     # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
                     # direct-download response is browser-blocked cross-site
                     # (see that function's docstring), so st.video must be
