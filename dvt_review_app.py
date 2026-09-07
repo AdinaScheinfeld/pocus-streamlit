@@ -117,9 +117,9 @@ def _fetch_clip_bytes(preview_url: str) -> bytes:
 
 
 REVIEW_OPTIONS = {
-    "pos": "Pos: vein does not fully compress (thrombus suspected)",
-    "neg": "Neg: vein fully compresses (no thrombus)",
-    "unsure": "Unsure: technical error / cannot assess",
+    "pos": "**Pos**: vein does not fully compress (thrombus suspected)",
+    "neg": "**Neg**: vein fully compresses (no thrombus)",
+    "unsure": "**Unsure**: technical error / cannot assess",
 }
 
 OPTION_LABELS = list(REVIEW_OPTIONS.values())
@@ -128,9 +128,9 @@ OPTION_KEYS = list(REVIEW_OPTIONS.keys())
 # Patient-level decision, made once per case (not per clip) in the floating
 # panel alongside the clip list.
 PATIENT_OPTIONS = {
-    "no_action":    "No action required - All clips correctly interpreted",
-    "feedback":     "Action required - Provider requires feedback",
-    "misdiagnosed": "Action required - Patient was misdiagnosed",
+    "no_action":    "**No action required**: all clips correctly interpreted",
+    "feedback":     "**Action required**: provider requires feedback",
+    "misdiagnosed": "**Action required**: patient was misdiagnosed",
 }
 PATIENT_OPTION_LABELS = list(PATIENT_OPTIONS.values())
 PATIENT_OPTION_KEYS = list(PATIENT_OPTIONS.keys())
@@ -500,7 +500,17 @@ if st.session_state.page == "login":
 
     both_filled = bool(first_name.strip()) and bool(last_name.strip())
 
-    if st.button("Start review", type="primary", disabled=not both_filled):
+    # Not disabled=not both_filled: a browser-disabled button blocks the
+    # click event entirely, and if that state hasn't caught up yet with what
+    # was just typed (text_input only commits on blur/enter, not per
+    # keystroke), the first click can land while it's still disabled and get
+    # swallowed, requiring a second click once it re-renders as enabled.
+    # Keeping it always clickable and validating on click avoids that, at
+    # the cost of the button not visually greying out beforehand.
+    if not both_filled:
+        st.caption("Enter your first and last name to continue.")
+
+    if st.button("Start review", type="primary"):
         fn = first_name.strip()
         ln = last_name.strip()
         if not (fn and ln):
@@ -646,33 +656,28 @@ if st.session_state.page == "review":
             done = "●" if prev_decision else "○"
 
             radio_key = f"radio_{pid}_{i}"
-            play_key = f"play_{pid}_{i}"
+            open_key = f"open_{pid}_{i}"
             if radio_key not in st.session_state:
                 st.session_state[radio_key] = (
                     OPTION_LABELS[OPTION_KEYS.index(prev_decision)] if prev_decision in OPTION_KEYS else None
                 )
-            if play_key not in st.session_state:
-                st.session_state[play_key] = (i == 0)
+            if open_key not in st.session_state:
+                st.session_state[open_key] = (i == 0)
 
-            # A plain (keyless) expander's own open/close click is purely a
-            # frontend visual state -- it does not message Python at all, so
-            # there is no reliable way to detect "the user just opened this
-            # one" from here (confirmed: a key= on st.expander did not
-            # change this in two separate attempts). expanded=(i == 0) is a
-            # static initial value, which IS reliable. The st.checkbox below
-            # is the one thing inside that both actually communicates with
-            # Python and is cheap to render unconditionally, so it -- not
-            # the expander -- gates the expensive video fetch. For the first
-            # clip it's pre-seeded True, so it plays with no extra click;
-            # for the rest, opening the arrow reveals a small "Play" box.
-            label = f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})"
-            with st.expander(label, expanded=(i == 0)):
-                is_playing = st.session_state[play_key] if i == 0 else st.checkbox(
-                    "Play", value=st.session_state[play_key], key=f"chk_{pid}_{i}"
-                )
-                st.session_state[play_key] = is_playing
+            # st.button, not st.expander -- confirmed (twice) that a plain
+            # expander's open/close click doesn't message Python at all here,
+            # keyed or not, so there's no way to react to it. A button click
+            # IS certain to register exactly once, on the same rerun as the
+            # click, which lets the one click that opens a clip also fetch
+            # and play it immediately -- no separate "Play" step needed.
+            arrow = "▼" if st.session_state[open_key] else "▶"
+            label = f"{arrow}  {done}  Clip {i + 1} of {len(clips)} ({clip['filename']})"
+            if st.button(label, key=f"disclosure_{pid}_{i}", use_container_width=True):
+                st.session_state[open_key] = not st.session_state[open_key]
+                st.rerun()
 
-                if is_playing:
+            if st.session_state[open_key]:
+                with st.container(border=True):
                     # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
                     # direct-download response is browser-blocked cross-site
                     # (see that function's docstring), so st.video must be
