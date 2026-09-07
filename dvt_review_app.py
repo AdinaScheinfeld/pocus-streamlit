@@ -317,7 +317,7 @@ def load_worklist():
 # ──────────────────────────────────────────────
 
 st.set_page_config(
-    page_title="DVT Case Review", page_icon="🩺", layout="centered",
+    page_title="DVT Case Review", page_icon="🩺", layout="wide",
     initial_sidebar_state="expanded",
 )
 
@@ -332,7 +332,12 @@ st.markdown(
        collapsing that height to 0 made the chevron impossible to find or
        click. Hiding the header's children individually keeps the same
        clean look without that side effect. */
-    .block-container { padding-top: 0.9rem !important; padding-bottom: 1rem !important; }
+    .block-container {
+        padding-top: 0.9rem !important;
+        padding-bottom: 1rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
     header[data-testid="stHeader"] { background: transparent !important; box-shadow: none !important; }
     div[data-testid="stDecoration"] { display: none !important; }
     div[data-testid="stToolbarActions"] { display: none !important; }
@@ -658,7 +663,7 @@ if st.session_state.page == "review":
     if not clips:
         st.warning("No clips found for this patient. Please contact the study coordinator.")
 
-    main_col, panel_col = st.columns([2.4, 1], gap="large")
+    main_col, panel_col = st.columns([2.2, 1.2], gap="small")
 
     prev_clip_reviews = st.session_state.reviews.get(pid, {}).get("clips", {})
     clip_inputs = []  # collected here, read back by _save_current below
