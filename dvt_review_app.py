@@ -324,18 +324,20 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* Reduce default Streamlit top padding */
+    /* Reduce default Streamlit top padding. The header element itself is
+       kept (not display:none) and only its visible contents are hidden --
+       verified live that display:none on the header breaks the sidebar's
+       reopen chevron (shown once the sidebar is collapsed), since that
+       control's position is computed from the header's measured height;
+       collapsing that height to 0 made the chevron impossible to find or
+       click. Hiding the header's children individually keeps the same
+       clean look without that side effect. */
     .block-container { padding-top: 0.9rem !important; padding-bottom: 1rem !important; }
-    header[data-testid="stHeader"] { display: none; }
-
-    /* The sidebar's reopen chevron (shown when the sidebar is collapsed) is
-       positioned relative to the header's height, which the rule above
-       collapses to 0 -- pin it to a sane spot so it's never lost off-screen
-       or hidden behind other content if the sidebar ever does collapse. */
-    div[data-testid="stSidebarCollapsedControl"] {
-        top: 0.4rem !important;
-        z-index: 999999 !important;
-    }
+    header[data-testid="stHeader"] { background: transparent !important; box-shadow: none !important; }
+    div[data-testid="stDecoration"] { display: none !important; }
+    div[data-testid="stToolbarActions"] { display: none !important; }
+    div[data-testid="stAppDeployButton"] { display: none !important; }
+    #MainMenu { visibility: hidden !important; }
 
     h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; color: #1f2937; }
 
