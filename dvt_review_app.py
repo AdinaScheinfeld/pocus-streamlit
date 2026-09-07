@@ -316,7 +316,10 @@ def load_worklist():
 # Page config & CSS
 # ──────────────────────────────────────────────
 
-st.set_page_config(page_title="DVT Case Review", page_icon="🩺", layout="centered")
+st.set_page_config(
+    page_title="DVT Case Review", page_icon="🩺", layout="centered",
+    initial_sidebar_state="expanded",
+)
 
 st.markdown(
     """
@@ -324,6 +327,15 @@ st.markdown(
     /* Reduce default Streamlit top padding */
     .block-container { padding-top: 0.9rem !important; padding-bottom: 1rem !important; }
     header[data-testid="stHeader"] { display: none; }
+
+    /* The sidebar's reopen chevron (shown when the sidebar is collapsed) is
+       positioned relative to the header's height, which the rule above
+       collapses to 0 -- pin it to a sane spot so it's never lost off-screen
+       or hidden behind other content if the sidebar ever does collapse. */
+    div[data-testid="stSidebarCollapsedControl"] {
+        top: 0.4rem !important;
+        z-index: 999999 !important;
+    }
 
     h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; color: #1f2937; }
 
