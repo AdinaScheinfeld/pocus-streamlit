@@ -649,58 +649,67 @@ if st.session_state.page == "review":
     prev_clip_reviews = st.session_state.reviews.get(pid, {}).get("clips", {})
     clip_inputs = []  # collected here, read back by _save_current below
 
+    # st.button, not st.expander -- confirmed (twice) that a plain expander's
+    # open/close click doesn't message Python at all here, keyed or not, so
+    # there's no way to react to it. A button click IS certain to register
+    # exactly once, on the same rerun as the click, which lets the one click
+    # that opens a clip also fetch and play it immediately -- no separate
+    # "Play" step needed.
+    #
+    # This whole row is an @st.fragment: clicking a clip's own button or
+    # radio reruns only THIS clip's row, not the whole page, so opening one
+    # clip (or answering it) never re-renders or re-transmits every other
+    # already-open clip's video. Within the fragment, st.rerun(scope=
+    # "fragment") is used (not a bare st.rerun(), which would rerun the
+    # whole page) so the arrow flips to the correct direction on the very
+    # click that toggled it, instead of only catching up on some later,
+    # unrelated rerun.
+    @st.fragment
+    def _render_clip_row(pid, i, clip, n_clips, prev, done, clip_inputs):
+        radio_key = f"radio_{pid}_{i}"
+        open_key = f"open_{pid}_{i}"
+        prev_decision = prev.get("decision", "")
+        if radio_key not in st.session_state:
+            st.session_state[radio_key] = (
+                OPTION_LABELS[OPTION_KEYS.index(prev_decision)] if prev_decision in OPTION_KEYS else None
+            )
+        if open_key not in st.session_state:
+            st.session_state[open_key] = (i == 0)
+
+        # Button and body share one bordered container so the clip's name
+        # and its video sit in a single connected box, not two separate
+        # boxes with a gap between them.
+        with st.container(border=True):
+            arrow = "▼" if st.session_state[open_key] else "▶"
+            label = f"{arrow}  {done}  Clip {i + 1} of {n_clips} ({clip['filename']})"
+            if st.button(label, key=f"disclosure_{pid}_{i}", use_container_width=True):
+                st.session_state[open_key] = not st.session_state[open_key]
+                st.rerun(scope="fragment")
+
+            if st.session_state[open_key]:
+                # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
+                # direct-download response is browser-blocked cross-site
+                # (see that function's docstring), so st.video must be
+                # given the actual bytes to serve from Streamlit's own
+                # origin. No ground-truth label is shown here: the
+                # reviewer's assessment must be independent of it.
+                try:
+                    clip_bytes = _fetch_clip_bytes(clip["stream_url"])
+                    st.video(clip_bytes, autoplay=True, loop=True, muted=True)
+                except Exception as e:
+                    st.error(f"Could not load this clip's video: {e}")
+
+                st.radio("Assessment", options=OPTION_LABELS, key=radio_key)
+
+        decision_label = st.session_state[radio_key]
+        selected_key = OPTION_KEYS[OPTION_LABELS.index(decision_label)] if decision_label else ""
+        clip_inputs.append((clip["filename"], selected_key, "", prev.get("reviewed_at", "")))
+
     with main_col:
         for i, clip in enumerate(clips):
             prev = prev_clip_reviews.get(clip["filename"], {})
-            prev_decision = prev.get("decision", "")
-            done = "●" if prev_decision else "○"
-
-            radio_key = f"radio_{pid}_{i}"
-            open_key = f"open_{pid}_{i}"
-            if radio_key not in st.session_state:
-                st.session_state[radio_key] = (
-                    OPTION_LABELS[OPTION_KEYS.index(prev_decision)] if prev_decision in OPTION_KEYS else None
-                )
-            if open_key not in st.session_state:
-                st.session_state[open_key] = (i == 0)
-
-            # st.button, not st.expander -- confirmed (twice) that a plain
-            # expander's open/close click doesn't message Python at all here,
-            # keyed or not, so there's no way to react to it. A button click
-            # IS certain to register exactly once, on the same rerun as the
-            # click, which lets the one click that opens a clip also fetch
-            # and play it immediately -- no separate "Play" step needed.
-            arrow = "▼" if st.session_state[open_key] else "▶"
-            label = f"{arrow}  {done}  Clip {i + 1} of {len(clips)} ({clip['filename']})"
-            if st.button(label, key=f"disclosure_{pid}_{i}", use_container_width=True):
-                # No st.rerun() here: the button click already triggered this
-                # very script run (that's what makes st.button return True),
-                # so the session_state flip below takes effect immediately in
-                # this same pass -- an extra st.rerun() would only interrupt
-                # this render and force a second, fully redundant one, which
-                # meant every click was re-sending every already-open clip's
-                # full video bytes over the connection twice.
-                st.session_state[open_key] = not st.session_state[open_key]
-
-            if st.session_state[open_key]:
-                with st.container(border=True):
-                    # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
-                    # direct-download response is browser-blocked cross-site
-                    # (see that function's docstring), so st.video must be
-                    # given the actual bytes to serve from Streamlit's own
-                    # origin. No ground-truth label is shown here: the
-                    # reviewer's assessment must be independent of it.
-                    try:
-                        clip_bytes = _fetch_clip_bytes(clip["stream_url"])
-                        st.video(clip_bytes, autoplay=True, loop=True, muted=True)
-                    except Exception as e:
-                        st.error(f"Could not load this clip's video: {e}")
-
-                    st.radio("Assessment", options=OPTION_LABELS, key=radio_key)
-
-            decision_label = st.session_state[radio_key]
-            selected_key = OPTION_KEYS[OPTION_LABELS.index(decision_label)] if decision_label else ""
-            clip_inputs.append((clip["filename"], selected_key, "", prev.get("reviewed_at", "")))
+            done = "●" if prev.get("decision", "") else "○"
+            _render_clip_row(pid, i, clip, len(clips), prev, done, clip_inputs)
 
     with panel_col:
         st.markdown('<div id="patient-panel-marker"></div>', unsafe_allow_html=True)
