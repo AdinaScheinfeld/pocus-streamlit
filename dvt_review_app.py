@@ -673,8 +673,14 @@ if st.session_state.page == "review":
             arrow = "▼" if st.session_state[open_key] else "▶"
             label = f"{arrow}  {done}  Clip {i + 1} of {len(clips)} ({clip['filename']})"
             if st.button(label, key=f"disclosure_{pid}_{i}", use_container_width=True):
+                # No st.rerun() here: the button click already triggered this
+                # very script run (that's what makes st.button return True),
+                # so the session_state flip below takes effect immediately in
+                # this same pass -- an extra st.rerun() would only interrupt
+                # this render and force a second, fully redundant one, which
+                # meant every click was re-sending every already-open clip's
+                # full video bytes over the connection twice.
                 st.session_state[open_key] = not st.session_state[open_key]
-                st.rerun()
 
             if st.session_state[open_key]:
                 with st.container(border=True):
