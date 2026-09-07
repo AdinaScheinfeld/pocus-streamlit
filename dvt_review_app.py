@@ -393,11 +393,14 @@ st.markdown(
 
     /* Align each radio option's bubble with the first line of its label
        text (default is vertically centered against the whole, possibly
-       multi-line, label). data-baseweb is BaseWeb's own component-type
-       attribute (the UI library Streamlit's form widgets are built on),
-       not a Streamlit-internal name, so it's stable across Streamlit
-       versions. */
-    div[data-baseweb="radio"] {
+       multi-line, label). Two selectors layered for robustness: BaseWeb's
+       own component-type attribute (the UI library Streamlit's form
+       widgets are built on, not a Streamlit-internal name), plus a
+       library-agnostic fallback keyed only on the standard HTML radio
+       input every such widget must contain for accessibility, regardless
+       of which internal wrapper class names are actually in use. */
+    div[data-baseweb="radio"],
+    label:has(> input[type="radio"]) {
         align-items: flex-start !important;
     }
     div[data-baseweb="radio"] > div:first-child {
@@ -454,19 +457,21 @@ if st.session_state.page == "login":
         "Your progress is saved automatically and you may resume at any time."
     )
 
+    # Quote the exact same option strings the widgets use below (not a
+    # hand-typed paraphrase), so this instructional text can't drift out of
+    # sync with the actual choices again.
+    clip_options_md = "\n".join(f"   - {label}" for label in OPTION_LABELS)
+    patient_options_md = "\n".join(f"   - {label}" for label in PATIENT_OPTION_LABELS)
+
     st.markdown("#### How it works")
     st.markdown(
         "1. Enter your name below and select **Start review**.\n"
         "2. For **each clip**, select the option that best describes your "
         "assessment of that clip:\n"
-        "   - **Pos**: vein does not fully compress (thrombus suspected).\n"
-        "   - **Neg**: vein fully compresses (no thrombus).\n"
-        "   - **Unsure**: technical error / cannot assess.\n"
+        f"{clip_options_md}\n"
         "3. Once you've reviewed every clip, use the **patient-level panel** on "
         "the right to record your overall decision for the case:\n"
-        "   - **No action required**: all clips correctly interpreted.\n"
-        "   - **Action required, provider requires feedback.**\n"
-        "   - **Action required, patient was misdiagnosed.**\n"
+        f"{patient_options_md}\n"
         "4. A case is complete once every clip has an assessment **and** the "
         "patient-level decision is selected. Select **Save** or **Next** to "
         "record your progress and continue."
@@ -493,7 +498,9 @@ if st.session_state.page == "login":
     with name_col2:
         last_name = st.text_input("Last name", placeholder="e.g. Smith")
 
-    if st.button("Start review", type="primary"):
+    both_filled = bool(first_name.strip()) and bool(last_name.strip())
+
+    if st.button("Start review", type="primary", disabled=not both_filled):
         fn = first_name.strip()
         ln = last_name.strip()
         if not (fn and ln):
@@ -639,21 +646,33 @@ if st.session_state.page == "review":
             done = "●" if prev_decision else "○"
 
             radio_key = f"radio_{pid}_{i}"
-            exp_key = f"exp_{pid}_{i}"
-            # Pre-seed session_state (once per clip) rather than passing
-            # index=/expanded= on every rerun, which fights a widget's own
-            # key-tracked state. First clip of each patient starts expanded;
-            # the rest start collapsed but keep whatever the user leaves them as.
+            play_key = f"play_{pid}_{i}"
             if radio_key not in st.session_state:
                 st.session_state[radio_key] = (
                     OPTION_LABELS[OPTION_KEYS.index(prev_decision)] if prev_decision in OPTION_KEYS else None
                 )
-            if exp_key not in st.session_state:
-                st.session_state[exp_key] = (i == 0)
+            if play_key not in st.session_state:
+                st.session_state[play_key] = (i == 0)
 
+            # A plain (keyless) expander's own open/close click is purely a
+            # frontend visual state -- it does not message Python at all, so
+            # there is no reliable way to detect "the user just opened this
+            # one" from here (confirmed: a key= on st.expander did not
+            # change this in two separate attempts). expanded=(i == 0) is a
+            # static initial value, which IS reliable. The st.checkbox below
+            # is the one thing inside that both actually communicates with
+            # Python and is cheap to render unconditionally, so it -- not
+            # the expander -- gates the expensive video fetch. For the first
+            # clip it's pre-seeded True, so it plays with no extra click;
+            # for the rest, opening the arrow reveals a small "Play" box.
             label = f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})"
-            with st.expander(label, key=exp_key):
-                if st.session_state[exp_key]:
+            with st.expander(label, expanded=(i == 0)):
+                is_playing = st.session_state[play_key] if i == 0 else st.checkbox(
+                    "Play", value=st.session_state[play_key], key=f"chk_{pid}_{i}"
+                )
+                st.session_state[play_key] = is_playing
+
+                if is_playing:
                     # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
                     # direct-download response is browser-blocked cross-site
                     # (see that function's docstring), so st.video must be
