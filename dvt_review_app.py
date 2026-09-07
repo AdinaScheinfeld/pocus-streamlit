@@ -358,6 +358,13 @@ st.markdown(
         border-radius: 6px;
         padding: 0.55rem 1rem;
         margin-bottom: 0.6rem;
+        /* The sidebar's reopen chevron floats at a fixed spot near the top
+           left of the page and stays there even when the sidebar is
+           expanded (it's just covered by the sidebar panel itself then).
+           When the sidebar is collapsed, the page content shifts left to
+           fill that space and this banner -- the first, topmost element --
+           lands directly under the chevron without this clearance. */
+        margin-left: 2.5rem;
         font-size: 0.92rem;
         color: #374151;
     }
