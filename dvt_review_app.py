@@ -331,9 +331,16 @@ st.markdown(
        control's position is computed from the header's measured height;
        collapsing that height to 0 made the chevron impossible to find or
        click. Hiding the header's children individually keeps the same
-       clean look without that side effect. */
+       clean look without that side effect. padding-top is 3.5rem (rather
+       than the smaller value that would otherwise be enough) so the page's
+       first element clears the sidebar's reopen chevron, which floats at a
+       fixed spot near the top left at all times -- covered by the sidebar
+       itself when it's expanded, but sitting right over that first element
+       once the sidebar is collapsed and content shifts left to fill the
+       space. This keeps that element full-width instead of indenting it
+       sideways to dodge the chevron. */
     .block-container {
-        padding-top: 0.9rem !important;
+        padding-top: 3.5rem !important;
         padding-bottom: 1rem !important;
         padding-left: 2rem !important;
         padding-right: 2rem !important;
@@ -358,13 +365,6 @@ st.markdown(
         border-radius: 6px;
         padding: 0.55rem 1rem;
         margin-bottom: 0.6rem;
-        /* The sidebar's reopen chevron floats at a fixed spot near the top
-           left of the page and stays there even when the sidebar is
-           expanded (it's just covered by the sidebar panel itself then).
-           When the sidebar is collapsed, the page content shifts left to
-           fill that space and this banner -- the first, topmost element --
-           lands directly under the chevron without this clearance. */
-        margin-left: 2.5rem;
         font-size: 0.92rem;
         color: #374151;
     }
