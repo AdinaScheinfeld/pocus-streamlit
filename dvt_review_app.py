@@ -117,9 +117,9 @@ def _fetch_clip_bytes(preview_url: str) -> bytes:
 
 
 REVIEW_OPTIONS = {
-    "pos": "Pos — vein does not fully compress (thrombus suspected)",
-    "neg": "Neg — vein fully compresses (no thrombus)",
-    "unsure": "Unsure — technical error / cannot assess",
+    "pos": "Pos: vein does not fully compress (thrombus suspected)",
+    "neg": "Neg: vein fully compresses (no thrombus)",
+    "unsure": "Unsure: technical error / cannot assess",
 }
 
 OPTION_LABELS = list(REVIEW_OPTIONS.values())
@@ -343,7 +343,6 @@ st.markdown(
         color: #374151;
     }
     .case-banner .patient-id { font-weight: 700; color: #1f2937; font-size: 1.02rem; }
-    .case-banner .sep { color: #b0b8c1; }
 
     div[data-testid="stTextArea"] textarea { min-height: 68px; }
 
@@ -390,6 +389,19 @@ st.markdown(
         background: #000;
         display: block;
         margin: 0 auto;
+    }
+
+    /* Align each radio option's bubble with the first line of its label
+       text (default is vertically centered against the whole, possibly
+       multi-line, label). data-baseweb is BaseWeb's own component-type
+       attribute (the UI library Streamlit's form widgets are built on),
+       not a Streamlit-internal name, so it's stable across Streamlit
+       versions. */
+    div[data-baseweb="radio"] {
+        align-items: flex-start !important;
+    }
+    div[data-baseweb="radio"] > div:first-child {
+        margin-top: 0.15rem;
     }
     </style>
     """,
@@ -445,26 +457,23 @@ if st.session_state.page == "login":
     st.markdown("#### How it works")
     st.markdown(
         "1. Enter your name below and select **Start review**.\n"
-        "2. Each case lists all of that patient's clips; opening a clip's "
-        "section plays it automatically in a loop — no need to keep "
-        "clicking play.\n"
-        "3. For **each clip**, select the option that best describes your "
+        "2. For **each clip**, select the option that best describes your "
         "assessment of that clip:\n"
-        "   - **Pos** — vein does not fully compress (thrombus suspected).\n"
-        "   - **Neg** — vein fully compresses (no thrombus).\n"
-        "   - **Unsure** — technical error / cannot assess.\n"
-        "4. Once you've reviewed every clip, use the **patient-level panel** on "
+        "   - **Pos**: vein does not fully compress (thrombus suspected).\n"
+        "   - **Neg**: vein fully compresses (no thrombus).\n"
+        "   - **Unsure**: technical error / cannot assess.\n"
+        "3. Once you've reviewed every clip, use the **patient-level panel** on "
         "the right to record your overall decision for the case:\n"
-        "   - **No action required** — all clips correctly interpreted.\n"
-        "   - **Action required — provider requires feedback.**\n"
-        "   - **Action required — patient was misdiagnosed.**\n"
-        "5. A case is complete once every clip has an assessment **and** the "
+        "   - **No action required**: all clips correctly interpreted.\n"
+        "   - **Action required, provider requires feedback.**\n"
+        "   - **Action required, patient was misdiagnosed.**\n"
+        "4. A case is complete once every clip has an assessment **and** the "
         "patient-level decision is selected. Select **Save** or **Next** to "
         "record your progress and continue."
     )
 
     st.warning(
-        "**Taking a break?** Please take breaks **between patients only** — "
+        "**Taking a break?** Please take breaks **between patients only**: "
         "finish your current patient, select its patient-level decision, then "
         "select **Save** on that case and **Log out** in the sidebar before "
         "stepping away. Your progress is saved per patient and will be "
@@ -484,11 +493,12 @@ if st.session_state.page == "login":
     with name_col2:
         last_name = st.text_input("Last name", placeholder="e.g. Smith")
 
-    both_filled = first_name.strip() and last_name.strip()
-
-    if st.button("Start review", type="primary", disabled=not both_filled):
+    if st.button("Start review", type="primary"):
         fn = first_name.strip()
         ln = last_name.strip()
+        if not (fn and ln):
+            st.warning("Please enter both your first and last name.")
+            st.stop()
         display_name = f"{fn} {ln}"
         st.session_state.clinician = display_name
         st.session_state.clinician_first = fn.lower()
@@ -603,8 +613,8 @@ if st.session_state.page == "review":
         f"""
         <div class="case-banner">
             <span class="patient-id">{display_name}</span>
-            <span><span class="sep">·</span> Case {idx + 1} of {n_patients}</span>
-            <span><span class="sep">·</span> {total_clips} clip{"s" if total_clips != 1 else ""}</span>
+            <span>Case {idx + 1} of {n_patients}</span>
+            <span>{total_clips} clip{"s" if total_clips != 1 else ""}</span>
         </div>
         """,
         unsafe_allow_html=True,
@@ -629,29 +639,21 @@ if st.session_state.page == "review":
             done = "●" if prev_decision else "○"
 
             radio_key = f"radio_{pid}_{i}"
-            comments_key = f"comments_{pid}_{i}"
-            # Pre-seed session_state from the last saved answer, once, so the
-            # widgets below need no "index="/"value=" (which Streamlit would
-            # otherwise fight with the key on every later rerun) and so a
-            # previously-made choice survives the clip being collapsed again.
+            exp_key = f"exp_{pid}_{i}"
+            # Pre-seed session_state (once per clip) rather than passing
+            # index=/expanded= on every rerun, which fights a widget's own
+            # key-tracked state. First clip of each patient starts expanded;
+            # the rest start collapsed but keep whatever the user leaves them as.
             if radio_key not in st.session_state:
                 st.session_state[radio_key] = (
                     OPTION_LABELS[OPTION_KEYS.index(prev_decision)] if prev_decision in OPTION_KEYS else None
                 )
-            if comments_key not in st.session_state:
-                st.session_state[comments_key] = prev.get("comments", "")
+            if exp_key not in st.session_state:
+                st.session_state[exp_key] = (i == 0)
 
-            # st.toggle (not st.expander) -- its return value is a plain,
-            # always-current bool with no ambiguity about when it updates,
-            # unlike st.expander's key-tracked open/closed state, which
-            # turned out not to behave the way its docs implied and left the
-            # clip un-rendered entirely. One click both reveals the clip and
-            # starts it playing.
             label = f"{done}  Clip {i + 1} of {len(clips)} ({clip['filename']})"
-            is_shown = st.toggle(label, key=f"show_{pid}_{i}")
-
-            if is_shown:
-                with st.container(border=True):
+            with st.expander(label, key=exp_key):
+                if st.session_state[exp_key]:
                     # Bytes (via _fetch_clip_bytes), not the bare URL -- Drive's
                     # direct-download response is browser-blocked cross-site
                     # (see that function's docstring), so st.video must be
@@ -665,16 +667,10 @@ if st.session_state.page == "review":
                         st.error(f"Could not load this clip's video: {e}")
 
                     st.radio("Assessment", options=OPTION_LABELS, key=radio_key)
-                    st.text_area(
-                        "Additional comments (optional)",
-                        placeholder="Any notes on this clip…",
-                        key=comments_key,
-                    )
 
             decision_label = st.session_state[radio_key]
-            comments = st.session_state[comments_key]
             selected_key = OPTION_KEYS[OPTION_LABELS.index(decision_label)] if decision_label else ""
-            clip_inputs.append((clip["filename"], selected_key, comments, prev.get("reviewed_at", "")))
+            clip_inputs.append((clip["filename"], selected_key, "", prev.get("reviewed_at", "")))
 
     with panel_col:
         st.markdown('<div id="patient-panel-marker"></div>', unsafe_allow_html=True)
@@ -698,7 +694,7 @@ if st.session_state.page == "review":
             key=f"patient_radio_{pid}",
         )
         patient_comments = st.text_area(
-            "Patient-level comments (optional)",
+            "Comments",
             value=prev_patient_rev.get("patient_comments", ""),
             placeholder="Any notes on this case…",
             key=f"patient_comments_{pid}",
