@@ -1,0 +1,2160 @@
+[
+  {
+    "patient": "Case-022",
+    "total_positive_clips": 8,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "CJT10pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1eJAiXvhO_SXPK34mHo68IoFjvm3ACTro/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJT1pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1IsWQsCgMFRTtpCi4tRvzLveRHztcuE7x/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJT3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1isUwbRXq3c55HK3VV0DiQrRhS6CGoTm-/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJT4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nTACXrI8JsMkRlu3FHlUDw-2oeQ4rXdG/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJT6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/13sjppBijEpW8zyAWIhpvet4vOaX8Etlo/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJT7pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1z20tG017OAa2reN9Hvy3DI-dUZow3xU_/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJT8pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1sirhPaVPNX4aNwJ_nQ4ppi9NnS2fn9im/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJT9pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1NTm5q__EEc5ghXkZ501vtZugegZow6m2/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "CJT2-2-16-24"
+  },
+  {
+    "patient": "Case-037",
+    "total_positive_clips": 0,
+    "total_negative_clips": 9,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "FI1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Zxnb-yoZMxy5DzwJxQ35lsTsv_7SjR8s/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1dKylK9nNDwVL9Z8dJrJzq-5B_GWfFAqA/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI11.mp4",
+        "stream_url": "https://drive.google.com/file/d/11a-4_rJoG1GoOjyMRDpAndzOQa4IRF4i/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1hQd8dJjU2C_JjjTHJjulGMu2ZdJvUNGS/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI4.mp4",
+        "stream_url": "https://drive.google.com/file/d/15VDdrslTKqGEgWc-K8V7bkoAoL30TF1A/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1EIv2orn3DaSRfJrSmKYEO_tnAgjKWENa/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI6.mp4",
+        "stream_url": "https://drive.google.com/file/d/11pBjaYZY-9XVkw2FdbmDDLD4mC4933Y8/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1z_eObfW7_oliU5deHgmOfcfzY03uRF25/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FI9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1QUqLag9B8ZgFAQ0sWBRkuP-SOt5si0pU/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "FI-2-3-24"
+  },
+  {
+    "patient": "Case-055",
+    "total_positive_clips": 0,
+    "total_negative_clips": 9,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "KE1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1cJXvjll_062Hdc-M0dW7AkzmIpSsP06D/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1XvLkoDp0x2-pkLpnSTkBr10PXTighOGJ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ErBwiGRCMYnmSNLtFUcCfdEtS3v5aV66/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1SIAp02ti774s_i4KmJipG8KdZigl7mla/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE5.mp4",
+        "stream_url": "https://drive.google.com/file/d/15TjrYBTqS4h8Z4hftBiiVaHh05T7Sl7V/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1xn3zS-RWyZcNcl5fnulirD8M7vhtfHNQ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1yYVQWT-OJZ8emy0oDdXF3X8132Nlj85H/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1flBUkKR490xNpLrCNHw6FHXGapufXaoL/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "KE9.mp4",
+        "stream_url": "https://drive.google.com/file/d/11BsPlpdHryCumdZiAqw6mzCdHRNyijZN/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "KE-3-15-24"
+  },
+  {
+    "patient": "Case-007",
+    "total_positive_clips": 4,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "BC24-2pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1VXvpegDGdSB6Sx1yRIzr59rs_udry2DS/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "BC24-3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qtW7gVB_Uq73iQ79q_EtLwqKQBsJYuNP/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "BC24-4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1fxmF4saMGyM8LpSWqigvik5BCG1v6bnw/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "BC24-6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1loCFuWeBzRcLr5co-2Idbz9MFKwn-UR8/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "BC-1-30-24"
+  },
+  {
+    "patient": "Case-049",
+    "total_positive_clips": 0,
+    "total_negative_clips": 10,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "HJ12neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1WrA8_vLCGMz5liI6lxyKcvMmJB-nEIZL/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ13neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1X6vF4kD-RyfuAiWTG1GO8Wcg0c0pg-px/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ15neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1s5AO3yM0U4KfQeDk_nJVZzYGnMwPiXZo/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ16neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/13n9WZL-kw1L-YO7Oh6l_tPSdfQMx2ZW3/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ18neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/11FQrdqIvF3a2BuCsum9NUQn_p9cufW8Q/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ1neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1F22SIsU5FNxFmWKlbqn0aUkuv3gEspMp/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ2neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1O72p3U7nDcZ1MqVIw_zrClBTEVGsIrFs/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ4neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/10Q5rTVennwKC7kY7HtPHtZuMKQOatkXW/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "HJ5neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/12Z52KsAN2rRWFjgHSSJqX2XJc8_cqqs5/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "Hj19neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1AFmvUnhlt2jBigzgBbV-eWBLKbMgPYZv/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "HJ-8-8-25"
+  },
+  {
+    "patient": "Case-056",
+    "total_positive_clips": 3,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "KJ1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1-3hfX5cuhheyXiscWk6BDXOn93bnqMDw/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "KJ14.mp4",
+        "stream_url": "https://drive.google.com/file/d/1E5tGncP6pn36D6XcSX8JyS50g7KaTkMr/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "KJ11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1aKq3Biw3oCAdJh7esgqDSj4V9lDm8vMq/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "KJ-8-10-25"
+  },
+  {
+    "patient": "Case-075",
+    "total_positive_clips": 0,
+    "total_negative_clips": 6,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "MJe15neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/14pygN70RzNyZpeJidNgSkBfjMSRKojSz/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "MJe316neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YrV_rIHpaWXx8sKgdZPoAH5AnxmzCG12/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "MJe3neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1QH60J0oJfdzUVq2PHUTJe56m-Kt6Glqa/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "MJe4neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ttXYeOq6r2_D9mEO4bz1EETE9rsS3XGJ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "Mje1neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nMbWJP8MZOc56rq0SOy6-lUTuMc373Hi/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "Mje5neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1iVCCYe6xFhWXTONrFbxbtIkWkEGeCKm7/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "MJe-8-19-25"
+  },
+  {
+    "patient": "Case-020",
+    "total_positive_clips": 4,
+    "total_negative_clips": 4,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "CJ1neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nTcB2cSuR-jPPyeOGcdME_jee0KSeFv9/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "CJ2neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1u4hP4lpL4mwjOhj4EZR9IDr2CMAE1hO2/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "CJ3neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Fi4d8nSwW4QvEnhmGY01QUIXYKGVEYMR/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "CJ4neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1INGuiLseRmZtYZ2UApmSNlDIFRREbQzq/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "CJ6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1DMLUryHI5yvvoRJz83dj_umKlToA8K20/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJ7pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/11W88FQkdwplwAC5QHijZLZNTUml3F7Bj/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJ8pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1QWKiyl4Vi4X7r2tLEDkmcearo1tdMRFp/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CJ9pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1MuQyDr6IMoKVKBh3-GmQAe90pN8U_YI0/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "CJ-11-22-25"
+  },
+  {
+    "patient": "Case-130",
+    "total_positive_clips": 0,
+    "total_negative_clips": 6,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "VR25-2neglymphnode.mp4",
+        "stream_url": "https://drive.google.com/file/d/192YwESsUH5xaQ12G59wKvjnqmhM80Poc/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR25-neg1.mp4",
+        "stream_url": "https://drive.google.com/file/d/142Kd3n8xjeXrFGvNkU_Sz-6irfRFCZUd/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR25-neg3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ZIy3c4IZbN-cBR-6U0X0YMM89hWASX-6/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR25-neg5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1KJvBelCcwR9mvT0UyC_I5rrDv-5e6yNC/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR25-neg6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1rRz5rq5m-D3rFfJmDv2vAgv_dess8OLY/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR25-neg7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1_drKJMKnn4fSImmCM2a2fxQ4N83eLKsh/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "VR-10-15-25"
+  },
+  {
+    "patient": "Case-110",
+    "total_positive_clips": 6,
+    "total_negative_clips": 1,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "SR10pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/13o-CdnmYvo72EQVC2N2KmeP67oD6sj81/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "SR11pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1OjW4BCWhhsR66G8gMJiNTArnZwwUQmUA/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "SR13pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/19iWDtY6f132fQ_fozN9ArbZ8efS4hPn6/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "SR15pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1iMpdMFGIkwrOo0mKhuRXEpeZAtBMIdTJ/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "SR2pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1KP24BJz7JCEOSmeMCgYBFqk9ApViqSbU/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "SR3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1pnvkn1_zWEo4eq9A8jbSyHG4kP1KZ0mb/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "SR7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1dv2Qn0n7zSib7UGEV_oqwJA3inXiIkLO/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "SR-10-4-25"
+  },
+  {
+    "patient": "Case-061",
+    "total_positive_clips": 3,
+    "total_negative_clips": 14,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "LM1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Z2Iu4OpnHydAklDKfOlK3J1u_FstRHMv/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1UKzLyiZfsSzhzK7zQnP_-Os6woXzYFnP/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM11.mp4",
+        "stream_url": "https://drive.google.com/file/d/12aFP8WnF5C3K9oelmSe4rrx7zo4Egpvu/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM12.mp4",
+        "stream_url": "https://drive.google.com/file/d/1EC42b6T0rHgL2odDGC8WV_V9n6Wxg5-T/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM13.mp4",
+        "stream_url": "https://drive.google.com/file/d/145BiM8VWc8yh_SNDHnRCwxCZIB7kygwQ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM14.mp4",
+        "stream_url": "https://drive.google.com/file/d/1HdQeMfLLyfUr6xtaa3M5mwuye7rcIWtO/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM15.mp4",
+        "stream_url": "https://drive.google.com/file/d/1taE_7H5ux70gQK_0lzfhfPy_EEhv-AaX/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM16pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1fnHjkBwkbclGCjRFOqVExz4BeP6w8_UK/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LM17pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1fG3kyQOjYRNTUNQiGJf14eSSz1G9-JqD/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LM18pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1oxEcTyfyqbq3vidyDrs9G70QCouqPkOU/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LM2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1xE-69WlWDEnOzI6qDB1tvQYyiexEJyFg/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM3.mp4",
+        "stream_url": "https://drive.google.com/file/d/12NjB_XLmyeW5qdZoUjDU1VJp3dAbb6-b/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1FolvFvV41I3QZ3qXvHTsgkySES7NjUfr/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1WbWFo_sv-S0d9g7yOtM_Pc6XTvGqti2s/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nYUN8aHi7GknYGZyzQtcQqbYIgSON1-X/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Ighf6nbfwsqoN4wKnFoHU3OhEWDnmdM0/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LM9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1KpmhI4FB8JGa3sC5SdRf7PT3YkBiZzGE/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "LM-3-18-24"
+  },
+  {
+    "patient": "Case-070",
+    "total_positive_clips": 6,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "MF4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Izu_kCg95WNNiQwpV-xaR5cqLcoTTTws/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MF5pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1n3S_T8iG9PBv6vKrC2z3LTeBUZj54pF2/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MF6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1mPfTZK9OHpOELNim4E4SO_NqA0A7TTsy/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MF7pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1S27VvrfnY6ufR1ZTi_uH9-uW9NiEuNxY/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MF8pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1wir9PacbdV5tGC6bFMumEUolgl61eNji/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MF9pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Y0jwRd_IYhPJga_9GVyTxBn44858DeoD/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "MF-3-24-24"
+  },
+  {
+    "patient": "Case-105",
+    "total_positive_clips": 0,
+    "total_negative_clips": 8,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "SD1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YQdY_h3UxjzS0yD8NCcR-UFy1lLyVRPe/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "SD10.mp4",
+        "stream_url": "https://drive.google.com/file/d/19lcv7ujWLWp6FdNhhYvuB_M2vJpk3ylU/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "SD2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1frQPtMKSe20hWMqif4qeiu_cYrxwyNAv/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "SD3.mp4",
+        "stream_url": "https://drive.google.com/file/d/10HHceR4jlkJ7c1QTiWopq5NoraL4GFWp/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "SD6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1hgsVkZITwMSrfDjf3y8XLxuLk2qwpDzU/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "SD7.mp4",
+        "stream_url": "https://drive.google.com/file/d/19j7wxDVGXveRYz03FiGCzT7FuU7oxTqN/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "SD8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1TZwavP_jpVjpUKs1eumvncvZ7sqyuLmn/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "SD9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1GiZy7BuZZyKjN4G-qJrRCEd5XaUD1AaI/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "SD-3-13-24"
+  },
+  {
+    "patient": "Case-035",
+    "total_positive_clips": 0,
+    "total_negative_clips": 18,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "FC2-1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1XA9ip-nWn4OxDm1tWmUCmZFxY4Lt1hrl/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1uBa2ObLmNDpupVMYeuBDqEivWl9FMFSq/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Qj1iCtxwc5iG6TC40pasldtP7iKfYYtc/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-12.mp4",
+        "stream_url": "https://drive.google.com/file/d/15cW2A-Auqpk-33ioPuVdslbNBWYE1g3U/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-13.mp4",
+        "stream_url": "https://drive.google.com/file/d/1t1-nFLCBT6aBk3jxj7WrDP82eMi-riIW/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-14.mp4",
+        "stream_url": "https://drive.google.com/file/d/1uGYxlu8tvGlcNAqnDOTPnaNYtrh_hsRm/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-15.mp4",
+        "stream_url": "https://drive.google.com/file/d/1IiGZoHd22CY72D6a-kCZb7gpZ6Eu2T20/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-16.mp4",
+        "stream_url": "https://drive.google.com/file/d/1S8nbwkNQ0biYNcKP5YzwUoUc912u_Rx2/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-17.mp4",
+        "stream_url": "https://drive.google.com/file/d/1U1oCva_oqvTAEvoP8-aJiTtlnbxgGXUq/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-18.mp4",
+        "stream_url": "https://drive.google.com/file/d/1U-iBR4EMdrx1JQUQpnncg_LPlURaCjjk/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1BJgvrcOeliwJAV2FnW_IsKIwGtrRhjED/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nEEN0YwULJxLMZ7RqMrUl6ehXq1SAfXR/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1w7ierOkmH9ZJMZQdNU1NH38CTQwrhJmq/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1mzk_Ehimv77j_nIjUXz91TxzXLm2E_Ie/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1rXNLeRgq9XBgpgMooGnaRW6Q0Qs-gu5i/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1wCbELYmtwCWPwG8XT2uCYr4qZAJjjyvO/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1y9EU3WLwleZcED9aphbi6Y_n2hWU7SS5/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "FC2-9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1u0SEC2cXrNJ-zZAN8Sg0cIj-fdvy6O_L/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "FC-3-2-24"
+  },
+  {
+    "patient": "Case-089",
+    "total_positive_clips": 1,
+    "total_negative_clips": 4,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "PAfalsepos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qxoqFAj8z7oqWi6NpM4in3dh7G9ef5hQ/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "pa7neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1K3_l4Z8xKT66KS_nCGeWaFFKl1lAtgW1/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "pa8neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qC0vem4uF-y6Q5IZlG06W0VfeE2VmbT5/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "pa9neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1i4bH2QnGjhGQluThmjhLoIbpjbC-5gNh/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "paneg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1hef-5j3fAw9TKflAt8nhymko4-pgg3De/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "PA-10-11-25"
+  },
+  {
+    "patient": "Case-062",
+    "total_positive_clips": 1,
+    "total_negative_clips": 12,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "LN1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1eaE4oW8Y80zXZnXKTkCzteGhXkJ2xl0E/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ZZn9K_RUIbH6QaS_6sEsAKhuflfKsYyf/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1scG89Lm0ZGVqW1Q58XHUhQe9ptQhhU_Y/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN12.mp4",
+        "stream_url": "https://drive.google.com/file/d/16x73meXIfLAj6Pec85KFPXumqvXcdxTo/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN13.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qLvp0U3D6IVsEVaBsk0dpjhvX-wFeCy7/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN2.mp4",
+        "stream_url": "https://drive.google.com/file/d/14cP6N9117_qewAOV4aGOK9dmHxalIwQS/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1JFkSK5vFkq_yatJxB0nNmOASPSAru2BG/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1KK6Xunuf02XFi_urRCdkcA42-YUF12Iv/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1tuCAWYD9NziEE_VpD3afVq6Df3sH2BS6/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/13_hl_72gyky8LHY_DAHN2VpHo9TuFrnD/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LN7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1SmLRfBIUr8eCvly5YabTxNqne1dspq7F/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1GfKJiHSIulIxVYFC_HDR8jkPgDbuAmg0/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LN9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1jPLEav4F5R6IyQhfMvfa7SsVCYdVd68F/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "LN-1-1-24"
+  },
+  {
+    "patient": "Case-087",
+    "total_positive_clips": 8,
+    "total_negative_clips": 4,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "NJ1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1B6xThKlfnpSbUdHSFJvI9YPwc62Ac2AT/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "NJ10pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nTVk-xfNrsA22Jq8v1qQZf7C80-I4aYo/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "NJ11pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1XF6G--Tgk2NO9YuYywPRv0haI9rfD7Yo/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "NJ12pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Pj1vTlACEa6hmlzb-VTmH9N5wYMIHXWK/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "NJ2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1GDMA834No9m_sB-h67_9-lGfxMxjNXIy/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "NJ3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Nq7Uy1mwHDKCg-A61nrvEHVwrRoaXmO-/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "NJ4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Ol6E1_iHjdzAHwY3qZuE4lQaxaPMmGfN/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "NJ5pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/14tsEGvxjYfZIw-G1RoDlmSCHSe55tD5L/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "NJ6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/11zo3GxHfNsRiB8iP6GKvGfcRPIoMT649/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "NJ7pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1UGkY-kErKH3XS7cS-7a4bw3YTmRZ4qUf/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "NJ8pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1TrzL6OIMxX_R5ZfTmyRu71l4Uaq0lREH/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "NJ9pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1BD0-rYLDzp5h6_ZxWluwJuYX89AVcPyn/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "NJ-2-21-24"
+  },
+  {
+    "patient": "Case-060",
+    "total_positive_clips": 5,
+    "total_negative_clips": 4,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "LL1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1fox6xbDngDX9BZQdiwfVAt7Ss10rxcij/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LL11_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/141MQsBZ9KRvWekyOZ9l7Ty_iN0B4Xzwu/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL12_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1MAuGeFrO6sNWEVMCy-gxy4xsmKToiUr_/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1tbIGEEPfMLOAUc3XeViP94M95Mlvy0KN/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LL3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1oOBRBys9DA3YU-pwU3Rg-Va_zLs99G45/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LL4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Xqrphgfm-5YQswrXqfdqK2IPEiV6AvDc/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "LL5_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/11XfYVhaiO0beNc9Zx6Oh75pYNQrhICT0/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL6_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/13XcgfBw2Y8QCBhojl91DbqZ1B8hLiFT9/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "LL9_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1kGf-uJ-FAZaz_FO_VDScl0w3JFPLAUqF/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "LL-3-27-23"
+  },
+  {
+    "patient": "Case-046",
+    "total_positive_clips": 2,
+    "total_negative_clips": 9,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "GW1.mp4",
+        "stream_url": "https://drive.google.com/file/d/11j-7pKc5H3XEYxtYKMG-RTuEA8ho5g5f/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1TWYWRGi1GLmFDl-iIEV2EXkH4O0Kvp9i/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1zuEOakwp99LNoaD3KoTRlIxayxrETXwg/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1IsM9RfiitsAKyESYp8uxV3kowndlg8XH/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Z01IqgmR_OUGwroz0AIUAsbWOonmvI-u/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1lzY81c40tqa8RjjAxxdFMHN3BKEGcbPw/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1dbPJvT9HjLHLV_ljRML6g2-rsqat3vuL/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW6.mp4",
+        "stream_url": "https://drive.google.com/file/d/13eFLd1XqCTl9U1jpYGewgte-uQHLVtj2/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1MibsuVwjuyWHOsFYgYevmbjSga0F-q0l/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GW8pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1VC3n0Q-8AmDWN8QdsctgLBnvabAuGmD_/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "GW9pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1iWTgERXkzFVnoxi0Q8lAflftgQjeXKNQ/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "GW-2-12-24"
+  },
+  {
+    "patient": "Case-125",
+    "total_positive_clips": 3,
+    "total_negative_clips": 10,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "VJ24-1-1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Q-sg_B4anfy7iiHwOteK9g2UqzlMtbBr/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1phyx2NCNSlqzP_oku6IC9gkYGyHz3c7H/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1GvxTH1rYnpHvZSXH35qdm_X9KBtWR-qU/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-18.mp4",
+        "stream_url": "https://drive.google.com/file/d/16QbvWEirOCKTHSwWOKMh8gdMZ8tFQW1Q/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Tq3FzCYVy7EBYCK2R-U9FW7WiHHw0FFT/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-20.mp4",
+        "stream_url": "https://drive.google.com/file/d/1R6BvAp5JdTlsnWNg9xFp0h0yDvZW9GHk/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/18Ny0kBnykmYAPE53IYou7uUaJkATBy73/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VJ24-1-4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1UheyAxPFMQ7oY-1kybxFEIVcys75AAQy/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VJ24-1-5pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Lv101EkMSTVSoC5lZgq0InriBgw-VOxW/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VJ24-1-6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1z1v9QY5lMgmeKQgDzT8iUNNgTW5m8qnK/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-7.mp4",
+        "stream_url": "https://drive.google.com/file/d/11yBK2qWV04wEMm9zQvXAGr0loPEiHNik/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1p0sh3neEouNwTc0mdh3eTIEqzOtFUpsR/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VJ24-1-9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1gpDRQMV2qfM-6wZWSl0Xg-jGSQGqcNj6/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "VJ-1-23-24"
+  },
+  {
+    "patient": "Case-011",
+    "total_positive_clips": 0,
+    "total_negative_clips": 12,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "BJ1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1QIR84vKw1w6me55VAPcPt-rLE_kpuOU9/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ10.mp4",
+        "stream_url": "https://drive.google.com/file/d/17Ejl2OpHWQEy_ON0z7CPs4_K4ecb3ohA/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Q9zBlb11k8KK4u3lUpzA6EC7XoS_LZNH/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ12.mp4",
+        "stream_url": "https://drive.google.com/file/d/1dphbukG2QVDoS7M0giOMKvuof1o0P8FF/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ2.mp4",
+        "stream_url": "https://drive.google.com/file/d/10w8D20Lp9ycKzVASI9j2K_JWrZ9o0PsX/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YO56yg7a4cbXfSFMlXWwnIYd2iZ2OTbf/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Z4eKZARunW0z468jzauV_vWZrFCKQKWG/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1uVZfzc11laaq0f3Nr97sJb9_FJWOAcGb/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1wtcsFz-GGXnKn_S0BAAQjlu5SHKIfsG_/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1vI9oV3EMKO3OLSiZSrcaQ0wh7ZGgYwSC/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1z67ZcUZCO8lylG6AGManqyqrkTFU0XKO/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BJ9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1MxN2wBQW4FPRSKQ0X24dAxSnVp2B4aZE/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "BJ-1-27-24"
+  },
+  {
+    "patient": "Case-096",
+    "total_positive_clips": 4,
+    "total_negative_clips": 5,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "PR23-1.mp4",
+        "stream_url": "https://drive.google.com/file/d/184M6cWq7hXqKsBj8DWyScw2ePeeTVKTh/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "PR23-10_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1i90xVT-1VB3S_FAmDiammr-owYHmwYtN/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PR23-12_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ff7zfiVovusrtAc8kPg-bxO8GhzAF0K_/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PR23-2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1763IStoP_V62lpiZHTl6rRxnJvVeb6I-/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "PR23-4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1pV8WP1zjs9sMEdunfGGlYebkMMWbPjTI/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "PR23-5.mp4",
+        "stream_url": "https://drive.google.com/file/d/119Cu_dyz3E5uorrbLYeJrvpQ7Gty8UpU/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "PR23-7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1IJB7xk5U9JQZHBoYgrH7NjuGCTGbGmPn/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "PR23-8pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1894krpBCW2hlowFupJN0nq7SOZqOKizr/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PR23-9pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1BZL4ZPyUU-gHCBuTVgle9LTm-nKDePRU/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "PR-3-29-23"
+  },
+  {
+    "patient": "Case-031",
+    "total_positive_clips": 0,
+    "total_negative_clips": 11,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "EM5.mp4",
+        "stream_url": "https://drive.google.com/file/d/19NECY7sjWAC5ylAoc8C_mEdeq2eC3b94/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Fplj8uCKxY6N30e21smxBlFF2Ai-PtgJ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1cSjE0fanLNBExKOFqVWrBhqBHeUVAFbE/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1taC5-WmuMogCCLpywyVDaGX8qH_HT-Bz/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1c9EQkbAOGw7RkscpQQJB_R9IE3Vf-4JC/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Y6_ckFHwY-dYeyCc1-a3zJjB7LpGzNzV/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1pFoNvHRN9wbY5FQ7gw58_nJZb4vR5_KQ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1GW-0zQ5RkPsuzGsK1gGfRR6yD_dMwSWe/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ndBT_mEkV95TSrqd4K0AIJwQR1yDhu24/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM14.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qCIAUxhbeZZTS4rAWzgqR4Mukx0ElFPl/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "EM12.mp4",
+        "stream_url": "https://drive.google.com/file/d/1lLn-lf2rFyNXGPbxCxssCuv3UGYEh6Pf/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "EM-1-27-24"
+  },
+  {
+    "patient": "Case-071",
+    "total_positive_clips": 6,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "MG24-1pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1l9MpEtCjyDAUqyYSDne40oRZpmyzf463/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MG24-3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1-G1U9xg0BtPVufW0TLHiA0nNkklM3KsX/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MG24-4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/13vGQTegb_5qGXkDvwK5qDLY1tW67q8x6/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MG24-5pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YRJrXmOakliIi21OwYWCc4TN4_UlX2eO/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MG24-6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1BIfa8Ljzap8N0JvpR0wJMG8XQKEU8dWX/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "MG24-7pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1_sSKpKJ4c92MemBB1znAwM4F78-vG9lj/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "MG-2-9-24"
+  },
+  {
+    "patient": "Case-002",
+    "total_positive_clips": 9,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "AN11pos_sag.mp4",
+        "stream_url": "https://drive.google.com/file/d/1PdHI9FYehZs3WPiSSnoY8NQgdLIriKXs/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN13pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1voeGf-3th6FA1hGIIOEVXRxMYo2X5bBn/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN17pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1TfQovwlKzww2P5FtMP5agaRCx7Nl06Vm/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN1pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YmqxADG-Hs_SU7JI3A7IjyWGa0R0wFhg/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN2pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1j4KuGaFi4O47YIfgL-jYwC767bTW8YFS/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1sxPHoZaFdlwYqXEvVxuZ2pnUZ83rXZNz/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1VNi_Nc79IM3ZRiPrJ576j4AkMB0yOC1U/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN7pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/13d8Gxaiv25ViH13uBwr1rce1TgL3VEX6/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "AN9pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1uU_GyiDkE0Sgvdl7JyhTNQeZUSUq0rtI/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "AN-8-17-25"
+  },
+  {
+    "patient": "Case-123",
+    "total_positive_clips": 4,
+    "total_negative_clips": 2,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "VF1_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/15t_3XxJpPtDcXlHUL75X_WLyAKWlkA9U/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VF2_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1UbCDiM115FPLyCja0esntldyYU-Uc1aE/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VF3_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1XUNHl7BvXxMZmFH9TwTsAxthM_UiTcBA/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VF4_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1IoF6ObYlImw_w5upelk3tYQ9VSdK2lEh/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VF5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1KA0ivAxENz5ZAt1Mkp0GE_ivIW-8IhQY/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VF6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1jFN5wNYpU6GOkzQNiN8lM3rfbWocon30/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "VF-1-9-23"
+  },
+  {
+    "patient": "Case-040",
+    "total_positive_clips": 3,
+    "total_negative_clips": 5,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "GJ11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1z46-PqvmblzG6YOvl_6w8NYUXCOwMTZR/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GJ13.mp4",
+        "stream_url": "https://drive.google.com/file/d/1fATDTsvwIQLnklRkwLgiYWEenRKXNlOP/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GJ3.mp4",
+        "stream_url": "https://drive.google.com/file/d/1hvTC5nCPzqx-5hfBPAAaMdX4ziEKfxXh/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GJ4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qxERZqC6KJfjfffwzsWB7J_xAQ6-3fKQ/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "GJ5pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1xagkrOUefh9LEAYy3BmIbo_A6zywQMSh/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "GJ6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1fzHWbyDIt4iKYzuWpbUiWNsMrHPeWeyL/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "GJ7.mp4",
+        "stream_url": "https://drive.google.com/file/d/11jgUJX5qDagz53TIh4TjieHO8_WKlX10/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "GJ8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1yyV0L8OZYTmFlRNdnt9fr_l9SATyNXgF/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "GJ-1-23-24"
+  },
+  {
+    "patient": "Case-018",
+    "total_positive_clips": 7,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "CD1_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/174j7WkQgJv6WDA98PSxaMswDgErStg64/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD2_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1xnEp4EAXL3TnDRgi_5VgOSj0QS0mmhdp/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD3_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ir9vf2RiEpaaj6cX7HRiohz_PsNPHFC0/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD4_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1wjgfL2rALRGeJEQCiF4FzZwU1d22i98k/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD6_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1HXcqREHkUz1U8--Nh3tU-sfjr-TCuJnj/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD8_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1bzJZum_o00Pq3cp86O_Ucz8yzhy-CU7C/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "CD9_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qPEBDsHDv-zWhe31PYT0SPaUYEx4-F1f/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "CD-3-5-23"
+  },
+  {
+    "patient": "Case-140",
+    "total_positive_clips": 0,
+    "total_negative_clips": 10,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "WI4neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1cmww6a9q9ulhD8TZptzDTHjfnX0Afift/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg1.mp4",
+        "stream_url": "https://drive.google.com/file/d/17Wd3mufvZOUMITlPo22WD5eWUdMfCOkg/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1GGdQCiWcc-hHYMGn9vDbrFQtkcYzzTFL/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg12.mp4",
+        "stream_url": "https://drive.google.com/file/d/1DGVr3D_qYyQg3rXuo5xnSFBMNkmQcyR-/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg13.mp4",
+        "stream_url": "https://drive.google.com/file/d/1x6keAGWUJ9nq8XIe9CkxtyJZNrsZ4gX6/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg3.mp4",
+        "stream_url": "https://drive.google.com/file/d/12o6F28owtcRyz3sZ3FEVr_kGKFCc9itB/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1w-WSFSUDD2dwsdg3q4_3LaJQ_P5r44-q/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg7.mp4",
+        "stream_url": "https://drive.google.com/file/d/15gR3QG4zuBBa4CpyypSEN7yLGqp5YJvN/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg8.mp4",
+        "stream_url": "https://drive.google.com/file/d/15JluRXOF_PZZo90q9Mdgb_isgcRvtWbt/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WIneg9.mp4",
+        "stream_url": "https://drive.google.com/file/d/164CAnbR_kzyPD3C8nqVnzxIM5E9PcaRp/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "WI-10-3-25"
+  },
+  {
+    "patient": "Case-097",
+    "total_positive_clips": 6,
+    "total_negative_clips": 2,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "PY1pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1tvvZ9eX5nWgMIxbNccZCOW6CsHbYmT_w/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PY2pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1VYQoOUVVXzFF1nbig-NE4NsIhOywoYuh/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PY3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1FGpirkJDXc9gnn6LApQqpX8IkBcYpSCk/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PY5pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1MVCObBKhndGs8xL_5GUi1vczPZznIKMS/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PY6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1EJV0nOmEa18LVTqX3TOo9RFnGcJrlY9D/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PY7pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1u4wiHUkBuU1s-_qXPHBzGEPkCCMydgBB/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "PY8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YifbE0cUYM-PJfCmnM7eY1Kx__NJgg-Z/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "PY9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1LtOsLCDQRV17VReypUegtAyyCS2mRjXW/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "PY-1-27-24"
+  },
+  {
+    "patient": "Case-032",
+    "total_positive_clips": 6,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "FA1pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/181i9JD_QXKAm9uQWZfmoHLzJBvtLN_V3/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA2pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1-h7B6sB0lsjNFaGtxe6RoyQP0kNhvEgr/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1MW36LUVt32iKLW8SuzlC8lY4YNx0mRz_/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1JT7qr1NHhPj2Ymhl5INHitvDKzgDlpzS/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA5pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1BalrLzlF-Ssbrc1doIjSJL2kDrluOPgL/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "FA6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/15PX_jRbgtvwFTqxlaEkqeP5e2Y4ciN-p/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "FA-11-11-25"
+  },
+  {
+    "patient": "Case-136",
+    "total_positive_clips": 0,
+    "total_negative_clips": 9,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "WD25-1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1rBKJ1voBZQ8kHNQqNTMlTC6s_CU5Q2pp/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1SL2CPTJzjCHcU2vgspDEEibgD_aEwLPI/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-15.mp4",
+        "stream_url": "https://drive.google.com/file/d/1pNr0VlFUt8KGfh3jqOpDIVb_SahvSoDD/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1g3f1oIu2YH4JnRQU8I6hoxGN-C62aWnX/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-3_LN.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Kqu1EPlfXGG8dFqcUSv3o8qQSNmFyGKl/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1UsYrnsypggkKwsD4zGDShKboXJUhhfJm/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-5.mp4",
+        "stream_url": "https://drive.google.com/file/d/16bUYtn9POj6cbJj6xm41Pz3JVCiRdfol/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1eKJKTzVGIAoJduO8iLhs0UjDBmXAFJwx/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD25-8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1vJrES-Qy1RGlIHcT8zI8oZ4wW-3G0IKR/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "WD-10-15-25"
+  },
+  {
+    "patient": "Case-107",
+    "total_positive_clips": 2,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "sj1pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1AK1Gs-Vuy3RX9SGbcAuSqo_malNaLvHu/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "sj3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1h-2JTnB7QFRW6MISKmKvHSaFv0dmNgev/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "SJ-10-11-25"
+  },
+  {
+    "patient": "Case-054",
+    "total_positive_clips": 1,
+    "total_negative_clips": 5,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "jw13pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1rgzqelnfumZCj2rjZFEymgVDybzFL-Ji/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "jw1neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1spohiOKrPVERENFd1HDkYlDXzn7KEdz5/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "jw2neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1H-dsk8Rienm4nk96UY5HKzzhnWFMGcq1/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "jw3neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/16dav_9nPFfZT8MfJu66aJrgzBR77tHvf/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "jw4neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nuDEJuWxSn3PdwT63pIn7z8pWDqDHFUL/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "jw5neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nNLF_XjZnB586HPW2sAqTybDkEPsOTF_/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "JW-11-16-25"
+  },
+  {
+    "patient": "Case-001",
+    "total_positive_clips": 0,
+    "total_negative_clips": 12,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "AFD1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1EVSCz0eQmtHsKkNKoVoAYB4W-pVEcQ1i/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1FNVp0WjJNfa3cuawXSFKA6kP0CfX8AyJ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD11.mp4",
+        "stream_url": "https://drive.google.com/file/d/1h-8uiEgQX-dKJrkEizlVr0SFbZY6ZWpQ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD12.mp4",
+        "stream_url": "https://drive.google.com/file/d/1B85OCgdkACQAcy5_pNR723YE0xxL6yhq/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Uwc3pf6yaRhRUGtcqKZzzFeqWCYAiqkG/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD3.mp4",
+        "stream_url": "https://drive.google.com/file/d/12dA98BQc7PDjCUo0jr8I4BCSPOjNN-uI/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Kysu8YuZKC_GpNS7K9bGTtuBgfxgrZ7R/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nP_uAnWNmsaT-onVQarB_ctqiwtj47D1/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1XXLlqvfo4LSWDz9KDZ3jm83N0T4EIoO5/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1J7ErTCe0XY8zW419DkBdFPHN_BOyXXyg/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1jYA_4oC1_l9Wqikvein-3xEGv6UPzWJP/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "AFD9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Ye4vzNvIvuIi_GjKMYAx4r7a5beGPzVO/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "AFD-3-2-24"
+  },
+  {
+    "patient": "Case-057",
+    "total_positive_clips": 0,
+    "total_negative_clips": 6,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "la1neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1v2wrBQWOtF0vTX2AYbGP_i6WYSLDXlLt/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "la3neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1J0GsIxCWSZf25MmYs8gMS42FD8Y39MYO/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "la4neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1jhubJJkRL9Yk9EIlx9GcY1PC3G4OCFvU/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "la5neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1wWYbQnRV_XkWeXt303QkQD4cdDhJGAAa/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "la6neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Gx57A_mu97X441xsy-JNMzNwf4SpoPm3/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "la7neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1dzHHht79Us_Ek16BGBcAaABUqSD74RpB/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "LA-10-14-25"
+  },
+  {
+    "patient": "Case-067",
+    "total_positive_clips": 0,
+    "total_negative_clips": 7,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "mc25-11neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1p1C6psRkj_2ksVAl_SjHQ1qMWmlimJPW/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc25-1neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1a6FPvT21x_uD1RN9VI4tL6D_k4S156ve/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc25-2neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YOuXnhJ94q8yD_Fjj9Quw0Vt_pxs3c7v/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc25-4neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1me3W_WOM-BNmohfUxTrKCGpJUjnxwpeV/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc25-5neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1iy8QrJpVObcRcUQ69yemTRXC2M_YdxaB/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc25-7neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1VP1l--23kPuYvOlyb-M4b-aD0d3kxdCV/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "mc25-9neg.mp4",
+        "stream_url": "https://drive.google.com/file/d/1YKuc9L0a35vC8kXU6iWqi4XQJOvzGHSj/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "MC-10-3-25"
+  },
+  {
+    "patient": "Case-117",
+    "total_positive_clips": 5,
+    "total_negative_clips": 0,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "TE1pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1iMMA_Ay43a4L5d1JGS24qp8z_8LH8gUW/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "TE2pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/11iGA0NQ0lDVkRfZtNFH7WGj6eDGKBPNj/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "TE3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/18PzG4IvkdYNefb4b5rzPPlrKunYzPi-H/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "TE4pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1_YW1RdCqzL3zE0GAhVzAD0EZdysLkVf4/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "TE6pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/15MZs1ZSaIet9ZYQVADPXqHxG9SObOSpJ/preview",
+        "label": "DVT"
+      }
+    ],
+    "real_patient_id": "TE-3-9-24"
+  },
+  {
+    "patient": "Case-006",
+    "total_positive_clips": 0,
+    "total_negative_clips": 2,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "BA25-1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1L_qRazgv4SvO26CrUgC7CeF1j8Tg0FLJ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "BA25-2.mp4",
+        "stream_url": "https://drive.google.com/file/d/12Zf3qWJrVpmQXuNTJWk8NDVXmplJZP5Z/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "BA-10-10-25"
+  },
+  {
+    "patient": "Case-119",
+    "total_positive_clips": 1,
+    "total_negative_clips": 9,
+    "fake_user_interpretation": "pos",
+    "clips": [
+      {
+        "filename": "TJ1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1r0M75fXO2b5iez0lYtEytxNR4U0fo4xf/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nBNKqfr_uD99-NMmx_KnOBAxsRpLQ_vs/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ2.mp4",
+        "stream_url": "https://drive.google.com/file/d/1hmKcDshdsb9ANe9t3lzVRtwKubVxNjcU/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ3pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1R6bju1eOKLlG4GKlWc9_UinH0HI6WXRz/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "TJ4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1M-wOXwCEVmTOX8IJHPXATALMxLhn2yEq/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1zBBHxkNoMgXH2OZFllfSzzdS5SckaPE8/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1QWugjKln7bw0d57O97R6T5Pjl6AedLgf/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1kq_UwPYpE7Iet4jFX-UMWBizAsZzOJVk/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1A3KxS88NNPudcgY8IIJCsDol26cLO7GF/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "TJ9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1XY9u5LS5bIaayyBvBVw5ibUAJIOU8fn8/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "TJ-1-29-24"
+  },
+  {
+    "patient": "Case-129",
+    "total_positive_clips": 1,
+    "total_negative_clips": 6,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "VR23-10.mp4",
+        "stream_url": "https://drive.google.com/file/d/1O-q4-wgELr9YrnDOjyFCjl1PgX9EuC7H/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR23-3_pos.mp4",
+        "stream_url": "https://drive.google.com/file/d/1KGeIx6TgjRmPT7RDwESZEEcNvs808Wlu/preview",
+        "label": "DVT"
+      },
+      {
+        "filename": "VR23-4.mp4",
+        "stream_url": "https://drive.google.com/file/d/15Lu_iA9PewPzd8-JdU82KrjTO7Ub2I24/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR23-5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1m7ftvKpv-gn8UBBfHCgmUR1xL-x_17x0/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR23-6.mp4",
+        "stream_url": "https://drive.google.com/file/d/1LemvY_lLf7Karosqvpre05eCvYdUDSob/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR23-7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1qezYcvEd8N8Kmyy7nK9axjPvlESHtJFy/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "VR23-9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1iZamWlEWm6juIyicQtCHUIN8MrK0b2Fx/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "VR-5-10-23"
+  },
+  {
+    "patient": "Case-135",
+    "total_positive_clips": 0,
+    "total_negative_clips": 16,
+    "fake_user_interpretation": "neg",
+    "clips": [
+      {
+        "filename": "WD24-1.mp4",
+        "stream_url": "https://drive.google.com/file/d/1fdQXab3Wqv1QH9e9_Dxak47-HtSC2v0A/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-12.mp4",
+        "stream_url": "https://drive.google.com/file/d/1jLfIJ3L2lEOLA3zkmftavubWOA981R_8/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-13.mp4",
+        "stream_url": "https://drive.google.com/file/d/1m-2xVLsTjLsST5Cfx1MUtnTmZL21tCeC/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-14.mp4",
+        "stream_url": "https://drive.google.com/file/d/1nPC9kriReClN_9yd_no1QxrPeoQ8akfJ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-15.mp4",
+        "stream_url": "https://drive.google.com/file/d/11k3E5z-ax3JVJoOGIA5FBH5-SpXnVzHr/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-16.mp4",
+        "stream_url": "https://drive.google.com/file/d/1aIWdZmM0QuUVnT-wDsCe5Prvckl63sJe/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-17.mp4",
+        "stream_url": "https://drive.google.com/file/d/1rqCAB4_LgsQryPEwQgudgSqeiYJd07Ga/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-18.mp4",
+        "stream_url": "https://drive.google.com/file/d/1NW45iEnMSkc1QrrOilw0mGDSN07GOBIw/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-19.mp4",
+        "stream_url": "https://drive.google.com/file/d/1mj3Xl6JwbLRrrUdfomBxO83VBsw7Lv_b/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-20.mp4",
+        "stream_url": "https://drive.google.com/file/d/104AAMiK4CdNFvCgTiQH51BDmXnnfTsOz/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-3.mp4",
+        "stream_url": "https://drive.google.com/file/d/187lApOCQFSj_CbKMAvtRQu6msU4u3dW4/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-4.mp4",
+        "stream_url": "https://drive.google.com/file/d/1LqKdvwZNW7DTXXiaIo5PG5ELLGNVz2Pg/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-5.mp4",
+        "stream_url": "https://drive.google.com/file/d/1Z4K98GJJVm_eYyYCnOpgCeBc2biDYy4a/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-7.mp4",
+        "stream_url": "https://drive.google.com/file/d/1eSiu6TAmWKZebeS6TRPmEdR63FN9ozsZ/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-8.mp4",
+        "stream_url": "https://drive.google.com/file/d/1ttA_-Kl9GVOeI9kF1xI9uSiuUit1up5C/preview",
+        "label": "No DVT"
+      },
+      {
+        "filename": "WD24-9.mp4",
+        "stream_url": "https://drive.google.com/file/d/1VI2umu2KvgnFeFPi-Blc36DrezlfWyNf/preview",
+        "label": "No DVT"
+      }
+    ],
+    "real_patient_id": "WD-2-25-24"
+  }
+]

@@ -351,6 +351,12 @@ WORKLIST_BY_CLINICIAN = {
     "user 1": "worklist_user1.json",
     "user 2": "worklist_user2.json",
     "user 3": "worklist_user3.json",
+    "user 4": "worklist_user4.json",
+    "user 5": "worklist_user5.json",
+    "user 6": "worklist_user6.json",
+    "user 7": "worklist_user7.json",
+    "user 8": "worklist_user8.json",
+    "user 9": "worklist_user9.json",
 }
 
 
