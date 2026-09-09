@@ -714,7 +714,8 @@ if st.session_state.page == "review":
     row = patients.iloc[idx]
     pid = row["patient"]
     total_clips = int(row["total_positive_clips"]) + int(row["total_negative_clips"])
-    fake_interp = str(row.get("fake_user_interpretation", "")).strip().upper()
+    _fake_interp_raw = str(row.get("fake_user_interpretation", "")).strip().lower()
+    fake_interp = {"pos": "DVT", "neg": "No DVT"}.get(_fake_interp_raw, "")
 
     def _patient_complete(p) -> bool:
         """A patient is complete once every clip has a decision AND the
