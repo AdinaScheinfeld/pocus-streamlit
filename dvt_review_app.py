@@ -269,13 +269,13 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, clips_by_patient,
 
 def _ws_title(clinician: str) -> str:
     """
-    Worksheet title from clinician name + worklist tag (max 100 chars for Sheets).
-    Including the tag protects against a shared tab silently overwriting another
-    clinician's results if two different display names ever normalized the same
-    way (each save overwrites its tab in full).
+    Worksheet title from the clinician's normalized name (max 100 chars for
+    Sheets). No arm/tag suffix: WORKLIST_BY_CLINICIAN is a fixed 1:1 mapping
+    from name to worklist, so there's no scenario where the same name needs
+    to land on two different tabs.
     """
     base = clinician.strip().lower().replace(" ", "_")
-    return f"{base}_{worklist_tag(clinician)}"[:100]
+    return base[:100]
 
 
 # ──────────────────────────────────────────────
