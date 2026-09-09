@@ -90,6 +90,52 @@ def _sticky_panel_js(marker_id: str, css_class: str) -> str:
     """
 
 
+def _fixed_corner_js(button_text: str, top: str = "0.7rem", right: str = "1.2rem") -> str:
+    """
+    Pin the (single, currently-rendered) button whose visible text matches
+    button_text to a fixed spot in the top-right of the viewport, so it stays
+    reachable regardless of scroll position -- in the sidebar's own case
+    list (which can run to dozens of entries) or in the main content.
+
+    Styling the button element directly via its computed text (rather than
+    walking to some ancestor, as _sticky_panel_js does for the column-based
+    patient panel) sidesteps needing to know Streamlit's current DOM nesting
+    for a plain st.button call, which isn't part of its public contract.
+    position:fixed anchors to the viewport itself, escaping every ancestor's
+    scroll container (sidebar included) without special-casing which one.
+    """
+    return f"""
+    <script>
+    (function() {{
+        function apply() {{
+            var doc = window.parent.document;
+            var buttons = doc.querySelectorAll('button');
+            for (var i = 0; i < buttons.length; i++) {{
+                var btn = buttons[i];
+                if (btn.textContent.trim() === {button_text!r} && btn.style.position !== 'fixed') {{
+                    btn.style.position = 'fixed';
+                    btn.style.top = {top!r};
+                    btn.style.right = {right!r};
+                    btn.style.zIndex = '1000';
+                    btn.style.width = 'auto';
+                    btn.style.boxShadow = '0 1px 6px rgba(0,0,0,0.25)';
+                    return true;
+                }}
+            }}
+            return false;
+        }}
+        if (!apply()) {{
+            var tries = 0;
+            var iv = setInterval(function() {{
+                tries++;
+                if (apply() || tries > 25) clearInterval(iv);
+            }}, 200);
+        }}
+    }})();
+    </script>
+    """
+
+
 def _drive_direct_url(preview_url: str) -> str:
     """Convert a Drive '.../file/d/<ID>/preview' link to a direct,
     range-seekable video/mp4 URL."""
@@ -131,8 +177,8 @@ OPTION_KEYS = list(REVIEW_OPTIONS.keys())
 # Patient-level decision, made once per case (not per clip) in the floating
 # panel alongside the clip list.
 PATIENT_OPTIONS = {
-    "no_action":    "**No action required**: all clips correctly interpreted",
-    "feedback":     "**Action required**: provider requires feedback",
+    "no_action":    "**No action required**: patient diagnosed correctly",
+    "feedback":     "**Action required**: provider requires education on technique",
     "misdiagnosed": "**Action required**: patient was misdiagnosed",
 }
 PATIENT_OPTION_LABELS = list(PATIENT_OPTIONS.values())
@@ -297,6 +343,35 @@ WORKLIST_BY_CLINICIAN = {
 
 def normalize_clinician_name(name: str) -> str:
     return " ".join(name.strip().lower().split())
+
+
+LOGIN_STATE_KEYS = (
+    "clinician", "clinician_first", "clinician_last", "page", "idx", "reviews",
+    "session_start", "first_login", "patient_start_time", "_current_pid",
+)
+WIDGET_KEY_PREFIXES = ("radio_", "open_", "disclosure_", "patient_radio_", "patient_comments_")
+
+
+def _clear_session_for_logout():
+    """
+    Reset session state on logout, so a fresh login (even in the same
+    browser tab, without a page reload) re-renders every widget from
+    whatever load_existing_reviews() just fetched from the sheet, instead
+    of showing this session's leftover per-clip widget values. Streamlit's
+    st.session_state persists for the life of the browser connection, not
+    per "logical" login -- clearing only LOGIN_STATE_KEYS left every
+    radio_/open_/disclosure_/patient_radio_/patient_comments_ key from this
+    session sitting untouched, so `if key not in st.session_state` in
+    _render_clip_row and the patient-decision radio silently skipped
+    re-seeding from the newly-loaded reviews and kept showing stale values
+    -- this is why a save immediately followed by a fresh login could look
+    like the save never happened even though the sheet was written
+    correctly.
+    """
+    for k in LOGIN_STATE_KEYS:
+        st.session_state.pop(k, None)
+    for k in [k for k in st.session_state.keys() if k.startswith(WIDGET_KEY_PREFIXES)]:
+        st.session_state.pop(k, None)
 
 
 def worklist_tag(clinician: str) -> str:
@@ -670,22 +745,6 @@ if st.session_state.page == "review":
                 st.session_state.idx = i
                 st.rerun()
 
-        st.divider()
-        if st.button("Log out", use_container_width=True):
-            _accumulate_time()
-            if sheets_ok:
-                save_all_reviews(
-                    spreadsheet, clinician, patients, clips_by_patient, st.session_state.reviews,
-                    first_login=st.session_state.first_login,
-                    latest_login=st.session_state.session_start,
-                    first_name=st.session_state.clinician_first,
-                    last_name=st.session_state.clinician_last,
-                )
-            for k in ("clinician", "clinician_first", "clinician_last", "page", "idx", "reviews", "session_start", "first_login",
-                       "patient_start_time", "_current_pid"):
-                st.session_state.pop(k, None)
-            st.rerun()
-
     # ── compact case banner ────────────────────
     display_name = pid if len(pid) <= 16 else f"{pid[:16]}…"
     st.markdown(
@@ -849,6 +908,18 @@ if st.session_state.page == "review":
             st.session_state.idx += 1
             st.rerun()
 
+    # ── log out: pinned to the top-right of the viewport (not the sidebar
+    # scroll flow) so it stays reachable however far down the case list or
+    # the page the reviewer has scrolled. Top-right specifically avoids the
+    # sidebar's own reopen chevron, which floats top-left when collapsed.
+    # Saves the current case first (same as Save/Next), so an unsaved edit
+    # on the case you're currently viewing isn't silently dropped. ──
+    if st.button("Log out", use_container_width=True, key="logout_btn"):
+        _save_current()
+        _clear_session_for_logout()
+        st.rerun()
+    components.html(_fixed_corner_js("Log out"), height=0)
+
     # ── finish ────────────────────────────────
     reviewed = sum(1 for p in patients["patient"] if _patient_complete(p))
     if reviewed == n_patients:
@@ -918,7 +989,5 @@ if st.session_state.page == "done":
             st.rerun()
     with col2:
         if st.button("Log out", use_container_width=True):
-            for k in ("clinician", "clinician_first", "clinician_last", "page", "idx", "reviews", "session_start", "first_login",
-                       "patient_start_time", "_current_pid"):
-                st.session_state.pop(k, None)
+            _clear_session_for_logout()
             st.rerun()
