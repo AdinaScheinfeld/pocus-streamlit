@@ -790,10 +790,15 @@ if st.session_state.page == "review":
         radio_key = f"radio_{pid}_{i}"
         open_key = f"open_{pid}_{i}"
         prev_decision = prev.get("decision", "")
-        if radio_key not in st.session_state:
-            st.session_state[radio_key] = (
-                OPTION_LABELS[OPTION_KEYS.index(prev_decision)] if prev_decision in OPTION_KEYS else None
-            )
+        # Default index, not a session_state pre-seed: a fragment that gets
+        # unmounted (navigating to a different patient) and remounted later
+        # (navigating back) doesn't reliably resume a bare pre-seeded
+        # session_state value for its own widget -- verified this
+        # empirically (a minimal repro of this exact fragment/navigation
+        # pattern showed 0 of 3 radios re-checked on return despite
+        # session_state holding the right values the whole time). Passing
+        # `index=` explicitly is what actually survives the remount.
+        default_idx = OPTION_KEYS.index(prev_decision) if prev_decision in OPTION_KEYS else None
         if open_key not in st.session_state:
             st.session_state[open_key] = (i == 0)
 
@@ -820,9 +825,14 @@ if st.session_state.page == "review":
                 except Exception as e:
                     st.error(f"Could not load this clip's video: {e}")
 
-                st.radio("Assessment", options=OPTION_LABELS, key=radio_key)
+                st.radio("Assessment", options=OPTION_LABELS, key=radio_key, index=default_idx)
 
-        decision_label = st.session_state[radio_key]
+        # The radio above only actually renders while this clip's panel is
+        # open, so its key may not exist in session_state at all this run
+        # (never opened yet, or collapsed again) -- fall back to whatever
+        # was already on record rather than indexing st.session_state
+        # directly, which would KeyError in that case.
+        decision_label = st.session_state.get(radio_key, OPTION_LABELS[default_idx] if default_idx is not None else None)
         selected_key = OPTION_KEYS[OPTION_LABELS.index(decision_label)] if decision_label else ""
         clip_inputs.append((clip["filename"], selected_key, "", prev.get("reviewed_at", "")))
 
@@ -893,7 +903,7 @@ if st.session_state.page == "review":
 
     with col_prev:
         if idx > 0 and st.button("← Previous", use_container_width=True):
-            _accumulate_time()
+            _save_current()
             st.session_state.idx -= 1
             st.rerun()
 
