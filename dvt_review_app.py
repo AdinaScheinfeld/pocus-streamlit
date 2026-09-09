@@ -136,6 +136,16 @@ def _fixed_corner_js(button_text: str, top: str = "0.7rem", right: str = "1.2rem
     """
 
 
+def _natural_sort_key(filename: str):
+    """
+    Split a clip filename into text/number chunks so clips sort as
+    LN1, LN2, ..., LN10, LN11 -- plain string sort would instead put LN10
+    and LN11 right after LN1, before LN2.
+    """
+    return [int(chunk) if chunk.isdigit() else chunk.lower()
+            for chunk in re.split(r"(\d+)", filename)]
+
+
 def _drive_direct_url(preview_url: str) -> str:
     """Convert a Drive '.../file/d/<ID>/preview' link to a direct,
     range-seekable video/mp4 URL."""
@@ -166,9 +176,10 @@ def _fetch_clip_bytes(preview_url: str) -> bytes:
 
 
 REVIEW_OPTIONS = {
-    "pos": "**Pos**: vein does not fully compress (thrombus suspected)",
-    "neg": "**Neg**: vein fully compresses (no thrombus)",
-    "unsure": "**Unsure**: technical error / cannot assess",
+    "pos_dvt":        "**Pos**: vein does NOT fully compress (suspect true DVT)",
+    "pos_user_error": "**Pos**: vein does NOT fully compress (suspect user error)",
+    "neg":            "**Neg**: vein fully compresses (no DVT)",
+    "technically_limited": "**Technically limited**",
 }
 
 OPTION_LABELS = list(REVIEW_OPTIONS.values())
@@ -178,8 +189,8 @@ OPTION_KEYS = list(REVIEW_OPTIONS.keys())
 # panel alongside the clip list.
 PATIENT_OPTIONS = {
     "no_action":    "**No action required**: patient diagnosed correctly",
-    "feedback":     "**Action required**: provider requires education on technique",
-    "misdiagnosed": "**Action required**: patient was misdiagnosed",
+    "feedback":     "**Action required**: tell provider to compress fully",
+    "misdiagnosed": "**Action required**: inform patient of potentially harmful misdiagnosis",
 }
 PATIENT_OPTION_LABELS = list(PATIENT_OPTIONS.values())
 PATIENT_OPTION_KEYS = list(PATIENT_OPTIONS.keys())
@@ -413,7 +424,10 @@ def load_worklist(clinician: str):
     patients_df = pd.DataFrame([
         {k: v for k, v in p.items() if k != "clips"} for p in data
     ])
-    clips_by_patient = {p["patient"]: p["clips"] for p in data}
+    clips_by_patient = {
+        p["patient"]: sorted(p["clips"], key=lambda c: _natural_sort_key(c["filename"]))
+        for p in data
+    }
     return patients_df, clips_by_patient
 
 
@@ -863,7 +877,7 @@ if st.session_state.page == "review":
         components.html(_sticky_panel_js("patient-panel-marker", "patient-panel-box"), height=0)
         st.markdown("#### Case decision")
         st.markdown(
-            f'<span class="ref-read-badge">Reference read: {fake_interp or "N/A"}</span>',
+            f'<span class="ref-read-badge">User interpretation: {fake_interp or "N/A"}</span>',
             unsafe_allow_html=True,
         )
 
