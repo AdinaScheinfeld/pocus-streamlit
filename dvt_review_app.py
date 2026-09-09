@@ -1,10 +1,13 @@
 """
 DVT Case Review: Streamlit Cloud application for clinician QA review.
 
-Results are saved to a Google Sheet owned by the study coordinator.
-Which worklist (model-generated vs. random) this deployment shows is set via
-st.secrets["worklist_file"] -- never shown in the UI, keeping the study
-single-blind. Clip video is streamed from Google Drive (uploaded separately).
+Results are saved to a Google Sheet owned by the study coordinator, one
+worksheet tab per clinician. Which worklist a clinician sees is keyed off
+the name they type at login (see WORKLIST_BY_CLINICIAN) -- one deployment
+serves every clinician, each with their own pre-built worklist (21 shared
+model-selected patients + that clinician's own 21 random patients,
+pre-shuffled together). Clip video is streamed from Google Drive (uploaded
+separately).
 """
 
 import datetime
@@ -230,7 +233,7 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, clips_by_patient,
     ]
     ws = get_or_create_worksheet(spreadsheet, _ws_title(clinician), headers)
 
-    arm = worklist_arm()
+    arm = worklist_tag(clinician)
     rows = [headers]  # start fresh
     for i, (_, row) in enumerate(patients_df.iterrows(), start=1):
         pid = row["patient"]
@@ -266,42 +269,69 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, clips_by_patient,
 
 def _ws_title(clinician: str) -> str:
     """
-    Worksheet title from clinician name + worklist arm (max 100 chars for Sheets).
-    Including the arm keeps the two deployments from colliding on the same tab
-    if the same person ever logs into both (each save overwrites its tab in full,
-    so a shared tab would silently wipe out the other arm's results).
+    Worksheet title from clinician name + worklist tag (max 100 chars for Sheets).
+    Including the tag protects against a shared tab silently overwriting another
+    clinician's results if two different display names ever normalized the same
+    way (each save overwrites its tab in full).
     """
     base = clinician.strip().lower().replace(" ", "_")
-    return f"{base}_{worklist_arm()}"[:100]
+    return f"{base}_{worklist_tag(clinician)}"[:100]
 
 
 # ──────────────────────────────────────────────
 # Data
 # ──────────────────────────────────────────────
 
+# Which pre-built worklist (data/worklist_userN.json) a clinician sees is
+# keyed off the name they type at login -- normalized (trimmed, lowercased,
+# whitespace-collapsed) so "User 1", "user 1", and "USER 1" all match. One
+# deployment serves all clinicians this way; no per-clinician URL needed.
+# Each worklist is the same 21 model-selected patients plus that clinician's
+# own 21 randomly-selected patients, pre-shuffled together.
+WORKLIST_BY_CLINICIAN = {
+    "user 1": "worklist_user1.json",
+    "user 2": "worklist_user2.json",
+    "user 3": "worklist_user3.json",
+}
 
-def worklist_arm() -> str:
+
+def normalize_clinician_name(name: str) -> str:
+    return " ".join(name.strip().lower().split())
+
+
+def worklist_tag(clinician: str) -> str:
     """
-    'model' or 'random' depending on which worklist this deployment serves.
-    Recorded in the Google Sheet for the study coordinator only -- never
-    surfaced in the app UI, so clinicians stay blind to their assigned arm.
+    Short tag identifying which worklist file this clinician is assigned,
+    e.g. "user1". Recorded in the Google Sheet for the study coordinator
+    only -- never surfaced in the app UI.
     """
-    worklist_file = st.secrets.get("worklist_file", "worklist_model.json")
+    key = normalize_clinician_name(clinician)
+    worklist_file = WORKLIST_BY_CLINICIAN.get(key)
+    if not worklist_file:
+        return "unknown"
     return Path(worklist_file).stem.replace("worklist_", "")
 
 
 @st.cache_data
-def load_worklist():
+def load_worklist(clinician: str):
     """
-    Loads the worklist assigned to this deployment via st.secrets["worklist_file"]
-    (e.g. "worklist_model.json" or "worklist_random.json") -- never surfaced in
-    the UI, so clinicians can't tell which arm they're on.
+    Loads the worklist assigned to this specific clinician, keyed by their
+    (normalized) login name via WORKLIST_BY_CLINICIAN. Before login (or for
+    an unrecognized name), returns an empty worklist -- the login screen
+    itself validates the name against WORKLIST_BY_CLINICIAN and refuses to
+    proceed on an unrecognized one, so "review" page code never actually
+    runs against this empty fallback.
 
     Returns:
         patients_df : DataFrame with one row per patient (summary fields only)
         clips_by_patient : dict[patient_id] -> list of {filename, stream_url, label}
     """
-    worklist_file = st.secrets.get("worklist_file", "worklist_model.json")
+    key = normalize_clinician_name(clinician)
+    worklist_file = WORKLIST_BY_CLINICIAN.get(key)
+    if not worklist_file:
+        return pd.DataFrame(columns=["patient", "total_positive_clips",
+                                      "total_negative_clips", "fake_user_interpretation"]), {}
+
     path = DATA_DIR / worklist_file
     data = json.loads(path.read_text())
 
@@ -460,7 +490,7 @@ if "first_login" not in st.session_state:
 if "patient_start_time" not in st.session_state:
     st.session_state.patient_start_time = None
 
-patients, clips_by_patient = load_worklist()
+patients, clips_by_patient = load_worklist(st.session_state.clinician)
 n_patients = len(patients)
 
 # Connect to Google Sheets
@@ -543,6 +573,12 @@ if st.session_state.page == "login":
             st.warning("Please enter both your first and last name.")
             st.stop()
         display_name = f"{fn} {ln}"
+        if normalize_clinician_name(display_name) not in WORKLIST_BY_CLINICIAN:
+            st.error(
+                f"'{display_name}' isn't a recognized reviewer name for this study. "
+                "Please double-check the spelling, or contact the study coordinator."
+            )
+            st.stop()
         st.session_state.clinician = display_name
         st.session_state.clinician_first = fn.lower()
         st.session_state.clinician_last = ln.lower()
