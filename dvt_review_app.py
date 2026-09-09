@@ -837,7 +837,7 @@ if st.session_state.page == "review":
         # boxes with a gap between them.
         with st.container(border=True):
             arrow = "▼" if st.session_state[open_key] else "▶"
-            label = f"{arrow}  {done}  Clip {i + 1} of {n_clips} ({clip['filename']})"
+            label = f"{arrow}  {done}  Clip {i + 1} of {n_clips}"
             if st.button(label, key=f"disclosure_{pid}_{i}", use_container_width=True):
                 st.session_state[open_key] = not st.session_state[open_key]
                 st.rerun(scope="fragment")
