@@ -1,6 +1,6 @@
 [
   {
-    "patient": "FI-2-3-24",
+    "patient": "Case-001",
     "total_positive_clips": 0,
     "total_negative_clips": 9,
     "fake_user_interpretation": "neg",
@@ -50,10 +50,11 @@
         "stream_url": "https://drive.google.com/file/d/1QUqLag9B8ZgFAQ0sWBRkuP-SOt5si0pU/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "FI-2-3-24"
   },
   {
-    "patient": "VR-5-10-23",
+    "patient": "Case-002",
     "total_positive_clips": 1,
     "total_negative_clips": 6,
     "fake_user_interpretation": "neg",
@@ -93,10 +94,11 @@
         "stream_url": "https://drive.google.com/file/d/1iZamWlEWm6juIyicQtCHUIN8MrK0b2Fx/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "VR-5-10-23"
   },
   {
-    "patient": "IM-2-25-24",
+    "patient": "Case-003",
     "total_positive_clips": 0,
     "total_negative_clips": 11,
     "fake_user_interpretation": "neg",
@@ -156,10 +158,11 @@
         "stream_url": "https://drive.google.com/file/d/1DWsL41w1zvqcSQ2MduVPGkWZ6_k2tMSJ/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "IM-2-25-24"
   },
   {
-    "patient": "LA-10-14-25",
+    "patient": "Case-004",
     "total_positive_clips": 0,
     "total_negative_clips": 6,
     "fake_user_interpretation": "neg",
@@ -194,10 +197,11 @@
         "stream_url": "https://drive.google.com/file/d/1dzHHht79Us_Ek16BGBcAaABUqSD74RpB/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "LA-10-14-25"
   },
   {
-    "patient": "SA-2-3-24",
+    "patient": "Case-005",
     "total_positive_clips": 0,
     "total_negative_clips": 6,
     "fake_user_interpretation": "neg",
@@ -232,10 +236,11 @@
         "stream_url": "https://drive.google.com/file/d/1661eBPxp3yx_ExNeNsViZID6MRZJWeCl/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "SA-2-3-24"
   },
   {
-    "patient": "S-2-22-24",
+    "patient": "Case-006",
     "total_positive_clips": 12,
     "total_negative_clips": 3,
     "fake_user_interpretation": "pos",
@@ -315,10 +320,11 @@
         "stream_url": "https://drive.google.com/file/d/1SEq3XVMWj31pDkCeDGRFko17SU-zWos9/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "S-2-22-24"
   },
   {
-    "patient": "JW-11-16-25",
+    "patient": "Case-007",
     "total_positive_clips": 1,
     "total_negative_clips": 5,
     "fake_user_interpretation": "pos",
@@ -353,10 +359,11 @@
         "stream_url": "https://drive.google.com/file/d/1nNLF_XjZnB586HPW2sAqTybDkEPsOTF_/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "JW-11-16-25"
   },
   {
-    "patient": "TJ-1-29-24",
+    "patient": "Case-008",
     "total_positive_clips": 1,
     "total_negative_clips": 9,
     "fake_user_interpretation": "pos",
@@ -411,10 +418,11 @@
         "stream_url": "https://drive.google.com/file/d/1XY9u5LS5bIaayyBvBVw5ibUAJIOU8fn8/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "TJ-1-29-24"
   },
   {
-    "patient": "MS-3-12-24",
+    "patient": "Case-009",
     "total_positive_clips": 0,
     "total_negative_clips": 9,
     "fake_user_interpretation": "pos",
@@ -464,10 +472,11 @@
         "stream_url": "https://drive.google.com/file/d/1gVI9e0EEMNb2a-x76m4H587mlnR5ZBdQ/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "MS-3-12-24"
   },
   {
-    "patient": "HJ-8-8-25",
+    "patient": "Case-010",
     "total_positive_clips": 0,
     "total_negative_clips": 10,
     "fake_user_interpretation": "neg",
@@ -522,10 +531,11 @@
         "stream_url": "https://drive.google.com/file/d/1AFmvUnhlt2jBigzgBbV-eWBLKbMgPYZv/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "HJ-8-8-25"
   },
   {
-    "patient": "BE-10-3-25",
+    "patient": "Case-011",
     "total_positive_clips": 0,
     "total_negative_clips": 6,
     "fake_user_interpretation": "neg",
@@ -560,10 +570,11 @@
         "stream_url": "https://drive.google.com/file/d/1_XRLXQ-2XKSMiFEbOLB6om0RPVhg5Vwb/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "BE-10-3-25"
   },
   {
-    "patient": "VF-1-9-23",
+    "patient": "Case-012",
     "total_positive_clips": 4,
     "total_negative_clips": 2,
     "fake_user_interpretation": "pos",
@@ -598,10 +609,11 @@
         "stream_url": "https://drive.google.com/file/d/1jFN5wNYpU6GOkzQNiN8lM3rfbWocon30/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "VF-1-9-23"
   },
   {
-    "patient": "CJ-11-22-25",
+    "patient": "Case-013",
     "total_positive_clips": 4,
     "total_negative_clips": 4,
     "fake_user_interpretation": "pos",
@@ -646,10 +658,11 @@
         "stream_url": "https://drive.google.com/file/d/1MuQyDr6IMoKVKBh3-GmQAe90pN8U_YI0/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "CJ-11-22-25"
   },
   {
-    "patient": "PY-1-27-24",
+    "patient": "Case-014",
     "total_positive_clips": 6,
     "total_negative_clips": 2,
     "fake_user_interpretation": "pos",
@@ -694,10 +707,11 @@
         "stream_url": "https://drive.google.com/file/d/1LtOsLCDQRV17VReypUegtAyyCS2mRjXW/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "PY-1-27-24"
   },
   {
-    "patient": "PR-3-11-24",
+    "patient": "Case-015",
     "total_positive_clips": 0,
     "total_negative_clips": 7,
     "fake_user_interpretation": "neg",
@@ -737,10 +751,11 @@
         "stream_url": "https://drive.google.com/file/d/1pJpeb3sgYii-7vv96YFIfHICukFhnEpb/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "PR-3-11-24"
   },
   {
-    "patient": "WD-2-25-24",
+    "patient": "Case-016",
     "total_positive_clips": 0,
     "total_negative_clips": 16,
     "fake_user_interpretation": "neg",
@@ -825,10 +840,11 @@
         "stream_url": "https://drive.google.com/file/d/1VI2umu2KvgnFeFPi-Blc36DrezlfWyNf/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "WD-2-25-24"
   },
   {
-    "patient": "MJe-8-19-25",
+    "patient": "Case-017",
     "total_positive_clips": 0,
     "total_negative_clips": 6,
     "fake_user_interpretation": "neg",
@@ -863,10 +879,11 @@
         "stream_url": "https://drive.google.com/file/d/1iVCCYe6xFhWXTONrFbxbtIkWkEGeCKm7/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "MJe-8-19-25"
   },
   {
-    "patient": "ME-2-19-24",
+    "patient": "Case-018",
     "total_positive_clips": 7,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
@@ -906,10 +923,11 @@
         "stream_url": "https://drive.google.com/file/d/1INsjAVuMuYP5qFmPucVEqK74FU2cBwxR/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "ME-2-19-24"
   },
   {
-    "patient": "FA-11-11-25",
+    "patient": "Case-019",
     "total_positive_clips": 6,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
@@ -944,10 +962,11 @@
         "stream_url": "https://drive.google.com/file/d/15PX_jRbgtvwFTqxlaEkqeP5e2Y4ciN-p/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "FA-11-11-25"
   },
   {
-    "patient": "PR-3-29-23",
+    "patient": "Case-020",
     "total_positive_clips": 4,
     "total_negative_clips": 5,
     "fake_user_interpretation": "neg",
@@ -997,10 +1016,11 @@
         "stream_url": "https://drive.google.com/file/d/1BZL4ZPyUU-gHCBuTVgle9LTm-nKDePRU/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "PR-3-29-23"
   },
   {
-    "patient": "VR-10-15-25",
+    "patient": "Case-021",
     "total_positive_clips": 0,
     "total_negative_clips": 6,
     "fake_user_interpretation": "pos",
@@ -1035,10 +1055,11 @@
         "stream_url": "https://drive.google.com/file/d/1_drKJMKnn4fSImmCM2a2fxQ4N83eLKsh/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "VR-10-15-25"
   },
   {
-    "patient": "BC-1-30-24",
+    "patient": "Case-022",
     "total_positive_clips": 4,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
@@ -1063,10 +1084,11 @@
         "stream_url": "https://drive.google.com/file/d/1loCFuWeBzRcLr5co-2Idbz9MFKwn-UR8/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "BC-1-30-24"
   },
   {
-    "patient": "LN-1-1-24",
+    "patient": "Case-023",
     "total_positive_clips": 1,
     "total_negative_clips": 12,
     "fake_user_interpretation": "pos",
@@ -1136,10 +1158,11 @@
         "stream_url": "https://drive.google.com/file/d/1jPLEav4F5R6IyQhfMvfa7SsVCYdVd68F/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "LN-1-1-24"
   },
   {
-    "patient": "MG-2-9-24",
+    "patient": "Case-024",
     "total_positive_clips": 6,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
@@ -1174,10 +1197,11 @@
         "stream_url": "https://drive.google.com/file/d/1_sSKpKJ4c92MemBB1znAwM4F78-vG9lj/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "MG-2-9-24"
   },
   {
-    "patient": "NJ-2-21-24",
+    "patient": "Case-025",
     "total_positive_clips": 8,
     "total_negative_clips": 4,
     "fake_user_interpretation": "neg",
@@ -1242,10 +1266,11 @@
         "stream_url": "https://drive.google.com/file/d/1BD0-rYLDzp5h6_ZxWluwJuYX89AVcPyn/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "NJ-2-21-24"
   },
   {
-    "patient": "KE-3-15-24",
+    "patient": "Case-026",
     "total_positive_clips": 0,
     "total_negative_clips": 9,
     "fake_user_interpretation": "neg",
@@ -1295,10 +1320,11 @@
         "stream_url": "https://drive.google.com/file/d/11BsPlpdHryCumdZiAqw6mzCdHRNyijZN/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "KE-3-15-24"
   },
   {
-    "patient": "GJ-1-23-24",
+    "patient": "Case-027",
     "total_positive_clips": 3,
     "total_negative_clips": 5,
     "fake_user_interpretation": "pos",
@@ -1343,10 +1369,11 @@
         "stream_url": "https://drive.google.com/file/d/1yyV0L8OZYTmFlRNdnt9fr_l9SATyNXgF/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "GJ-1-23-24"
   },
   {
-    "patient": "LL-3-27-23",
+    "patient": "Case-028",
     "total_positive_clips": 5,
     "total_negative_clips": 4,
     "fake_user_interpretation": "pos",
@@ -1396,10 +1423,11 @@
         "stream_url": "https://drive.google.com/file/d/1kGf-uJ-FAZaz_FO_VDScl0w3JFPLAUqF/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "LL-3-27-23"
   },
   {
-    "patient": "BSV-10-15-25",
+    "patient": "Case-029",
     "total_positive_clips": 0,
     "total_negative_clips": 8,
     "fake_user_interpretation": "neg",
@@ -1444,10 +1472,11 @@
         "stream_url": "https://drive.google.com/file/d/1u32ps_Bjl53O17T_HZlooto8G0kBYeh-/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "BSV-10-15-25"
   },
   {
-    "patient": "PA-10-11-25",
+    "patient": "Case-030",
     "total_positive_clips": 1,
     "total_negative_clips": 4,
     "fake_user_interpretation": "pos",
@@ -1477,10 +1506,11 @@
         "stream_url": "https://drive.google.com/file/d/1hef-5j3fAw9TKflAt8nhymko4-pgg3De/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "PA-10-11-25"
   },
   {
-    "patient": "AN-8-17-25",
+    "patient": "Case-031",
     "total_positive_clips": 9,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
@@ -1530,10 +1560,11 @@
         "stream_url": "https://drive.google.com/file/d/1uU_GyiDkE0Sgvdl7JyhTNQeZUSUq0rtI/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "AN-8-17-25"
   },
   {
-    "patient": "WD-10-15-25",
+    "patient": "Case-032",
     "total_positive_clips": 0,
     "total_negative_clips": 9,
     "fake_user_interpretation": "pos",
@@ -1583,10 +1614,11 @@
         "stream_url": "https://drive.google.com/file/d/1vJrES-Qy1RGlIHcT8zI8oZ4wW-3G0IKR/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "WD-10-15-25"
   },
   {
-    "patient": "TC-2-19-24",
+    "patient": "Case-033",
     "total_positive_clips": 0,
     "total_negative_clips": 6,
     "fake_user_interpretation": "neg",
@@ -1621,10 +1653,11 @@
         "stream_url": "https://drive.google.com/file/d/17thXWi0Kit5F7uob1l8mC-JXh6Fw-2ri/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "TC-2-19-24"
   },
   {
-    "patient": "FL-3-6-24",
+    "patient": "Case-034",
     "total_positive_clips": 0,
     "total_negative_clips": 10,
     "fake_user_interpretation": "neg",
@@ -1679,10 +1712,11 @@
         "stream_url": "https://drive.google.com/file/d/1jrl3RfB49fA3uSbAV9RZc-lEwSK4Wy0V/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "FL-3-6-24"
   },
   {
-    "patient": "FC-2-24-24",
+    "patient": "Case-035",
     "total_positive_clips": 0,
     "total_negative_clips": 6,
     "fake_user_interpretation": "neg",
@@ -1717,10 +1751,11 @@
         "stream_url": "https://drive.google.com/file/d/17eT3QObgq5SE3F6vFahFWygM1IByufmz/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "FC-2-24-24"
   },
   {
-    "patient": "GJ-2-19-24",
+    "patient": "Case-036",
     "total_positive_clips": 0,
     "total_negative_clips": 7,
     "fake_user_interpretation": "pos",
@@ -1760,10 +1795,11 @@
         "stream_url": "https://drive.google.com/file/d/1EPmYSAcI6U93CweXLiR2iMXDLSjwdmOs/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "GJ-2-19-24"
   },
   {
-    "patient": "MC-10-3-25",
+    "patient": "Case-037",
     "total_positive_clips": 0,
     "total_negative_clips": 7,
     "fake_user_interpretation": "neg",
@@ -1803,10 +1839,11 @@
         "stream_url": "https://drive.google.com/file/d/1YKuc9L0a35vC8kXU6iWqi4XQJOvzGHSj/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "MC-10-3-25"
   },
   {
-    "patient": "FC-3-2-24",
+    "patient": "Case-038",
     "total_positive_clips": 0,
     "total_negative_clips": 18,
     "fake_user_interpretation": "neg",
@@ -1901,10 +1938,11 @@
         "stream_url": "https://drive.google.com/file/d/1u0SEC2cXrNJ-zZAN8Sg0cIj-fdvy6O_L/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "FC-3-2-24"
   },
   {
-    "patient": "PE-3-5-24",
+    "patient": "Case-039",
     "total_positive_clips": 2,
     "total_negative_clips": 9,
     "fake_user_interpretation": "pos",
@@ -1964,10 +2002,11 @@
         "stream_url": "https://drive.google.com/file/d/1aT0nB9bBwt1m70WVjSPUUU2qz6CbMlni/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "PE-3-5-24"
   },
   {
-    "patient": "SJ-10-11-25",
+    "patient": "Case-040",
     "total_positive_clips": 2,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
@@ -1982,10 +2021,11 @@
         "stream_url": "https://drive.google.com/file/d/1h-2JTnB7QFRW6MISKmKvHSaFv0dmNgev/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "SJ-10-11-25"
   },
   {
-    "patient": "LM-3-18-24",
+    "patient": "Case-041",
     "total_positive_clips": 3,
     "total_negative_clips": 14,
     "fake_user_interpretation": "neg",
@@ -2075,10 +2115,11 @@
         "stream_url": "https://drive.google.com/file/d/1KpmhI4FB8JGa3sC5SdRf7PT3YkBiZzGE/preview",
         "label": "No DVT"
       }
-    ]
+    ],
+    "real_patient_id": "LM-3-18-24"
   },
   {
-    "patient": "CD-3-5-23",
+    "patient": "Case-042",
     "total_positive_clips": 7,
     "total_negative_clips": 0,
     "fake_user_interpretation": "pos",
@@ -2118,6 +2159,7 @@
         "stream_url": "https://drive.google.com/file/d/1qPEBDsHDv-zWhe31PYT0SPaUYEx4-F1f/preview",
         "label": "DVT"
       }
-    ]
+    ],
+    "real_patient_id": "CD-3-5-23"
   }
 ]

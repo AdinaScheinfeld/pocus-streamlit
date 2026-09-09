@@ -274,6 +274,7 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, clips_by_patient,
         "case_number",
         "worklist_arm",
         "patient",
+        "real_patient_id",
         "clip_filename",
         "ground_truth",
         "fake_user_interpretation",
@@ -305,6 +306,7 @@ def save_all_reviews(spreadsheet, clinician: str, patients_df, clips_by_patient,
                 i,
                 arm,
                 pid,
+                row.get("real_patient_id", ""),
                 clip["filename"],
                 clip["label"],
                 row.get("fake_user_interpretation", ""),
@@ -415,7 +417,7 @@ def load_worklist(clinician: str):
     key = normalize_clinician_name(clinician)
     worklist_file = WORKLIST_BY_CLINICIAN.get(key)
     if not worklist_file:
-        return pd.DataFrame(columns=["patient", "total_positive_clips",
+        return pd.DataFrame(columns=["patient", "real_patient_id", "total_positive_clips",
                                       "total_negative_clips", "fake_user_interpretation"]), {}
 
     path = DATA_DIR / worklist_file
