@@ -450,11 +450,27 @@ st.markdown(
         padding-left: 2rem !important;
         padding-right: 2rem !important;
     }
-    header[data-testid="stHeader"] { background: transparent !important; box-shadow: none !important; }
+    header[data-testid="stHeader"] { background: transparent !important; box-shadow: none !important; pointer-events: none !important; }
     div[data-testid="stDecoration"] { display: none !important; }
     div[data-testid="stToolbarActions"] { display: none !important; }
     div[data-testid="stAppDeployButton"] { display: none !important; }
     #MainMenu { visibility: hidden !important; }
+    /* The header's own transparent background isn't enough to let clicks
+       through to whatever sits underneath it (our fixed-position Log out
+       button): Streamlit's own stylesheet re-enables pointer-events:auto on
+       several wrapper divs nested inside the header (for the now-hidden
+       toolbar actions/deploy button/menu), which override plain inheritance
+       from the rule above. Verified via a live click-through test that a
+       blanket pointer-events:none on every header descendant is needed to
+       actually stop the header from intercepting clicks -- with a targeted
+       exception for the sidebar's own reopen chevron, which (confirmed via
+       the same test) lives inside this same header and would otherwise
+       become unclickable too. */
+    header[data-testid="stHeader"] * { pointer-events: none !important; }
+    header[data-testid="stHeader"] [data-testid="stExpandSidebarButton"],
+    header[data-testid="stHeader"] [data-testid="stExpandSidebarButton"] * {
+        pointer-events: auto !important;
+    }
 
     h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; color: #1f2937; }
 
