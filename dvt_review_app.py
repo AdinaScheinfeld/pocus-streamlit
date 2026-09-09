@@ -179,7 +179,7 @@ REVIEW_OPTIONS = {
     "pos_dvt":        "**Pos**: vein does NOT fully compress (suspect true DVT)",
     "pos_user_error": "**Pos**: vein does NOT fully compress (suspect user error)",
     "neg":            "**Neg**: vein fully compresses (no DVT)",
-    "technically_limited": "**Technically limited**",
+    "technically_limited": "Technically limited",
 }
 
 OPTION_LABELS = list(REVIEW_OPTIONS.values())
